@@ -1,0 +1,20 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+Let $v := x + y$.
+
+\[
+	v' = 1 + y'
+	\Rightarrow v' - 1 = \frac{a^2}{v^2}
+	\Rightarrow \frac{v^2}{a^2 + v^2} dv = dx
+\]
+\[
+	x + C
+	= \int \left( 1 - \frac{a^2}{a^2 + v^2} \right)dv
+	= v - a \tan^{-1} \left( \frac{v}{a} \right)
+	= x + y - a \tan^{-1} \left( \frac{x + y}{a} \right)
+\]
+\[
+	\therefore y - a \tan^{-1} \left( \frac{x + y}{a} \right) = C
+\]
