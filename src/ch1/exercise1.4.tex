@@ -1,0 +1,20 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+We first seek the complement solutions.
+\[
+	y_{c}' + y_c \cos x = 0
+	\Rightarrow \frac{dy_c}{y_c} + \cos x dx = 0
+	\Rightarrow y_{c} = Ce^{-\sin x}
+\]
+
+For the particular solution, we first observe that $\half \sin 2x = \sin x \cos x$.
+Thus, we shall try the ansatz $y_p = \sin x + A$.
+\[
+	\cos x + (\sin x + A) \cos x = \sin x \cos x
+	\Rightarrow A = -1
+\]
+\[
+	\therefore y = Ce^{-\sin x} + \cos x - 1
+\]

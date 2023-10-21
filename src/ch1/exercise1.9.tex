@@ -1,0 +1,35 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+Notice how $(x(1 - x))' = 1 - 2x$.
+\begin{align*}
+	0
+	&= x(1 - x) y'' + 4y' + 2y \\
+	&= x(1 - x) y'' + (x(1 - x))' y' + (2x + 3) y' + 2y \\
+	&= (x(1 - x)y')' + ((2x + 3)y)'
+\end{align*}
+\[
+	\Rightarrow x(1 - x)y' + (2x + 3)y = A
+\]
+
+Let us define the integrating factor $\lambda$:
+\begin{align*}
+	\lambda
+	&:= \exp \left( \int dx \frac{2x + 3}{x(1 - x)} \right) \\
+	&= \exp \left( \int dx \left( \frac{3}{x} - \frac{5}{x - 1} \right) \right) \\
+	&= \exp \left( 3 \ln x - 5 \ln (x - 1) \right) \\
+	&= \frac{x^3}{{(x - 1)}^5}
+\end{align*}
+\[
+	\Rightarrow (\lambda y)' = \frac{A}{x(1 - x)} \cdot \lambda = \frac{Ax^2}{{(x - 1)}^6}
+\]
+\begin{align*}
+	\Rightarrow \lambda y
+	&= \int dx \frac{Ax^2}{{(x - 1)}^6} \\
+	&= A \int dx \left( \frac{1}{{(x - 1)}^4} + \frac{2}{{(x - 1)}^5} + \frac{1}{{(x - 1)}^6} \right) \\
+	&= -A \frac{10x^2 - 5x + 1}{30 {(x - 1)}^5} + C_2
+\end{align*}
+\[
+	\therefore y = C_1 \frac{10x^2 - 5x + 1}{x^3} + C_2 \frac{{(1 - x)}^5}{x^3}
+\]

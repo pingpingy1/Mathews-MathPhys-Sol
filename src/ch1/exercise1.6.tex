@@ -1,0 +1,28 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+We first take note that the equation is dimension-consistent with $[y] = [x^{-2}]$.
+Thus, we define $v := x^2 y$ or $y = \frac{v}{x^2}$.
+
+\[
+	y' = \frac{v'}{x^2} - \frac{2v}{x^3}
+	\Rightarrow 2xv' - 4v = 1 + \sqrt{1 + 4v}
+\]
+\[
+	\Rightarrow \frac{v'}{1 + 4v + \sqrt{1 + 4v}} = \frac{1}{2x}
+\]
+\[
+	\Rightarrow \left( \frac{1}{\sqrt{1 + 4v}} - \frac{1}{\sqrt{1 + 4v} + 1} \right) dv = \frac{dx}{2x}
+\]
+Basic calculus yields $\int \frac{dv}{\sqrt{1 + 4v} + 1} = \half \left( \sqrt{1 + 4v} - \ln \left( 1 + \sqrt{1 + 4v}\right) \right) + C$.
+Hence,
+\[
+	\half \sqrt{1 + 4v} - \half \left( \sqrt{1 + 4v} - \ln \left( 1 + \sqrt{1 + 4v}\right) \right) = \half \ln x + C_1
+\]
+\[
+	\Rightarrow 1 + \sqrt{1 + 4v} = e^{2C_1} x = Cx
+\]
+\[
+	\therefore \sqrt{1 + 4x^2 y} = Cx - 1
+\]
