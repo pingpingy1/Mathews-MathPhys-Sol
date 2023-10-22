@@ -1,0 +1,29 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+Following the same steps as before, one can easily find the complementary solutions of
+\[
+	y_c = C_1 e^{-x} + C_2 e^{-2x}.
+\]
+Thus, we wish to find one particular solution $y_p$.
+Let us try $y_p = f(x) e^{e^x}$.
+\[
+	y_{p}' = \left( \frac{f'}{f} + e^x \right)y_p
+\]
+\begin{align*}
+	\Rightarrow y_{p}''
+	&= \left( \frac{f''}{f} - {\left( \frac{f'}{f} \right)}^2 + e^x \right)y_p + {\left( \frac{f'}{f} + e^x \right)}^2 y_p \\
+	&= \left( \frac{f''}{f} + 2e^x \frac{f'}{f} + e^{2x} + e^x \right) y_p
+\end{align*}
+\[
+	\Rightarrow \left( \frac{f''}{f} + (2e^x + 3) \frac{f'}{f} + e^{2x} + 5e^x + 2 \right)fe^{e^x} = e^{e^x}
+\]
+\[
+	\Rightarrow f'' + (2e^x + 3)f' + (e^{2x} + 5e^x + 2)f = 1
+\]
+One may use an ansatz of $f = ae^{-2x} + be^{-x} + c$ to find that $f = e^{-2x}$ is a possible solution.
+Thus, we have found a particular solution $y_p = e^{e^x - 2x}$.
+\[
+	\therefore y = e^{e^x - 2x} + C_1 e^{-x} + C_2 e^{-2x}
+\]

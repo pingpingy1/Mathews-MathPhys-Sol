@@ -1,0 +1,43 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+The complementary solutions are given by
+\[
+	\frac{dq_p}{dt} = -\frac{q_p}{RC}
+	\Rightarrow q_p = A e^{-\frac{t}{RC}}.
+\]
+Suppose a particular solution takes the form $y_p = (at^3 + bt^2 + ct + d)e^{-\frac{t}{\tau}}$.
+\[
+	\frac{dq_p}{dt} = \left( -\frac{a}{\tau}t^3 + \left( 3a - \frac{b}{\tau} \right)t^2 + \left( 2b - \frac{c}{\tau} \right)t + \left( c - \frac{d}{\tau} \right) \right) e^{-\frac{t}{\tau}}
+\]
+\begin{align*}
+	\Rightarrow \frac{V_0}{RC\tau^2}t^2 e^{-\frac{t}{\tau}}
+	= \Biggl(\Biggr.
+		&\left( \frac{1}{RC} - \frac{1}{\tau} \right)at^3 \\
+		&+ \left( 3a + \left( \frac{1}{RC} - \frac{1}{\tau} \right)b \right)t^2 \\
+		&+ \left( 2b + \left( \frac{1}{RC} - \frac{1}{\tau} \right)c \right)t \\
+		&+ \left(  c + \left( \frac{1}{RC} - \frac{1}{\tau} \right)d\right)
+	\Biggl.\Biggr) e^{-\frac{t}{\tau}}
+\end{align*}
+\[
+	\Rightarrow q_p =
+	\begin{cases}
+		CV_0 \cdot \left(
+			\frac{t^2}{\tau (\tau - RC)} - \frac{RCt}{{(\tau - RC)}^2} + \frac{\tau {(RC)}^2}{{(\tau - RC)}^2}
+		\right)
+		& (\text{if } \tau \neq RC) \\
+		\frac{1}{3} CV_0 \cdot {\left( \frac{t}{\tau} \right)}^3 e^{-\frac{t}{\tau}}
+		& (\text{if } \tau = RC)
+	\end{cases}
+\]
+We can then add an appropriate complementary solution so as to satisfy the boundary condition $q(0) = 0$.
+\[
+	\therefore q =
+	\begin{cases}
+		CV_0 \cdot \frac{t}{\tau - RC} \left( \frac{t}{\tau} - \frac{RC}{\tau - RC} \right) e^{-\frac{t}{\tau}}
+		& (\text{if } \tau \neq RC) \\
+		\frac{1}{3} CV_0 \cdot {\left( \frac{t}{\tau} \right)}^3 e^{-\frac{t}{\tau}}
+		& (\text{if } \tau = RC)
+	\end{cases}
+\]

@@ -1,0 +1,19 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+Recall that the Bernoulli equation takes the form $\frac{dy}{dx} + p(x)y = q(x)y^n$.
+We recognize that this equation is a Bernoulli equation with $p(x) = \frac{1}{x}$, $q(x) = -x^3 e^x$, and $n = 4$.
+Thus, we make the substitution $v := y^{-3}$.
+\[
+	v' = -3y^{-4} y'
+	\Rightarrow -\frac{v'}{3} + \frac{v}{x} = -x^3 e^x
+	\Rightarrow \frac{v'}{x^3} - \frac{3}{x^4} v = 3e^x
+\]
+\[
+	\Rightarrow \left( \frac{v}{x^3} \right)' = 3e^x
+	\Rightarrow v = x^3 (3e^x + C)
+\]
+\[
+	\therefore y = {\left( x^3 (3e^x + C) \right)}^{-\frac{1}{3}}
+\]

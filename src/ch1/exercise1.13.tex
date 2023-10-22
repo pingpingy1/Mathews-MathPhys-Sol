@@ -1,0 +1,35 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+This equation is dimension-consistent with $[y] = [x^{-1}]$.
+Thus, let us define $v := xy$.
+\[
+	y = \frac{v}{x}
+	\Rightarrow y' = \frac{xv' - v}{x^2}
+\]
+\begin{align*}
+	\Rightarrow 0
+	&= {\left( xv' - v \right)}^2 - 2(v - 4)\left( xv' - v\right) + v^2 \\
+	&= x^2 v'^2 - 4(v - 2) x v' + 4v(v - 2)
+\end{align*}
+\[
+	\Rightarrow v' = \frac{2}{s}\left( v - 2 \pm \sqrt{4 - 2v} \right)
+\]
+If $v = 2$, then we get $y = \frac{2}{x}$, which is the particular solution for this equation.
+To obtain the general solutions, let $u := 2 - v$.
+\[
+	u' = \frac{2}{x} \left( u \pm \sqrt{2u} \right)
+\]
+\[
+	\Rightarrow \frac{du}{u \pm \sqrt{2u}} = \frac{2}{x} dx
+\]
+\[
+	\Rightarrow 2 \ln \left( \sqrt{u} \pm \sqrt{2} \right) = 2 \ln x + C_1
+\]
+\[
+	\Rightarrow u = {\left( Cx^2 \pm \sqrt{2} \right)}^2 = 2 - xy
+\]
+\[
+	\therefore y = \frac{2 - {\left( Cx^2 \pm \sqrt{2} \right)}^2}{x}
+\]

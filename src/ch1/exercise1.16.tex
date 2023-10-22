@@ -1,0 +1,28 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+This equation is dimension-consistent with $[y] = [x]$.
+Thus, we define $v := \frac{y}{x}$.
+\[
+	y = xv
+	\Rightarrow y' = xv' + v
+	\Rightarrow y'' = xv'' + 2v'
+	\Rightarrow v'' + \frac{2}{x} v' - \frac{2}{x^2} v = \frac{1}{x^2}
+\]
+
+First, observe that $v = -\half$ is a solution of the equation.
+As this equation is linear in $v$, we thus seek the complementary solutions $v_c$.
+We shall take the ansatz of $v_c = x^m$.
+\[
+	m(m - 1)x^{m - 2} + 2mx^{m - 2} - 2x^{m - 2} = 0
+	\Rightarrow m^2 + m - 2 = 0
+\]
+\[
+	\Rightarrow m = 1, -2
+	\Rightarrow v_c = C_1 x + \frac{C_2}{x^2}
+	\Rightarrow v = C_1 x + \frac{C_2}{x^2} - \half
+\]
+\[
+	\therefore y = C_1 x^2 + \frac{C_2}{x} - \frac{x}{2}
+\]

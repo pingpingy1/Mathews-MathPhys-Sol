@@ -1,0 +1,31 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+Notice that this equation is linear in $y$.
+\begin{enumerate}[wide, labelindent = 0pt, label = (\roman*)]
+	\item Complementary solutions:\\
+	Take $y_c = e^{mx}$.
+	\[
+		m^3 - 2m^2 - m + 2 = 0
+		\Rightarrow m = \pm 1, 2
+	\]
+	\[
+		\Rightarrow y_c = C_1 e^{2x} + C_2 e^x + C_3 e^{-x}
+	\]
+
+	\item Particular solution:\\
+	Suppose $y_p = A\sin x + B\cos x$.
+	\begin{align*}
+		\sin x
+		&= (-A\cos x + B\sin x) - 2(-A\sin x - B\cos x) \\
+		&\;\;\;\;\;- (A\cos x - B\cos x) + 2(A\sin x + B\cos x) \\
+		&= (4A + 2B)\sin x + (-2A + 4B)\cos x
+	\end{align*}
+	\[
+		\Rightarrow A = \frac{1}{5}, B = \frac{1}{10}
+	\]
+\end{enumerate}
+\[
+	\therefore y = \frac{1}{5}\sin x + \frac{1}{10}\cos x + C_1 e^{2x} + C_2 e^x + C_3 e^{-x}
+\]
