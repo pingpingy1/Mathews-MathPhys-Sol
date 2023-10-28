@@ -1,0 +1,51 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+Suppose we may write $y = \lambda v$ where $\lambda$ and $v$ are to be determined later.
+\[
+	y' = \lambda v' + \lambda' v
+	\Rightarrow y'' = \lambda v'' + 2\lambda' v' + \lambda'' v
+\]
+\[
+	\Rightarrow \lambda v''
+	+ 2 \left(\lambda' + \frac{\lambda}{x} \right) v'
+	+ \left( \lambda'' + \frac{2\lambda'}{x} + n^2 \lambda \right) v
+	= \frac{\sin \omega x}{x}
+\]
+We may choose $\lambda$ so as to make the coefficient of $v'$ vanish, i.e.,
+\[
+	\lambda' = -\frac{\lambda}{x}
+	\Rightarrow \lambda = \frac{1}{x}.
+\]
+\[
+	\Rightarrow v'' + n^2 v = \sin \omega x
+\]
+
+\begin{enumerate}[wide, labelindent = 0pt, label = (\roman*)]
+	\item $n \neq \omega$:\\
+	The complementary solutions are
+	\[
+		v_c = C_1 \cos \left( nx + C_2 \right).
+	\]
+	Using the ansatz $v_p = A \sin \omega x$ for a particular solution, one can easily find $A = \frac{1}{n^2 - \omega^2}$.
+	\[
+		\Rightarrow v = \frac{\sin \omega x}{n^2 - \omega^2} + C_1 \sin \left( nx + C_2 \right)
+	\]
+	\[
+		\therefore y = \frac{1}{n^2 - \omega^2} \frac{\sin \omega x}{x} + C_1 \frac{\sin \left( nx + C_2 \right)}{x}
+	\]
+
+	\item $n = \omega$:\\
+	The complementary solutions are
+	\[
+		v_c = C_1 \cos \left( \omega x + C_2 \right).
+	\]
+	Using the ansatz $v_p = Ax \sin \omega x + Bx \cos \omega x$ for a particular solution, one can easily find $A = -\frac{1}{2\omega}$ and $B = 0$.
+	\[
+		\Rightarrow v = -\frac{1}{2\omega} x \cos \omega x + C_1 \cos \left( \omega x + C_2 \right)
+	\]
+	\[
+		\therefore y = -\frac{1}{2\omega} \cos \omega x + C_1 \frac{\sin \left( \omega x + C_2 \right)}{x}
+	\]
+\end{enumerate}

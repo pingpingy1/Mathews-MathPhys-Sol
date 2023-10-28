@@ -1,0 +1,22 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+The clever idea here is that we could make a variable change from $x$ to $u$,
+where we could choose $u$ so as to make the equation easier to solve.
+\begin{align*}
+	0
+	&= A \frac{d^2 y}{dx^2} + \frac{dA}{dx} \frac{dy}{dx} + \frac{y}{A} \\
+	&= A \frac{du}{dx} \frac{d}{du} \left( \frac{du}{dx} \frac{dy}{dy} \right)
+	   + \frac{dA}{dx} \frac{du}{dx} \frac{dy}{du} + \frac{y}{A} \\
+	&= A {\left( \frac{du}{dx} \right)}^2 \frac{d^2 y}{du^2}
+	   + \frac{dy}{du} \frac{d}{dx} \left( A \frac{dy}{dx} \right)
+\end{align*}
+Thus, we could define $\frac{du}{dx} = \frac{1}{A(x)}$ or $u = \int^x \frac{dt}{A(t)}$ to obtain
+\[
+	\frac{d^2 y}{du^2} = -y
+	\Rightarrow y(u) = C_1 \cos \left( u + C_2 \right)
+\]
+\[
+	\therefore y(x) = C_1 \cos \left( \int^x \frac{dt}{A(t)} + C_2 \right)
+\]
