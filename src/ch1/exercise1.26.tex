@@ -1,0 +1,88 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+While the use of Dirac delta ``function'' must be dealt with caution,
+we are physicists so we shall simply accept that they exist.
+\begin{align*}
+	f(x)
+	= y'' + py' + q
+	&= \int_a^b dx' f(x') \left( \partialsecondderiv{x} + p(x) \partialderiv{x} + q(x) \right) G(x, x') \\
+	&= \int_a^b dx' f(x') \delta(x - x')
+\end{align*}
+\[
+	\Rightarrow \left( \partialsecondderiv{x} + p(x) \partialderiv{x} + q(x) \right) G(x, x') = \delta(x - x')
+\]
+From this, we see that $G(x, x')$ must separately equal zero for both $x < x'$ and $x > x'$.
+We thus write
+\[
+	G(x, x') =
+	\begin{cases}
+		y_1(x) \alpha(x') + y_2(x) \beta(x') & (x < x') \\
+		y_1(x) \gamma(x') + y_2(x) \zeta(x') & (x > x')
+	\end{cases}.
+\]
+From the definition of delta functions, we find that:
+\begin{align*}
+	1
+	&= \int_{x' - \epsilon}^{x' + \epsilon} dx \delta(x - x') \\
+	&= \int_{x' - \epsilon}^{x' + \epsilon} dx \left( \partialsecondderiv{x} + p(x) \partialderiv{x} + q(x) \right) G(x, x') \\
+	&\approx {\left[ \left( \partialderiv{x} + p(x) \right) G(x, x') \right]}_{x' - \epsilon}^{x' + \epsilon}
+		     - \int_{x - \epsilon}^{x + \epsilon} dx p'(x) G(x, x') \\
+	&\approx {\left[ \partialderiv{x} G(x, x') \right]}_{x' - \epsilon}^{x' + \epsilon} \\
+	&\approx \lim_{x \rightarrow x'+} \partialderiv{x} G(x, x') - \lim_{x \rightarrow x'-} \partialderiv{x} G(x, x')
+\end{align*}
+where we take infinitesimally small $\epsilon$.
+
+The boundary conditions for $y$ imply
+\[
+	y(a) = y(b) = 0
+\]
+\[
+	\Rightarrow G(a, x') = G(b, x') = 0
+\]
+\[
+	\Rightarrow y_1(a)\alpha(x') + y_2(a)\beta(x') = y_1(b)\alpha(x') + y_2(b)\beta(x') = 0
+\]
+\[
+	\Rightarrow \beta(x') = \gamma(x') = 0.
+\]
+The derivative condition, in turn, yields
+\[
+	y_2'(x')\zeta(x') - y_1'(x')\alpha(x') = 1.
+\]
+As any such choice of $\zeta(x')$ and $\alpha(x')$ leads to a valid Green's function,
+we may arbitrarily choose
+\[
+	\alpha(x') = y_2'(x'),\; \zeta(x') = y_1'(x') + \frac{1}{y_2'(x')}
+\]
+\[
+	\Rightarrow G(x, x') =
+	\begin{cases}
+		y_1(x)y_2'(x') & (x < x') \\
+		y_2(x)y_1'(x') + \frac{y_2(x)}{y_2'(x')} & (x > x')
+	\end{cases}.
+\]
+\[
+	\therefore y(x)
+	= y_1(x) \int_x^b dx' f(x') y_2'(x') + y_2(x) \int_a^x f(x') \left( y_1'(x') + \frac{1}{y_2'(x')} \right)
+\]
+
+For the given example $y'' + k^2 y = f(x)$, we may take
+\[
+	y_1(x) = \sin k(x - a),\; y_2(x) = \sin k(b - x)
+\]
+provided that $b - a$ is not an integer multiple of the period $\frac{2\pi}{k}$.
+This leads to
+\[
+	G(x, x') = 
+	\begin{cases}
+		-k\sin k(x - a) \cos k(b - x) & (x < x') \\
+		\sin k(b - x) \left( k\cos k(x' - a) - \frac{1}{k \cos k (b - x')} \right) & (x > x')
+	\end{cases}
+\]
+\begin{align*}
+	\Rightarrow y
+	= &-k\sin k(x - a) \int_x^b dx' f(x') \cos k(b - x')\\
+	  &+ \sin k(b - x) \int_a^x dx' f(x') \left( k\cos k(x' - a) - \frac{1}{k \cos k (b - x')} \right).
+\end{align*}
+One may verify that this solution satisfies both the boundary conditions and the given differential equation.

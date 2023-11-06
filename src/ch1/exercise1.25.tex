@@ -1,0 +1,36 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+From the hint, we may consider $y = xv$, where $v = 1$ is a solution if the right hand side were zero.
+\[
+	y' = xv' + v
+	\Rightarrow y'' = xv'' + 2v'
+\]
+\[
+	\Rightarrow x(1 - x) v'' + \left( 1 + {(1 - x)}^2 \right) v' = {(1 - x)}^2
+\]
+\[
+	\Rightarrow v'' + \left( \frac{2}{x} + \frac{1}{1 - x} - 1\right) v' = \frac{1}{x} - 1
+\]
+We can thus define the integration factor as
+\[
+	\lambda := \exp \left( \int dx \left( \frac{2}{x} + \frac{1}{1 - x} - 1\right) \right)
+	= \frac{x^2 e^{-x}}{1 - x}.
+\]
+\[
+	\Rightarrow (\lambda v')'
+	= \lambda \left( \frac{1}{x} - 1 \right)
+	= xe^{-x}
+\]
+\[
+	\Rightarrow \lambda v' = -(x + 1) e^{-x} + A
+\]
+\[
+	\Rightarrow v'= 1 - \frac{1}{x^2} + A \frac{1-x}{x^2}e^x
+\]
+\[
+	\Rightarrow v = x + \frac{1}{x} - A \frac{e^x}{x} + B
+\]
+\[
+	\therefore y = x^2 + 1 + C_1 e^x + C_2 x
+\]
