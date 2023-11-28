@@ -1,0 +1,32 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+Suppose $y = J_0(x) \ln x + \sum_{n=0}^\infty a_n x^n$ as prompted by the problem.
+Substitution and tedious algebra yield
+\[
+	2xJ_0'(x) + a_1 x + \sum_{n=2}^\infty (n^2 a_n + a_{n - 2}).
+\]
+Let us write $J_0(x) = \sum_{n=0}^\infty b_{2n} x^{2n}$ since we know that $J_0$ is even.
+\[
+	xJ_0'(x) = \sum_{n=0}^\infty 2nb_{2n}x^{2n}
+\]
+\begin{align*}
+	\Rightarrow a_1 x +
+	\sum_{n=1}^\infty
+	\left( \vphantom{\left( {(x)}^2\right)} \right.
+		& \left( 4nb_{2n} + 4n^2 a_{2n} + a_{2n -2} \right) x^{2n} \\
+		&+ \left( {(2n + 1)}^2 a_{2n + 1} + a_{2n - 1} \right) x^{2n + 1}
+	\left. \vphantom{\left( {(x)}^2\right)} \right) = 0
+\end{align*}
+This immediately tells us that all odd coefficients $a_1 = a_3 = \cdots = 0$.
+
+Bessel's equation is linear, so addition of any multiple of $J_0$ to $y$ also yields a valid solution.
+In other words, any variant $a'_{2n} := a_{2n} + \lambda b_{2n}$ also satisfies the above equation, for real parameter $\lambda$.
+Thus, we may choose $a_0 = 0$.
+
+Using $b_0 = 1,\; b_2 = -\frac{1}{4},\; b_4 = \frac{1}{64},\; b_6 = -\frac{b_4}{36} = -\frac{1}{2304}$,
+and the recursion relation $a_2n = - \frac{a_{2n - 2}}{4n^2} - \frac{b_{2n}}{n}$ from above,
+we can iteratively calculate the values of $a_{2n}$.
+\[
+	\therefore y = J_0(x)\ln x + \frac{x^2}{4} - \frac{3}{128}x^4 + \frac{5}{4608} x^6 - \cdots
+\]

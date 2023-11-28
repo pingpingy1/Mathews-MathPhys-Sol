@@ -1,0 +1,53 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+Let us first look for asymptotic behaviors.
+
+\begin{enumerate}[wide, labelindent = 0pt, label = (\roman*)]
+\item $x \rightarrow 0+$
+Suppose $y = O(x^m)$.
+\[
+	m(m - 1) + 2m - l(l + 1) = 0
+	\Rightarrow m = l \text{ or } -l - 1
+\]
+To vanish near the origin, we must have $y = O(x^l)$.
+
+\item $x \rightarrow \infty$
+\[
+	\frac{d^2 y}{dx^2} \approx -Ky
+	\Rightarrow y \approx e^{\pm \sqrt{-K}x}
+\]
+To vanish at infinity, we must have $y = x^{-\sqrt{-K}x}$ with $K < 0$.
+\end{enumerate}
+
+We can thus write $y = f(x) x^l e^{-\sqrt{-K}x}$ with $f$ regular everywhere.
+\[
+	y' = \left( \frac{f'}{f} + \frac{l}{x} - \sqrt{-K} \right) y
+\]
+\begin{align*}
+	\Rightarrow y''
+	&= \left( \frac{f''}{f} - {\left( \frac{f'}{f} \right)}^2 - \frac{l}{x^2} \right) y
+	 + {\left( \frac{f'}{f} + \frac{l}{x} - \sqrt{-K} \right)}^2 y \\
+	&= \left( \frac{f''}{f} + 2 \left( \frac{l}{x} - \sqrt{-K} \right) \frac{f'}{f} + \frac{l(l - 1)}{x^2} - \frac{2l\sqrt{-K}}{x} - K \right) y
+\end{align*}
+Tedious algebra yields
+\[
+	xf'' + 2(l + 1 - \sqrt{-K})f' - 2((l + 1)\sqrt{-K} - 1)f = 0.
+\]
+
+Let us write $f(x) = \sum_{n=0}^\infty a_n x^n$.
+Substitution and tedious algebra yield
+\[
+	\sum_{n=0}^\infty ((n + 1)(n + 2l + 2)a_{n + 1} - (\sqrt{-K}n + 2((l + 1)\sqrt{-K} - 1)) a_n) x^n = 0
+\]
+\[
+	\Rightarrow (\forall n)\; (n + 1)(n + 2l + 2)a_{n + 1} = (\sqrt{-K}n + 2((l + 1)\sqrt{-K} - 1)) a_n.
+\]
+If $\{a_n\}$ never terminated, this would mean that $a_n \approx \frac{{(\sqrt{-K})}^n}{n!}$ for large values of $n$,
+leading to $f(x) \approx e^{\sqrt{-K}x}$ and $y$ diverging to infinity as $x$ increases.
+\[
+	\Rightarrow \sqrt{-K_{nl}}n + 2((l + 1)\sqrt{-K_{nl}} - 1) = 0
+\]
+\[
+	\therefore K_{nl} = -\frac{4}{{(n + 2l + 2)}^2}\; (n = 0, 1, 2, \dots)
+\]

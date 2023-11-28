@@ -1,0 +1,35 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+I assume that there must exist a ``nontrivial'' solution,
+since $y = 0$ is clearly a solution of the equation for any value of $k$.
+For large values of $x$,
+\[
+	y'' - 2y' - 3y \approx 0
+	\Rightarrow y \approx A e^{-x} + B e^{3x}.
+\]
+Thus, to be bounded everywhere, we must have $y \approx e^{-x}$.
+We then write $y = f(x) e^{-x}$ with $f$ analytic everywhere, including the origin.
+\[
+	y' = \left( \frac{f'}{f} - 1 \right) y
+	\Rightarrow y'' = \left( \frac{f''}{f} - \frac{f'}{f} + {\left( \frac{f'}{f} - 1 \right)}^2 \right) y
+	= \left( \frac{f''}{f} - 2 \frac{f'}{f} + 1 \right) y
+\]
+Substitution yields
+\[
+	xf'' - 4xf' + kf = 0.
+\]
+
+Let us write $f(x) = \sum_{n=0}^\infty a_n x^n$.
+Substitution and tedious algebra yield
+\[
+	\sum_{n=0}^\infty (n(n + 1)a_{n + 1} - (4n - k) a_n) x^n = 0
+\]
+\[
+	\Rightarrow (\forall n)\; n(n + 1)a_{n + 1} = (4n - k) a_n.
+\]
+If $\{a_n\}$ never terminated, this would mean that $a_n \approx \frac{4^n}{n!}$ for large values of $n$,
+leading to $f(x) \approx e^{4x}$ and $y$ diverging to infinity as $x$ increases.
+\[
+	\therefore k_n = 4n\; (n = 0, 1, 2, \dots)
+\]

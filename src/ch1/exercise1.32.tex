@@ -1,0 +1,32 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+Recall that
+\[
+	\frac{c_{r + 2}}{c_r} = \frac{(r + m - n)(r + m + n + 1)}{(r + 1)(r + 2)}
+	\text{ and } v(x) = \sum_{r=0}^\infty c_r x^r
+\]
+where the fraction is well-defined since we are assuming that $\{c_r\}$ never terminates.
+Notice how
+\[
+	\frac{c_{r + 2}}{c_r} \approx \frac{r + 2m  + 1}{r + 3}
+\]
+for large values of $r$.
+
+On the other hand, the definition of binomial coefficients
+\[
+	\binom{-m}{r} := \frac{-m \cdot (-m - 1) \cdot \cdots \cdot (-m - r + 1)}{r!}
+\]
+naturally yields
+\begin{align*}
+	\frac{\binom{-m}{r + 2}}{\binom{-m}{r}}
+	&= \frac{(-m - r)(-m - r - 1)}{(r + 1)(r + 2)} \\
+	&= \frac{(r + m)(r + m + 1)}{(r + 1)(r + 2)} \\
+	&\approx \frac{r + 2m + 1}{r + 3}
+\end{align*}
+for large values of $r$.
+
+Therefore, $c_r$ behaves like $\binom{-m}{r}$ as $r$ grows without bound, and consequently,
+\[
+	v(x) \approx {\left( 1 - x^2 \right)}^{-m}.
+\]

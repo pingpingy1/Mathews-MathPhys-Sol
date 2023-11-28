@@ -1,0 +1,33 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+For large values of $x$,
+\[
+	y'' \approx y
+	\Rightarrow y \approx e^{\pm x}.
+\]
+Thus, to be bounded everywhere, we must have $y \approx e^{-x}$.
+We then write $y = f(x) e^{-x}$ with $f$ analytic everywhere, with $f(0) = 1$.
+\[
+	y' = \left( \frac{f'}{f} - 1 \right) y
+	\Rightarrow y'' = \left( \frac{f''}{f} - \frac{f'}{f} + {\left( \frac{f'}{f} - 1 \right)}^2 \right) y
+	= \left( \frac{f''}{f} - 2 \frac{f'}{f} + 1 \right) y
+\]
+Substitution yields
+\[
+	xf'' - 2(x - 1)f' + (E - 2)f = 0.
+\]
+
+Let us write $f(x) = \sum_{n=0}^\infty a_n x^n$, with $a_0 = 1$.
+Substitution and tedious algebra yield
+\[
+	\sum_{n=0}^\infty ((n + 1)(n + 2)a_{n + 1} - (2n + 2 - E) a_n) x^n = 0
+\]
+\[
+	\Rightarrow (\forall n)\; (n + 1)(n + 2)a_{n + 1} = (2n + 2 - E) a_n.
+\]
+If $\{a_n\}$ never terminated, this would mean that $a_n \approx \frac{2^n}{n!}$ for large values of $n$,
+leading to $f(x) \approx e^{2x}$ and $y$ diverging to infinity as $x$ increases.
+\[
+	\therefore E_n = 2n\; (n = 1, 2, 3, \dots)
+\]

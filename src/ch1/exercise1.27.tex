@@ -1,0 +1,37 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+The complementary solutions satisfy
+\[
+	y_{c}'' + \frac{3}{x^2} y_c = 0.
+\]
+Suppose $y_c = x^m$.
+\[
+	m^2 - m  + 3 = 0
+	\Rightarrow {\left( m - \half \right)}^2 = -\frac{11}{4}
+	\Rightarrow m = \frac{1 \pm \sqrt{11}i}{2}
+\]
+\begin{align*}
+	\Rightarrow y_c
+	&= A x^{\frac{1 + \sqrt{11}i}{2}} + B x^{\frac{1 - \sqrt{11}i}{2}} \\
+	&= C_1 \sqrt{x} \cos \left( \frac{\sqrt{11}}{2} \ln x \right)
+	 + C_2 \sqrt{x} \sin \left( \frac{\sqrt{11}}{2} \ln x \right)
+\end{align*}
+
+We then look for two separate particular solutions:
+\[
+	y_{p1}'' + \frac{3}{x^2} y_{p1} = x^2
+	\text{ and }
+	y_{p2}'' + \frac{3}{x^2} y_{p2} = \frac{1}{x}.
+\]
+Using the monomial ansatz separately, that is, assuming $y_p = Ax^m$, one easily finds
+\[
+	y_{p1} = \frac{x^4}{15}
+	\text{ and }
+	y_{p2} = \frac{x}{3}.
+\]
+\[
+	\therefore y = \frac{x^4}{15} + \frac{x}{3}
+	+ C_1 \sqrt{x} \cos \left( \frac{\sqrt{11}}{2} \ln x \right)
+	+ C_2 \sqrt{x} \sin \left( \frac{\sqrt{11}}{2} \ln x \right)
+\]
