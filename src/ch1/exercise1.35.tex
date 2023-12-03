@@ -1,0 +1,63 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+Let $u := \frac{1}{x}$.
+\[
+	\frac{d}{dx} = \frac{du}{dx}\frac{d}{du} = -u^2\frac{d}{du}
+\]
+\[
+	\Rightarrow \frac{d^2}{dx^2} = -u^2\frac{d}{du} \left(-u^2 \frac{d}{du}\right)
+	= u^4 \frac{d^2}{du^2} + 2u^3\frac{d}{du}
+\]
+\[
+	\Rightarrow \frac{d^2 y}{du^2} + \frac{2}{u}\frac{dy}{du} = \frac{1}{{\left( 1 + u^2 y^2 \right)}^2}
+\]
+As $u \rightarrow 0+$, $y \rightarrow 0$. Thus,
+\[
+	\frac{2}{u}\frac{dy}{du} \approx 1
+	\Rightarrow y \approx u^2
+\]
+Hence, we write $y = f(u) u^2$ with $f$ analytic everywhere.
+\begin{align*}
+	u^2 f''(u) + 6u f'(u) + 6f(u)
+	&= \frac{1}{{\left( 1 + u^6 f(u) \right)}^2} \\
+	&= 1 - 2u^6 {f(u)}^2 + 3u^{12} {f(u)}^4 + O\left( u^{18} \right)
+\end{align*}
+We write $f(u) = \sum_{n=0}^\infty a_n u^n$.
+The left-hand side (after tedious algebra) evaluates to
+\[
+	\sum_{n=0}^\infty \left( n^2 + 5n + 5 \right) a_n u^n.
+\]
+Evaluation of the right-hand side is quite more technical.
+We make use of the Cauchy multiplication formula:
+\[
+	{f(u)}^2 = \sum_{n=0}^\infty \left( \sum_{k=0}^n a_k a_{n - k} \right) u^n.
+\]
+Substituting this into the equation, we get
+\begin{align*}
+	&(6a_0 - 1)
+	 + \sum_{n=1}^5 \left( n^2 + 5n + 6 \right) a_n u^n \\
+	&+ \sum_{n=6}^\infty \left( \left( n^2 + 5n + 6 \right) a_n + 2 \sum_{k=0}^{n - 6} a_k a_{n - 6 - k} \right) u^n
+	= 3u^{12} {f(u)}^4 + O(u^{18}).
+\end{align*}
+Let us compare each power of $u$ separately.
+\[
+	a_0 = \frac{1}{6},\; a_1 = \cdots = a_5 = 0
+\]
+\[
+	O(u^6):\; 72a_6 + 2a_0^2 = 0
+	\Rightarrow a_6 = -\frac{1}{1296}
+\]
+\[
+	a_7 = \cdots = a_{11} = 0
+\]
+\[
+	O(u^{12}): 210a_{12} + 2 \left( a_0 a_6 + a_6 a_0 \right) = 3a_0^2
+	\Rightarrow a_{12} = \frac{11}{816480}
+\]
+\[
+	\Rightarrow f(u) = \frac{1}{6} - \frac{u^6}{1296} + \frac{11}{816480}u^{12} - \dots
+\]
+\[
+	\therefore y = \frac{1}{6x^2} - \frac{1}{1296x^8} + \frac{11}{816480}\frac{1}{x^{14}} + \dots
+\]
