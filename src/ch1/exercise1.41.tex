@@ -1,0 +1,45 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%
+We again make the substitution $y = up$ to eliminate the first derivative term.
+Substituting this into the Bessel equation
+\[
+	x^2 y'' + xy' + \left( x^2 - m^2 \right) y = 0
+\]
+yields
+\[
+	x^2 pu'' + \left( 2x^2 p' + xp \right)u' + \left( x^2 p'' + xp' + \left( x^2 - m^2 \right)p \right)u = 0.
+\]	
+Thus, we choose $p = x^{-\half}$ to obtain
+\[
+	u'' + \left( 1 - \left( m^2 - \frac{1}{4} \right) x^{-2} \right) u = 0.
+\]
+Let
+\[
+	f(x) := 1 - \left( m^2 - \frac{1}{4} \right) x^{-2}.
+\]
+
+Now, we wish to find the asymptotic form of $J_m$, Bessel's function of the first kind.
+$J_m$ is distinguished from that of the second kind, $Y_m$ by its analyticity at the origin.
+Notice how $f$ is a monotone increasing function with a single zero at $\sqrt{m^2 - \frac{1}{4}}$.
+Therefore, for $m >> \half$, one can approximate the analyticity condition as the function being bounded for $x << \sqrt{m^2 - \frac{1}{4}}$.
+This leads us to use the connection formula \refeq{} (1--113).
+\[
+	\sqrt{f}
+	= \sqrt{1 - \left( m^2 - \frac{1}{4} \right) x^{-2}}
+	\approx 1 - \half \left( m^2 - \frac{1}{4} \right) x^{-2}
+\]
+\begin{align*}
+	\Rightarrow \int_{\sqrt{m^2 - \frac{1}{4}}}^{x} dx \sqrt{f}
+	&\approx x - \sqrt{m^2 - \frac{1}{4}} + \half \left( m^2 - \frac{1}{4} \right) \left( \frac{1}{x} - \frac{1}{\sqrt{m^2 - \frac{1}{4}}} \right) \\
+	&= x + \frac{m^2 - \frac{1}{4}}{2x} - \half\sqrt{m^2 - \frac{1}{4}}
+\end{align*}
+\[
+	f^{-\frac{1}{4}} \approx 1 + \frac{1}{4} \left( m^2 - \frac{1}{4} \right) x^{-2}
+\]
+\begin{align*}
+	\therefore J_m
+	&\approx 2 x^{-\half} f^{-\frac{1}{4}} \cos\left( \int_{\sqrt{m^2 - \frac{1}{4}}}^{x} dx \sqrt{f} - \frac{\pi}{4} \right) \\
+	&\approx \left( 2x^{-\half} + \left( \frac{m^2}{2} - \frac{1}{8} \right) x^{-\frac{5}{2}} \right)
+	         \cos\left( x + \frac{m^2 - \frac{1}{4}}{2x} - \half\sqrt{m^2 - \frac{1}{4}} - \frac{\pi}{4} \right)
+\end{align*}

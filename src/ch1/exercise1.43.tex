@@ -1,0 +1,31 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%
+We again use the WKB approximation with $f(x) = x^2$.
+\[
+	W_\pm
+	:= \frac{1}{f^{\frac{1}{4}}} \exp\left( \pm i \int_0^x dx \sqrt{f} \right)
+	= x^{-\half} \exp\left( \pm \frac{i}{2}x^2 \right)
+\]
+\[
+	\Rightarrow y \approx x^{-\half} \left( A \cos \frac{x^2}{2} + B \sin \frac{x^2}{2} \right)
+\]
+Solving for $A$ and $B$ using the initial conditions $y(10) = 0$ and $y'(10) = 1$, we get
+\[
+	y \approx \frac{1}{\sqrt{10x}} \sin\left( \frac{x^2}{2} - 50 \right).
+\]
+
+\begin{enumerate}[wide, labelindent = 0pt, label = (\alph*)]
+\item
+\[
+	\frac{x^2}{2} - 50 \approx \pi
+	\Rightarrow x \approx \sqrt{100 + 2\pi} \approx 10.309
+\]
+\item
+\[
+	\frac{x^2}{2} - 50 \approx \frac{\pi}{2}
+	\Rightarrow x \approx \sqrt{100 + \pi}
+	\Rightarrow y \approx \frac{1}{\sqrt{10 \sqrt{100 + \pi}}} \approx 0.0992
+\]
+
+\end{enumerate}

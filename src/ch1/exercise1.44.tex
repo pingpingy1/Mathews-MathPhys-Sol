@@ -1,0 +1,58 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%
+The error estimation for this solution follows the example following \refeq{} (1--103).
+I personally am not confident that this solution is correct, but it is the best I could come up with.
+
+The WKB approximation of $y_1$ is given by
+\[
+	y_1 \approx \frac{C_1}{\sqrt{5x}} \sin\left( \frac{x^2 - 25}{2} \right)
+\]
+which can be obtained in the same way as in problem 1--43.
+The 25th zero beyond $x = 5$ is then given by
+\[
+	\frac{x^2 - 25}{2} \approx 25\pi
+	\Rightarrow x \approx 5 \sqrt{2\pi + 1} \approx 13.494.
+\]
+
+We now begin the error analysis.
+The following notation follows that of the aforementioned example.
+Let
+\[
+	y_1 = \alpha_+ x^{-\half} \exp\left( \frac{i}{2} x^2 \right) + \alpha_- x^{-\half} \exp\left( -\frac{i}{2} x^2 \right).
+\]
+Near $x = 5$, we then obtain
+\[
+	\alpha_+ \approx \frac{A}{2i} e^{-\frac{25}{2}i},\; \alpha_- \approx -\frac{A}{2i} e^{\frac{25}{2}i}.
+\]
+Let
+\[
+	g = \frac{1}{4}\frac{f''}{f} - \frac{5}{16}{\left( \frac{f'}{f} \right)}^2
+	= -\frac{3}{4x^2}
+\]
+\begin{align*}
+	\Rightarrow \alpha_\pm'
+	&\approx \mp \frac{i}{2}\frac{g}{\sqrt{f}} \left( \alpha_\pm + \alpha_\mp \exp\left( \mp 2i \int dx \sqrt{f} \right) \right) \\
+	&= \pm \frac{3i}{8x^3} \left( \alpha_\pm + \alpha_\mp \exp\left( \mp ix^2 \right) \right) \\
+	&\approx \frac{3iA}{32x^3} e^{\mp \frac{25}{2}i} \left( 1 - e^{\pm 25i \mp ix^2} \right)
+\end{align*}
+Now, upon integrating this from $x = 5$ to $5 \sqrt{2\pi + 1}$, we may ignore the $e^{\pm 25i \mp ix^2}$ term as it rotates rapidly, thus making little contribution to the result.
+\begin{align*}
+	\Rightarrow \left| \Delta y_1 \right|
+	&\approx \left| \Delta \alpha_\pm \right| \\
+	&\approx \left| \int_5^{5 \sqrt{2\pi + 1}} dx \alpha_\pm' \right| \\
+	&\approx \left| \frac{3iA}{32x^3} e^{\mp \frac{25}{2}i} \int_5^{5 \sqrt{2\pi + 1}} \frac{dx}{x^3} \right| \\
+	&= \frac{3\pi A}{800(2\pi + 1)}
+\end{align*}
+We also have
+\begin{align*}
+	\left. y_1' \right|_{x = 5 \sqrt{2\pi + 1}}
+	&\approx \left. \frac{A}{\sqrt{5}} \left( -\half x^{-\frac{3}{2}} \sin\left( \frac{x^2 - 25}{2} \right) + x^{\half} \cos\left( \frac{x^2 - 25}{2} \right) \right) \right|_{x = 5 \sqrt{2\pi + 1}} \\
+	&\approx - A {\left( 2\pi + 1 \right)}^{\frac{1}{4}}.
+\end{align*}
+\[
+	\therefore \left| \Delta x \right|
+	\approx \left| \frac{\Delta y}{y'} \right|
+	\approx \frac{3\pi}{800 {\left( 2\pi + 1 \right)}^{\frac{1}{4}}}
+	\approx 3.488 \times 10^{-4}
+\]
