@@ -27,7 +27,7 @@ From the definition of delta functions, we find that:
 	&= \int_{x' - \epsilon}^{x' + \epsilon} dx \delta(x - x') \\
 	&= \int_{x' - \epsilon}^{x' + \epsilon} dx \left( \partialsecondderiv{x} + p(x) \partialderiv{x} + q(x) \right) G(x, x') \\
 	&\approx {\left[ \left( \partialderiv{x} + p(x) \right) G(x, x') \right]}_{x' - \epsilon}^{x' + \epsilon}
-		     - \int_{x - \epsilon}^{x + \epsilon} dx p'(x) G(x, x') \\
+		     - \int_{x' - \epsilon}^{x' + \epsilon} dx p'(x) G(x, x') \\
 	&\approx {\left[ \partialderiv{x} G(x, x') \right]}_{x' - \epsilon}^{x' + \epsilon} \\
 	&\approx \lim_{x \rightarrow x'+} \partialderiv{x} G(x, x') - \lim_{x \rightarrow x'-} \partialderiv{x} G(x, x')
 \end{align*}
