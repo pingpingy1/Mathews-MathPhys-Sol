@@ -1,0 +1,30 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+Again, we shall denote the first term as $a_1$.
+\begin{align*}
+	a_n
+	&= \frac{{\left( (2n + 1)!! \right)}^2}{4^{n - 1} \cdot n \cdot {(n!)}^2} \\
+	&= \cfrac{{\left( \cfrac{(2n + 1)!}{2^n n!} \right)}^2}{4^{n - 1} \cdot n \cdot {(n!)}^2} \\
+	&= \frac{{\left( (2n + 1)! \right)}^2}{4^{2n + 1} \cdot n \cdot {(n!)}^4}
+\end{align*}
+To deduce the limit of this sequence, we employ Stirling's approximation:
+\[
+	n! \approx \sqrt{2\pi n} {\left( \frac{n}{e} \right)}^n \;(\text{for large $n$}).
+\]
+\begin{align*}
+	\Rightarrow a_n
+	&\approx \cfrac{
+		2\pi (2n + 1) {\left( \cfrac{2n + 1}{e} \right)}^{2n + 1}
+	}{
+		4^{2n + 1} \cdot n \cdot 4\pi^2 n^2 {\left( \cfrac{n}{e} \right)}^n
+	} \\
+	&= \frac{
+		{(2n + 1)}^{4n + 3}
+	}{\pi e^2 2^{8n + 3} n^{4n + 3}} \\
+	&= \frac{4}{\pi e} {\left( 1 + \frac{1}{2n} \right)}^{4n + 3} \\
+	&= \frac{4}{\pi e} {\left( {\left( 1 + \frac{1}{2n} \right)}^{2n} \right)}^{\frac{4n + 3}{2n}} \\
+	&\xrightarrow{n \rightarrow \infty} \frac{4}{\pi} \neq 0
+\end{align*}
+Therefore, the given series diverges.
