@@ -1,0 +1,29 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+Let us define
+\[
+	I(a, b) := \int_0^\infty dy \frac{e^{-ay} - e^{-by}}{y}.
+\]
+\[
+	\frac{\partial I}{\partial a}
+	= -\int_0^\infty dy e^{-ay}
+	= -\frac{1}{a},\;
+	\frac{\partial I}{\partial b}
+	= \int_0^\infty dy e^{-by}
+	= \frac{1}{b}
+\]
+\[
+	\Rightarrow I(a, b) = \ln \left( \frac{b}{a} \right) + C
+\]
+Now, notice that
+\[
+	C
+	= I(a, a)
+	= \int_0^\infty dy 0
+	= 0.
+\]
+\[
+	\therefore I(a, b) = \ln \left( \frac{b}{a} \right)
+\]

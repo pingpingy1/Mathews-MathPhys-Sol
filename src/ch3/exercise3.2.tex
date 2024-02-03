@@ -1,0 +1,14 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+(If your knee-jerk reaction to this problem is any form of skepticism, then you are probably correct;
+if not, you are a perfect fit for a physicist in my opinion.)
+\begin{align*}
+	\int_0^\infty dx \sin bx
+	&= \lim_{a \to 0+} \int_0^\infty dx e^{-ax} \sin bx \\
+	&= \lim_{a \to 0+} \Im \left\{ \int_0^\infty dx e^{-ax} e^{ibx} \right\} \\
+	&= \lim_{a \to 0+} \Im \left\{ \frac{1}{a - ib} \right\} \\
+	&= \lim_{a \to 0+} \frac{b}{a^2 + b^2} \\
+	&= \frac{1}{b}
+\end{align*}
