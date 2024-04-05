@@ -4,10 +4,25 @@
 \usepackage{amssymb}
 \usepackage{hyperref}
 \usepackage{fontawesome5}
+\usepackage{wrapfig}
+
+% Contour integral
+\usepackage{tikz}
+\usetikzlibrary{calc, shapes.misc, decorations.pathmorphing, decorations.markings, arrows}
+\tikzset{%
+	axis/.style={black, thick, ->},
+	pole/.style={draw, red, cross out, very thick, draw, minimum size=2 * (#1-\pgflinewidth), inner sep=0cm, outer sep=0cm},
+	pole/.default={0.15cm},
+	branch cut/.style={red, thick, decorate, decoration={snake}},
+	contour/.style={blue, very thick, postaction={decorate}, decoration={markings, mark={at position 0.5 with {\arrow{>}}}}}
+}
 
 \newcommand{\half}{\frac{1}{2}}
 \newcommand{\partialderiv}[1]{\frac{\partial}{\partial{}#1}}
 \newcommand{\partialsecondderiv}[1]{\frac{\partial^2}{\partial{}#1^2}}
+\newcommand{\res}[1]{\mathop{\mathrm{Res}}_{#1}}
+\newcommand{\evalAt}[2]{{\left. #1 \right|}_{#2}}
 
 \newcommand{\refeq}{Eq.}
 \newcommand{\refprob}{Problem}
+\newcommand{\reffig}{Figure}
