@@ -1,6 +1,6 @@
 LATEX = pdflatex
 
-SRC = ${wildcard src/**/*.tex}
+SRC = ${wildcard src/*.tex src/**/*.tex}
 
 all: main.pdf
 
