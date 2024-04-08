@@ -1,0 +1,48 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+		% Axes
+		\draw[axis] (-1cm, 0cm) -- (3cm, 0cm) node[right] {$\Re$};
+		\draw[axis] (0cm, -1cm) -- (0cm, 3cm) node[right] {$\Im$};
+
+		% Poles
+		\node[pole] (A) at ( 0.495cm,  0.495cm) {}; \node[right] at (A.east) {$e^{i\quarterpi}$};
+		\node[pole]     at (-0.495cm,  0.495cm) {};
+		\node[pole]     at ( 0.495cm, -0.495cm) {};
+		\node[pole]     at (-0.495cm, -0.495cm) {};
+
+		% Contour
+		\def\R{1.8cm}
+		\draw[contour] (0cm, 0cm) -- (\R, 0cm) node[below] {$R$};
+		\draw[contour] (\R, 0cm) arc (0:90:\R) node[right, yshift=0.2cm] {$iR$};
+		\draw[contour] (0cm, \R) -- (0cm, 0cm);
+	\end{tikzpicture}
+	\caption{Contour for \refprob{}~3--10.}%
+	\label{fig:problem3-10}
+\end{figure}
+
+We shall perform a contour integral of $f(z) := \frac{1}{1 + z^4}$ along \reffig{}~\ref{fig:problem3-10}.
+\[
+	\oint_C dz f(z)
+	= 2i\pi \res{z = e^{i\quarterpi}} f(z)
+	= 2i\pi \cdot \evalAt{\frac{1}{4x^3}}{z = e^{i\quarterpi}}
+	= \halfpi e^{-i\quarterpi}
+\]
+We also have
+\begin{align*}
+	\oint_C dx f(z)
+	 & = \int_{0}^{R} \frac{dx}{1 + x^4}
+	+ \int_0^{\halfpi} d\theta \frac{iRe^{i\theta}}{1 + R^4 e^{4i\theta}}
+	+ \int_{R}^0 dy \frac{i}{1 + {(iy)}^4}                                              \\
+	 & = (1 - i) \int_{0}^{R} \frac{dx}{1 + x^4} + O\left( R^{-3} \right)               \\
+	 & \xrightarrow{R \rightarrow \infty} (1 - i) \int_{0}^{\infty} \frac{dx}{1 + x^4}.
+\end{align*}
+\[
+	\therefore \int_{0}^{\infty} \frac{dx}{1 + x^4}
+	= \frac{1}{1 - i} \cdot \halfpi e^{-i\quarterpi}
+	= \frac{\pi}{2\sqrt{2}}
+\]

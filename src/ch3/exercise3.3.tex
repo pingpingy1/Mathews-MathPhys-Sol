@@ -19,11 +19,11 @@
 		\draw[contour] (\R, 0cm) arc (0:180:\R);
 		\node[blue, right, yshift=0.2cm] at (0cm, \R) {$iR$};
 	\end{tikzpicture}
-	\caption{Contour for \refprob{}~3--3 and 4.}%
-	\label{fig:problem3-3,4}
+	\caption{Contour for \refprob{}~3--3, 3--4, and 3--9.}%
+	\label{fig:problem3-3}
 \end{figure}
 
-We shall perform a contour integral of $f(x) := \frac{e^{iaz}}{1 + z^2}$ along \reffig{}~\ref{fig:problem3-3,4}.
+We shall perform a contour integral of $f(z) := \frac{e^{iaz}}{1 + z^2}$ along \reffig{}~\ref{fig:problem3-3}.
 \[
 	\oint_C dz f(z)
 	= 2i\pi \res{z = i} f(z)
@@ -33,13 +33,13 @@ We shall perform a contour integral of $f(x) := \frac{e^{iaz}}{1 + z^2}$ along \
 We also have
 \begin{align*}
 	\oint_C dx f(z)
-	&= \int_{-R}^{R} dx \frac{e^{iax}}{1 + x^2}
-	 +\int_0^{\pi} d\theta iRe^{i\theta} \frac{e^{iaRe^{i\theta}}}{1 + R^2 e^{2i\theta}} \\
-	& \xrightarrow{R \rightarrow \infty} \int_{-\infty}^{\infty} dx \frac{e^{iax}}{1 + x^2}.
+	 & = \int_{-R}^{R} dx \frac{e^{iax}}{1 + x^2}
+	+\int_0^{\pi} d\theta iRe^{i\theta} \frac{e^{iaRe^{i\theta}}}{1 + R^2 e^{2i\theta}}       \\
+	 & \xrightarrow{R \rightarrow \infty} \int_{-\infty}^{\infty} dx \frac{e^{iax}}{1 + x^2}.
 \end{align*}
 \begin{align*}
 	\therefore \int_{0}^{\infty} dx \frac{\cos ax}{1 + x^2}
-	&= \half \int_{-\infty}^{\infty} dx \frac{\cos ax}{1 + x^2} \\
-	&= \half \cdot \Re \left\{ \int_{-\infty}^{\infty} dx \frac{e^{iax}}{1 + x^2} \right\} \\
-	&= \frac{\pi}{2} e^{-a}
+	 & = \half \int_{-\infty}^{\infty} dx \frac{\cos ax}{1 + x^2}                            \\
+	 & = \half \cdot \Re \left\{ \int_{-\infty}^{\infty} dx \frac{e^{iax}}{1 + x^2} \right\} \\
+	 & = \halfpi e^{-a}
 \end{align*}

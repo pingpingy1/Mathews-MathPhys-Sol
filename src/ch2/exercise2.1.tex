@@ -12,7 +12,7 @@ and write the series as
 \begin{align*}
 	(\text{Given series})
 	 & = \sum_{n=0}^\infty \frac{1}{4^n} \cdot \sqrt{2} \Re \left\{ e^{i\left( \frac{n}{2} - \frac{1}{4} \right) \pi} \right\} \\
-	 & = \Re \left\{ \sqrt{2} e^{-i\frac{\pi}{4}} \sum_{n=0}^\infty {\left( \frac{e^{i\frac{\pi}{4}}}{2} \right)}^n \right\}   \\
+	 & = \Re \left\{ \sqrt{2} e^{-i\quarterpi} \sum_{n=0}^\infty {\left( \frac{e^{i\quarterpi}}{2} \right)}^n \right\}         \\
 	 & = \Re \left\{ (1 - i) \sum_{n=0}^\infty {\left( \frac{i}{4} \right)}^n \right\}                                         \\
 	 & = \Re \left\{ (1 - i) \cdot \frac{1}{1 - \frac{i}{4}} \right\}                                                          \\
 	 & = \frac{16}{17} \Re \left\{ (1 - i) \left( 1 + \frac{i}{4} \right) \right\}                                             \\
@@ -20,4 +20,4 @@ and write the series as
 	 & = \frac{20}{17}.
 \end{align*}
 For series problems, it is always a good idea to verify the results numerically with a calculator, provided that the series converges quickly enough.
-In this case, evaluating upto $\frac{1}{1024}$ yields about $1.1768$ while the correct answer is about $1.1765$.
+In this case, evaluating up to $\frac{1}{1024}$ yields about $1.1768$ while the correct answer is about $1.1765$.

@@ -1,0 +1,21 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+Let us integrate $f(z) := \frac{1}{{\left( 1 + z^2 \right)}^2}$, again along \reffig{}~\ref{fig:problem3-3}.
+\begin{align*}
+	\oint_C dz f(z)
+	= 2i\pi \res{z = i} f(z)
+	= 2i\pi \cdot \evalAt{\frac{d}{dz} \frac{1}{{\left( z + i \right)}^2}}{z = i}
+	= \halfpi
+\end{align*}
+and
+\[
+	\oint_C dx f(z)
+	= \int_{-R}^{R} dx \frac{1}{{\left( 1 + x^2 \right)}^2}
+	+ \int_0^{\pi} d\theta \frac{iRe^{i\theta}}{{\left( 1 + R^2 e^{2i\theta} \right)}^2}
+	\xrightarrow{R \rightarrow \infty} \int_{-\infty}^{\infty} dx \frac{e^{iax}}{{\left( 1 + x^2 \right)}^2}.
+\]
+\[
+	\therefore \int_{-\infty}^{\infty} \frac{dx}{{\left( 1 + x^2 \right)}^2} = \halfpi
+\]

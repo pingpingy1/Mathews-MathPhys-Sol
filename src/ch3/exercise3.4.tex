@@ -2,12 +2,12 @@
 \item
 %%%%%%%%%%%%%%%%%%%%%%%
 
-Let us integrate $f(x) := \frac{e^{iaz}}{{\left( 1 + z^2 \right)}^2}$, again along \reffig{}~\ref{fig:problem3-3,4}.
+Let us integrate $f(z) := \frac{e^{iaz}}{{\left( 1 + z^2 \right)}^2}$, again along \reffig{}~\ref{fig:problem3-3}.
 \begin{align*}
 	\oint_C dz f(z)
 	= 2i\pi \res{z = i} f(z)
 	= 2i\pi \cdot \evalAt{\frac{d}{dz} \frac{e^{iaz}}{{\left( z + i \right)}^2}}{z = i}
-	= \frac{\pi}{2} (a + 1) e^{-a}
+	= \halfpi (a + 1) e^{-a}
 \end{align*}
 and
 \begin{align*}
@@ -20,5 +20,5 @@ and
 	\therefore \int_{0}^{\infty} dx \frac{\cos ax}{{\left( 1 + x^2 \right)}^2}
 	 & = \half \int_{-\infty}^{\infty} dx \frac{\cos ax}{{\left( 1 + x^2 \right)}^2}                            \\
 	 & = \half \cdot \Re \left\{ \int_{-\infty}^{\infty} dx \frac{e^{iax}}{{\left( 1 + x^2 \right)}^2} \right\} \\
-	 & = \frac{\pi}{4} (a + 1) e^{-a}
+	 & = \quarterpi (a + 1) e^{-a}
 \end{align*}
