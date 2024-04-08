@@ -1,0 +1,24 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+Let us integrate $f(x) := \frac{e^{iaz}}{{\left( 1 + z^2 \right)}^2}$, again along \reffig{}~\ref{fig:problem3-3,4}.
+\begin{align*}
+	\oint_C dz f(z)
+	= 2i\pi \res{z = i} f(z)
+	= 2i\pi \cdot \evalAt{\frac{d}{dz} \frac{e^{iaz}}{{\left( z + i \right)}^2}}{z = i}
+	= \frac{\pi}{2} (a + 1) e^{-a}
+\end{align*}
+and
+\begin{align*}
+	\oint_C dx f(z)
+	&= \int_{-R}^{R} dx \frac{e^{iax}}{{\left( 1 + x^2 \right)}^2}
+	 +\int_0^{\pi} d\theta iRe^{i\theta} \frac{e^{iaRe^{i\theta}}}{{\left( 1 + R^2 e^{2i\theta} \right)}^2} \\
+	& \xrightarrow{R \rightarrow \infty} \int_{-\infty}^{\infty} dx \frac{e^{iax}}{{\left( 1 + x^2 \right)}^2}.
+\end{align*}
+\begin{align*}
+	\therefore \int_{0}^{\infty} dx \frac{\cos ax}{{\left( 1 + x^2 \right)}^2}
+	&= \half \int_{-\infty}^{\infty} dx \frac{\cos ax}{{\left( 1 + x^2 \right)}^2} \\
+	&= \half \cdot \Re \left\{ \int_{-\infty}^{\infty} dx \frac{e^{iax}}{{\left( 1 + x^2 \right)}^2} \right\} \\
+	&= \frac{\pi}{4} (a + 1) e^{-a}
+\end{align*}

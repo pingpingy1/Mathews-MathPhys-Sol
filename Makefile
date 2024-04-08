@@ -4,7 +4,7 @@ SRC = ${wildcard src/*.tex src/**/*.tex}
 
 all: main.pdf
 
-main.pdf: main.tex $(SRC)
+main.pdf: main.tex macros.tex $(SRC)
 	$(LATEX) main
 	$(LATEX) main
 

@@ -1,5 +1,6 @@
 \usepackage{braket}
 \usepackage{enumitem}
+\usepackage{bbm}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{hyperref}
@@ -17,12 +18,22 @@
 	contour/.style={blue, very thick, postaction={decorate}, decoration={markings, mark={at position 0.5 with {\arrow{>}}}}}
 }
 
+% General
 \newcommand{\half}{\frac{1}{2}}
 \newcommand{\partialderiv}[1]{\frac{\partial}{\partial{}#1}}
 \newcommand{\partialsecondderiv}[1]{\frac{\partial^2}{\partial{}#1^2}}
 \newcommand{\res}[1]{\mathop{\mathrm{Res}}_{#1}}
 \newcommand{\evalAt}[2]{{\left. #1 \right|}_{#2}}
 
+% Vectors
+\renewcommand{\mathbb}{\mathbbm}
+\newcommand{\norm}[1]{\left|\left| #1 \right|\right|}
+\newcommand{\unitvec}[1]{\hat{\mathbb{#1}}}
+\newcommand{\xhat}{\unitvec{x}}
+\newcommand{\yhat}{\unitvec{y}}
+\newcommand{\zhat}{\unitvec{z}}
+
+% Text
 \newcommand{\refeq}{Eq.}
 \newcommand{\refprob}{Problem}
 \newcommand{\reffig}{Figure}
