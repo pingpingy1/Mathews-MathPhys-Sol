@@ -1,0 +1,21 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{align*}
+	\ln \left( \frac{1 + x}{1 - x} \right)
+	 & = \ln(1 + x) - \ln(1 - x)                                                                                  \\
+	 & = \sum_{n = 1}^\infty \frac{{(-1)}^{n - 1}}{n} x^n - \sum_{n = 1}^\infty \frac{{(-1)}^{n - 1}}{n} {(-x)}^n \\
+	 & = \sum_{n = 1}^\infty \frac{{(-1)}^{n - 1}}{n} \left( 1 + {(-1)}^{n - 1} \right) x^n                       \\
+	 & = \sum_{n = 0}^\infty \frac{2}{2n + 1} x^{2n + 1}
+\end{align*}
+\begin{align*}
+	\therefore \int_0^1 \frac{dx}{x} \ln \left( \frac{1 + x}{1 - x} \right)
+	 & = \int_0^1 dx \sum_{n = 0}^\infty \frac{2}{2n + 1} x^{2n} \\
+	 & = \sum_{n = 0}^\infty \frac{2}{{(2n + 1)}^2}              \\
+	 & = 2 \left(
+	\sum_{n = 1}^\infty \frac{1}{n^2} - \sum_{n = 1}^\infty \frac{1}{{(2n)}^2}
+	\right)                                                      \\
+	 & = \frac{3}{2} \cdot \frac{\pi^2}{6}                       \\
+	 & = \frac{\pi^2}{4}
+\end{align*}

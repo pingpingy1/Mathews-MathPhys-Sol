@@ -2,35 +2,35 @@
 \item
 %%%%%%%%%%%%%%%%%%%%%%%
 
-Let $\mathbb{I}(\mathbb{a}, b) := \int d^3x \mathbb{x} e^{i\mathbb{a} \cdot \mathbb{x}} e^{-br^2}$.
-Notice that this vector-valued integral on only one vector, namely, $\mathbb{a}$.
+Let $\mathbb{I}(\mathbb{a}, b) = \int d^3x \mathbb{x} e^{i\mathbb{a} \cdot \mathbb{x}} e^{-br^2}$.
+Notice that this vector-valued integral depends on only one vector, namely, $\mathbb{a}$.
 Therefore, this integral must be parallel to this vector.
 
-Let $a := \norm{\mathbb{a}}$ and $\mathbb{I}(\mathbb{a}, b) = F(a, b) \unitvec{a}$.
+Let $a = \norm{\mathbb{a}}$ and $\mathbb{I}(\mathbb{a}, b) = F(a, b) \unitvec{a}$.
 \[
 	\mathbb{I}(a \zhat, b)
 	= F(a, b) \zhat
 \]
 \begin{align*}
 	\Rightarrow F(a, b)
-	&= \mathbb{I}(a \zhat, b) \cdot \zhat \\
-	&= \int d^3 x z e^{iaz} e^{-b \left( x^2 + y^2 + z^2 \right)} \\
-	&= \int_{-\infty}^{\infty} dx e^{-bx^2}
-	   \int_{-\infty}^{\infty} dy e^{-by^2}
-	   \int_{-\infty}^{\infty} dz z e^{iaz - bz^2} \\
-	&= \sqrt{\frac{\pi}{b}} \cdot \sqrt{\frac{\pi}{b}} \cdot
-	   \evalAt{
-		\partialderiv{\alpha} \int_{-\infty}^{\infty} dz e^{-b{\left( z - \frac{\alpha}{2b} \right)}^2 + \frac{\alpha^2}{4b}}
-	   }{\alpha = ia} \\
-	&= \frac{\pi}{b} \cdot \evalAt{
+	 & = \mathbb{I}(a \zhat, b) \cdot \zhat                                     \\
+	 & = \int d^3 x z e^{iaz} e^{-b \left( x^2 + y^2 + z^2 \right)}             \\
+	 & = \int_{-\infty}^{\infty} dx e^{-bx^2}
+	\int_{-\infty}^{\infty} dy e^{-by^2}
+	\int_{-\infty}^{\infty} dz z e^{iaz - bz^2}                                 \\
+	 & = \sqrt{\frac{\pi}{b}} \cdot \sqrt{\frac{\pi}{b}} \cdot
+	\evalAt{
+	\partialderiv{\alpha} \int_{-\infty}^{\infty} dz e^{-b{\left( z - \frac{\alpha}{2b} \right)}^2 + \frac{\alpha^2}{4b}}
+	}{\alpha = ia}                                                              \\
+	 & = \frac{\pi}{b} \cdot \evalAt{
 		\partialderiv{\alpha} \left(
-			\sqrt{\frac{\pi}{b}} e^{\frac{\alpha^2}{4b}}
+		\sqrt{\frac{\pi}{b}} e^{\frac{\alpha^2}{4b}}
 		\right)
-	}{\alpha = ia} \\
-	&= {\left( \frac{\pi}{b} \right)}^{3/2} \cdot \evalAt{
+	}{\alpha = ia}                                                              \\
+	 & = {\left( \frac{\pi}{b} \right)}^{3/2} \cdot \evalAt{
 		\frac{\alpha}{2b} e^{\frac{\alpha^2}{4b}}
-	}{\alpha = ia} \\
-	&= {\left( \frac{\pi}{b} \right)}^{3/2} \frac{ia}{2b} e^{-\frac{a^2}{4b}}
+	}{\alpha = ia}                                                              \\
+	 & = {\left( \frac{\pi}{b} \right)}^{3/2} \frac{ia}{2b} e^{-\frac{a^2}{4b}}
 \end{align*}
 \[
 	\therefore I(\mathbb{a}, b)

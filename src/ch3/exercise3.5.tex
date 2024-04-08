@@ -2,21 +2,21 @@
 \item
 %%%%%%%%%%%%%%%%%%%%%%%
 
-Let $I(\mathbb{a}, b) := \int d^3x e^{i\mathbb{a} \cdot \mathbb{x}} e^{-br^2}$.
+Let $I(\mathbb{a}, b) = \int d^3x e^{i\mathbb{a} \cdot \mathbb{x}} e^{-br^2}$.
 Notice that this integral depends on a vector and results in a scalar.
 Thus, we must conclude that only the magnitude of $\mathbb{a}$ matters and not its direction.
 
 Let $a := \norm{\mathbb{a}}$.
 \begin{align*}
 	I(\mathbb{a}, b)
-	&= I(a \zhat, b) \\
-	&= \int d^3 x e^{iaz} e^{-b \left( x^2 + y^2 + z^2 \right)} \\
-	&= \int_{-\infty}^{\infty} dx e^{-bx^2}
-	   \int_{-\infty}^{\infty} dy e^{-by^2}
-	   \int_{-\infty}^{\infty} dz e^{iaz - bz^2} \\
-	&= \sqrt{\frac{\pi}{b}} \cdot \sqrt{\frac{\pi}{b}} \cdot
-	   \int_{-\infty}^{\infty} dz e^{-b{\left( z - \frac{ia}{2b} \right)}^2 - \frac{a^2}{4b}} \\
-	&= {\left( \frac{\pi}{b} \right)}^{3/2} e^{-\frac{a^2}{4b}}
+	 & = I(a \zhat, b)                                                                     \\
+	 & = \int d^3 x e^{iaz} e^{-b \left( x^2 + y^2 + z^2 \right)}                          \\
+	 & = \int_{-\infty}^{\infty} dx e^{-bx^2}
+	\int_{-\infty}^{\infty} dy e^{-by^2}
+	\int_{-\infty}^{\infty} dz e^{iaz - bz^2}                                              \\
+	 & = \sqrt{\frac{\pi}{b}} \cdot \sqrt{\frac{\pi}{b}} \cdot
+	\int_{-\infty}^{\infty} dz e^{-b{\left( z - \frac{ia}{2b} \right)}^2 - \frac{a^2}{4b}} \\
+	 & = {\left( \frac{\pi}{b} \right)}^{3/2} e^{-\frac{a^2}{4b}}
 \end{align*}
 \[
 	\therefore I(\mathbb{a}, b) = {\left( \frac{\pi}{b} \right)}^{3/2} e^{-\frac{\mathbb{a}^2}{4b}}
