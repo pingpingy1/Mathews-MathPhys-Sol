@@ -12,13 +12,13 @@ Let us integrate $f(x) := \frac{e^{iaz}}{{\left( 1 + z^2 \right)}^2}$, again alo
 and
 \begin{align*}
 	\oint_C dx f(z)
-	&= \int_{-R}^{R} dx \frac{e^{iax}}{{\left( 1 + x^2 \right)}^2}
-	 +\int_0^{\pi} d\theta iRe^{i\theta} \frac{e^{iaRe^{i\theta}}}{{\left( 1 + R^2 e^{2i\theta} \right)}^2} \\
-	& \xrightarrow{R \rightarrow \infty} \int_{-\infty}^{\infty} dx \frac{e^{iax}}{{\left( 1 + x^2 \right)}^2}.
+	 & = \int_{-R}^{R} dx \frac{e^{iax}}{{\left( 1 + x^2 \right)}^2}
+	+\int_0^{\pi} d\theta iRe^{i\theta} \frac{e^{iaRe^{i\theta}}}{{\left( 1 + R^2 e^{2i\theta} \right)}^2}       \\
+	 & \xrightarrow{R \rightarrow \infty} \int_{-\infty}^{\infty} dx \frac{e^{iax}}{{\left( 1 + x^2 \right)}^2}.
 \end{align*}
 \begin{align*}
 	\therefore \int_{0}^{\infty} dx \frac{\cos ax}{{\left( 1 + x^2 \right)}^2}
-	&= \half \int_{-\infty}^{\infty} dx \frac{\cos ax}{{\left( 1 + x^2 \right)}^2} \\
-	&= \half \cdot \Re \left\{ \int_{-\infty}^{\infty} dx \frac{e^{iax}}{{\left( 1 + x^2 \right)}^2} \right\} \\
-	&= \frac{\pi}{4} (a + 1) e^{-a}
+	 & = \half \int_{-\infty}^{\infty} dx \frac{\cos ax}{{\left( 1 + x^2 \right)}^2}                            \\
+	 & = \half \cdot \Re \left\{ \int_{-\infty}^{\infty} dx \frac{e^{iax}}{{\left( 1 + x^2 \right)}^2} \right\} \\
+	 & = \frac{\pi}{4} (a + 1) e^{-a}
 \end{align*}

@@ -4,20 +4,20 @@
 Let us first look for asymptotic behaviors.
 
 \begin{enumerate}[wide, labelindent = 0pt, label = (\roman*)]
-\item $x \rightarrow 0+$
-Suppose $y = O(x^m)$.
-\[
-	m(m - 1) + 2m - l(l + 1) = 0
-	\Rightarrow m = l \text{ or } -l - 1
-\]
-To vanish near the origin, we must have $y = O(x^l)$.
+	\item $x \rightarrow 0+$
+	      Suppose $y = O(x^m)$.
+	      \[
+		      m(m - 1) + 2m - l(l + 1) = 0
+		      \Rightarrow m = l \text{ or } -l - 1
+	      \]
+	      To vanish near the origin, we must have $y = O(x^l)$.
 
-\item $x \rightarrow \infty$
-\[
-	\frac{d^2 y}{dx^2} \approx -Ky
-	\Rightarrow y \approx e^{\pm \sqrt{-K}x}
-\]
-To vanish at infinity, we must have $y = x^{-\sqrt{-K}x}$ with $K < 0$.
+	\item $x \rightarrow \infty$
+	      \[
+		      \frac{d^2 y}{dx^2} \approx -Ky
+		      \Rightarrow y \approx e^{\pm \sqrt{-K}x}
+	      \]
+	      To vanish at infinity, we must have $y = x^{-\sqrt{-K}x}$ with $K < 0$.
 \end{enumerate}
 
 We can thus write $y = f(x) x^l e^{-\sqrt{-K}x}$ with $f$ regular everywhere.
@@ -26,9 +26,9 @@ We can thus write $y = f(x) x^l e^{-\sqrt{-K}x}$ with $f$ regular everywhere.
 \]
 \begin{align*}
 	\Rightarrow y''
-	&= \left( \frac{f''}{f} - {\left( \frac{f'}{f} \right)}^2 - \frac{l}{x^2} \right) y
-	 + {\left( \frac{f'}{f} + \frac{l}{x} - \sqrt{-K} \right)}^2 y \\
-	&= \left( \frac{f''}{f} + 2 \left( \frac{l}{x} - \sqrt{-K} \right) \frac{f'}{f} + \frac{l(l - 1)}{x^2} - \frac{2l\sqrt{-K}}{x} - K \right) y
+	 & = \left( \frac{f''}{f} - {\left( \frac{f'}{f} \right)}^2 - \frac{l}{x^2} \right) y
+	+ {\left( \frac{f'}{f} + \frac{l}{x} - \sqrt{-K} \right)}^2 y                                                                                  \\
+	 & = \left( \frac{f''}{f} + 2 \left( \frac{l}{x} - \sqrt{-K} \right) \frac{f'}{f} + \frac{l(l - 1)}{x^2} - \frac{2l\sqrt{-K}}{x} - K \right) y
 \end{align*}
 Tedious algebra yields
 \[

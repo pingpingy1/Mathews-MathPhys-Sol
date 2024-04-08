@@ -2,41 +2,41 @@
 \item
 %%%%%%%%%%%%%%%%%%%%%%%
 \begin{enumerate}[wide, labelindent = 0pt, label = (\roman*)]
-\item $y(0) = 1$ \\
-We may write $y = 1 + \sum_{n=1}^\infty a_n x^n$.
-Substitution and tedious algebra yields
-\[
-	2a_1 - 2 + \sum_{n=1}^\infty (n + 2) ((n + 1)a_{n + 1} - a_n) x^n = 0.
-\]
-This directly leads to $a_n = \frac{1}{n!}$, and thus,
-\[
-	y = e^x.
-\]
+	\item $y(0) = 1$ \\
+	      We may write $y = 1 + \sum_{n=1}^\infty a_n x^n$.
+	      Substitution and tedious algebra yields
+	      \[
+		      2a_1 - 2 + \sum_{n=1}^\infty (n + 2) ((n + 1)a_{n + 1} - a_n) x^n = 0.
+	      \]
+	      This directly leads to $a_n = \frac{1}{n!}$, and thus,
+	      \[
+		      y = e^x.
+	      \]
 
-\item $y = \frac{1}{x} + A \ln x + B$ \\
-Substitution of the above form into the differential equation and patiently performing algebraic manipulations yields
-\[
-	-\frac{1}{x} + (xA'' + (2 - x)A' - 2A)\ln x + 2A' + \left( \frac{1}{x} - 1 \right) A + xB'' (2 - x) B' - 2B = 0.
-\]
+	\item $y = \frac{1}{x} + A \ln x + B$ \\
+	      Substitution of the above form into the differential equation and patiently performing algebraic manipulations yields
+	      \[
+		      -\frac{1}{x} + (xA'' + (2 - x)A' - 2A)\ln x + 2A' + \left( \frac{1}{x} - 1 \right) A + xB'' (2 - x) B' - 2B = 0.
+	      \]
 
-Read the problem carefully: we only need to ``give'' two solutions, not find a general form for all solutions.
-Thus, we could choose the oddly specific solution of $A = e^x$ to make the coefficient of the $\ln x$ term vanish.
-Substituting this into the above equation yields
-\[
-	xB'' + (2 - x)B' - 2B + e^x + \frac{e^x - 1}{x} = 0.
-\]
-Expanding $B = \sum_{n=0}^\infty b_n x^n$, $e^x = \sum_{n=0}^\infty \frac{x^n}{n!}$, and $\frac{e^x - 1}{x} = \sum_{n=0}^\infty \frac{x^n}{(n + 1)!}$,
-one can write
-\[
-	\sum_{n=0}^\infty \left(
-		(n + 1)(n + 2) b_{n + 1}- (n + 2) b_n + \frac{n + 2}{(n + 1)!}
-	\right) = 0
-\]
-\[
-	\Rightarrow b_{n + 1} = \frac{b_n}{n + 1} - \frac{1}{(n + 1) \cdot (n + 1)!}.
-\]
-Again, $B$ may arbitrarily chosen, so let us choose $b_0 = 0$.
-\[
-	\therefore y = \frac{1}{x} + e^x \ln x -x - \frac{3}{4}x^2 - \frac{11}{36}x^3 - \cdots
-\]
+	      Read the problem carefully: we only need to ``give'' two solutions, not find a general form for all solutions.
+	      Thus, we could choose the oddly specific solution of $A = e^x$ to make the coefficient of the $\ln x$ term vanish.
+	      Substituting this into the above equation yields
+	      \[
+		      xB'' + (2 - x)B' - 2B + e^x + \frac{e^x - 1}{x} = 0.
+	      \]
+	      Expanding $B = \sum_{n=0}^\infty b_n x^n$, $e^x = \sum_{n=0}^\infty \frac{x^n}{n!}$, and $\frac{e^x - 1}{x} = \sum_{n=0}^\infty \frac{x^n}{(n + 1)!}$,
+	      one can write
+	      \[
+		      \sum_{n=0}^\infty \left(
+		      (n + 1)(n + 2) b_{n + 1}- (n + 2) b_n + \frac{n + 2}{(n + 1)!}
+		      \right) = 0
+	      \]
+	      \[
+		      \Rightarrow b_{n + 1} = \frac{b_n}{n + 1} - \frac{1}{(n + 1) \cdot (n + 1)!}.
+	      \]
+	      Again, $B$ may arbitrarily chosen, so let us choose $b_0 = 0$.
+	      \[
+		      \therefore y = \frac{1}{x} + e^x \ln x -x - \frac{3}{4}x^2 - \frac{11}{36}x^3 - \cdots
+	      \]
 \end{enumerate}

@@ -5,26 +5,26 @@
 Again, this equation is linear in $y$.
 \begin{enumerate}[wide, labelindent = 0pt, label = (\roman*)]
 	\item Complementary solutions:\\
-	Take $y_c = e^{mx}$.
-	\[
-		m^3 + 2m^2 + 1 = 0
-		\Rightarrow m = m_1, m_2, m_3
-	\]
-	(I refuse to write down the exact solutions of this cubic equation.)
-	\[
-		\Rightarrow y_c = C_1 e^{m_1 x} + C_2 e^{m_2 x} + C_3 e^{m_3 x}
-	\]
+	      Take $y_c = e^{mx}$.
+	      \[
+		      m^3 + 2m^2 + 1 = 0
+		      \Rightarrow m = m_1, m_2, m_3
+	      \]
+	      (I refuse to write down the exact solutions of this cubic equation.)
+	      \[
+		      \Rightarrow y_c = C_1 e^{m_1 x} + C_2 e^{m_2 x} + C_3 e^{m_3 x}
+	      \]
 
 	\item Particular solution:\\
-	Suppose $y_p = A\sin x + B\cos x$.
-	\begin{align*}
-		\sin x
-		&= (-A\cos x + B\sin x) + 2(-A\sin x - B\cos x) + (A\sin x + B\cos x) \\
-		&= (-A + B)\sin x + (-A - B)\cos x
-	\end{align*}
-	\[
-		\Rightarrow A = B = -\half
-	\]
+	      Suppose $y_p = A\sin x + B\cos x$.
+	      \begin{align*}
+		      \sin x
+		       & = (-A\cos x + B\sin x) + 2(-A\sin x - B\cos x) + (A\sin x + B\cos x) \\
+		       & = (-A + B)\sin x + (-A - B)\cos x
+	      \end{align*}
+	      \[
+		      \Rightarrow A = B = -\half
+	      \]
 \end{enumerate}
 \[
 	\therefore y = -\half\sin x -\half\cos x + C_1 e^{m_1 x} + C_2 e^{m_2 x} + C_3 e^{m_3 x}

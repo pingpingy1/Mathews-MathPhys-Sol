@@ -20,8 +20,8 @@ As $u \rightarrow 0+$, $y \rightarrow 0$. Thus,
 Hence, we write $y = f(u) u^2$ with $f$ analytic everywhere.
 \begin{align*}
 	u^2 f''(u) + 6u f'(u) + 6f(u)
-	&= \frac{1}{{\left( 1 + u^6 f(u) \right)}^2} \\
-	&= 1 - 2u^6 {f(u)}^2 + 3u^{12} {f(u)}^4 + O\left( u^{18} \right)
+	 & = \frac{1}{{\left( 1 + u^6 f(u) \right)}^2}                     \\
+	 & = 1 - 2u^6 {f(u)}^2 + 3u^{12} {f(u)}^4 + O\left( u^{18} \right)
 \end{align*}
 We write $f(u) = \sum_{n=0}^\infty a_n u^n$.
 The left-hand side (after tedious algebra) evaluates to
@@ -35,9 +35,9 @@ We make use of the Cauchy multiplication formula:
 \]
 Substituting this into the equation, we get
 \begin{align*}
-	&(6a_0 - 1)
-	 + \sum_{n=1}^5 \left( n^2 + 5n + 6 \right) a_n u^n \\
-	&+ \sum_{n=6}^\infty \left( \left( n^2 + 5n + 6 \right) a_n + 2 \sum_{k=0}^{n - 6} a_k a_{n - 6 - k} \right) u^n
+	 & (6a_0 - 1)
+	+ \sum_{n=1}^5 \left( n^2 + 5n + 6 \right) a_n u^n                                                                 \\
+	 & + \sum_{n=6}^\infty \left( \left( n^2 + 5n + 6 \right) a_n + 2 \sum_{k=0}^{n - 6} a_k a_{n - 6 - k} \right) u^n
 	= 3u^{12} {f(u)}^4 + O(u^{18}).
 \end{align*}
 Let us compare each power of $u$ separately.

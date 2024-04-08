@@ -6,8 +6,8 @@ we are physicists so we shall simply accept that they exist.
 \begin{align*}
 	f(x)
 	= y'' + py' + q
-	&= \int_a^b dx' f(x') \left( \partialsecondderiv{x} + p(x) \partialderiv{x} + q(x) \right) G(x, x') \\
-	&= \int_a^b dx' f(x') \delta(x - x')
+	 & = \int_a^b dx' f(x') \left( \partialsecondderiv{x} + p(x) \partialderiv{x} + q(x) \right) G(x, x') \\
+	 & = \int_a^b dx' f(x') \delta(x - x')
 \end{align*}
 \[
 	\Rightarrow \left( \partialsecondderiv{x} + p(x) \partialderiv{x} + q(x) \right) G(x, x') = \delta(x - x')
@@ -24,12 +24,12 @@ We thus write
 From the definition of delta functions, we find that:
 \begin{align*}
 	1
-	&= \int_{x' - \epsilon}^{x' + \epsilon} dx \delta(x - x') \\
-	&= \int_{x' - \epsilon}^{x' + \epsilon} dx \left( \partialsecondderiv{x} + p(x) \partialderiv{x} + q(x) \right) G(x, x') \\
-	&\approx {\left[ \left( \partialderiv{x} + p(x) \right) G(x, x') \right]}_{x' - \epsilon}^{x' + \epsilon}
-		     - \int_{x' - \epsilon}^{x' + \epsilon} dx p'(x) G(x, x') \\
-	&\approx {\left[ \partialderiv{x} G(x, x') \right]}_{x' - \epsilon}^{x' + \epsilon} \\
-	&\approx \lim_{x \rightarrow x'+} \partialderiv{x} G(x, x') - \lim_{x \rightarrow x'-} \partialderiv{x} G(x, x')
+	 & = \int_{x' - \epsilon}^{x' + \epsilon} dx \delta(x - x')                                                                \\
+	 & = \int_{x' - \epsilon}^{x' + \epsilon} dx \left( \partialsecondderiv{x} + p(x) \partialderiv{x} + q(x) \right) G(x, x') \\
+	 & \approx {\left[ \left( \partialderiv{x} + p(x) \right) G(x, x') \right]}_{x' - \epsilon}^{x' + \epsilon}
+	- \int_{x' - \epsilon}^{x' + \epsilon} dx p'(x) G(x, x')                                                                   \\
+	 & \approx {\left[ \partialderiv{x} G(x, x') \right]}_{x' - \epsilon}^{x' + \epsilon}                                      \\
+	 & \approx \lim_{x \rightarrow x'+} \partialderiv{x} G(x, x') - \lim_{x \rightarrow x'-} \partialderiv{x} G(x, x')
 \end{align*}
 where we take infinitesimally small $\epsilon$.
 
@@ -58,7 +58,7 @@ we may arbitrarily choose
 \[
 	\Rightarrow G(x, x') =
 	\begin{cases}
-		y_1(x)y_2'(x') & (x < x') \\
+		y_1(x)y_2'(x')                           & (x < x') \\
 		y_2(x)y_1'(x') + \frac{y_2(x)}{y_2'(x')} & (x > x')
 	\end{cases}.
 \]
@@ -74,15 +74,15 @@ For the given example $y'' + k^2 y = f(x)$, we may take
 provided that $b - a$ is not an integer multiple of the period $\frac{2\pi}{k}$.
 This leads to
 \[
-	G(x, x') = 
+	G(x, x') =
 	\begin{cases}
-		-k\sin k(x - a) \cos k(b - x) & (x < x') \\
+		-k\sin k(x - a) \cos k(b - x)                                              & (x < x') \\
 		\sin k(b - x) \left( k\cos k(x' - a) - \frac{1}{k \cos k (b - x')} \right) & (x > x')
 	\end{cases}
 \]
 \begin{align*}
 	\Rightarrow y
-	= &-k\sin k(x - a) \int_x^b dx' f(x') \cos k(b - x')\\
-	  &+ \sin k(b - x) \int_a^x dx' f(x') \left( k\cos k(x' - a) - \frac{1}{k \cos k (b - x')} \right).
+	= & -k\sin k(x - a) \int_x^b dx' f(x') \cos k(b - x')                                                \\
+	  & + \sin k(b - x) \int_a^x dx' f(x') \left( k\cos k(x' - a) - \frac{1}{k \cos k (b - x')} \right).
 \end{align*}
 One may verify that this solution satisfies both the boundary conditions and the given differential equation.

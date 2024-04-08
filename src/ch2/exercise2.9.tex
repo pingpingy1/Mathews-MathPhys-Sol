@@ -6,18 +6,18 @@ Half of the challenge of this problem is expressing the $n$th term in closed for
 Let us denote the first term as $a_1$.
 \begin{align*}
 	a_n
-	&= \cfrac{
+	 & = \cfrac{
 		\left( \prod_{j = 1}^{n - 1} \frac{2j - 1}{2} \right) \cdot {\left( \frac{2n - 1}{2} \right)}^2
 	}{
 		(2n + 7) (2n + 5) {(2n + 3)}^2 n!
-	} \\
-	&= \frac{(2n - 1)!! (2n - 1)}{2^{n + 1} (2n + 7) (2n + 5) {(2n + 3)}^2 n!} \\
-	&= \cfrac{\cfrac{(2n)!}{2^n n!} \cdot (2n - 1)}{2^{n + 1} (2n + 7) (2n + 5) {(2n + 3)}^2 n!} \\
-	&= \frac{(2n - 1) \cdot (2n)!}{2^{2n + 1} (2n + 7) (2n + 5) (2n + 3) {(n!)}^2}
+	}                                                                                              \\
+	 & = \frac{(2n - 1)!! (2n - 1)}{2^{n + 1} (2n + 7) (2n + 5) {(2n + 3)}^2 n!}                   \\
+	 & = \cfrac{\cfrac{(2n)!}{2^n n!} \cdot (2n - 1)}{2^{n + 1} (2n + 7) (2n + 5) {(2n + 3)}^2 n!} \\
+	 & = \frac{(2n - 1) \cdot (2n)!}{2^{2n + 1} (2n + 7) (2n + 5) (2n + 3) {(n!)}^2}
 \end{align*}
 \begin{align*}
 	\Rightarrow \frac{a_{n + 1}}{a_n}
-	&= \frac{{(2n + 1)}^2 (2n + 2) {(2n + 3)}^2}{(2n + 9) (2n + 5) {(n + 1)}^2 (2n - 1)} \\
-	&\xrightarrow{n \rightarrow \infty} 4 > 1
+	 & = \frac{{(2n + 1)}^2 (2n + 2) {(2n + 3)}^2}{(2n + 9) (2n + 5) {(n + 1)}^2 (2n - 1)} \\
+	 & \xrightarrow{n \rightarrow \infty} 4 > 1
 \end{align*}
 Therefore, the given series diverges.

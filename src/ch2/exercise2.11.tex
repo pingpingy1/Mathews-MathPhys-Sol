@@ -11,29 +11,29 @@ as they can easily be obtained by differentiation.
 We employ Horner's schema to do so.
 \[
 	\begin{array}{ c | c c c }
-	       & 1 &  2 &  1 \\
-	    -1 &   & -1 & -1 \\
+		             & 1 & 2                           & 1                      \\
+		-1           &   & -1                          & -1                     \\
 		\hline
-		   & 1 &  1 & \multicolumn{1}{|c}{0} \\
-		-\frac{3}{2} & & -\frac{3}{2} & \\
+		             & 1 & 1                           & \multicolumn{1}{|c}{0} \\
+		-\frac{3}{2} &   & -\frac{3}{2}                &                        \\
 		\hline
-		   & 1 & \multicolumn{1}{|c}{-\half} &
+		             & 1 & \multicolumn{1}{|c}{-\half} &
 	\end{array}
 \]
 \begin{align*}
 	\Rightarrow n^2 + 2n + 1
-	&= \left( \left( n + \frac{3}{2} \right) - \half \right) (n + 1) \\
-	&= \frac{1}{4} (2n + 3) (2n + 2) - \frac{1}{4} (2n + 2)
+	 & = \left( \left( n + \frac{3}{2} \right) - \half \right) (n + 1) \\
+	 & = \frac{1}{4} (2n + 3) (2n + 2) - \frac{1}{4} (2n + 2)
 \end{align*}
 \begin{align*}
 	\therefore f(x)
-	&= \frac{1}{4} \left(
-		\sum_{n = 0}^\infty \frac{{(-1)}^n}{(2n + 1)!} (2n + 3) (2n + 2) x^{2n + 1}
-	  - \sum_{n = 0}^\infty \frac{{(-1)}^n}{(2n + 1)!} (2n + 2) x^{2n + 1}
-	  \right) \\
-	&= \frac{1}{4} \frac{d^2}{dx^2} \left( \sum_{n = 0}^\infty \frac{{(-1)}^n}{(2n + 1)!} x^{2n + 3} \right)
-	  -\frac{1}{4} \frac{d}{dx} \left( \sum_{n = 0}^\infty \frac{{(-1)}^n}{(2n + 1)!} x^{2n + 2} \right) \\
-	&= \frac{1}{4} \frac{d^2}{dx^2} \left( x^2 \sin x \right) - \frac{1}{4} \frac{d}{dx} \left( x \sin x \right) \\
-	&= \frac{1}{4} \left( 2\sin x + 4x\cos x - x^2 \sin x \right) - \frac{1}{4} \left( \sin x + x \cos x \right) \\
-	&= \frac{1 - x^2}{4} \sin x + \frac{3}{4} x \cos x
+	 & = \frac{1}{4} \left(
+	\sum_{n = 0}^\infty \frac{{(-1)}^n}{(2n + 1)!} (2n + 3) (2n + 2) x^{2n + 1}
+	- \sum_{n = 0}^\infty \frac{{(-1)}^n}{(2n + 1)!} (2n + 2) x^{2n + 1}
+	\right)                                                                                                        \\
+	 & = \frac{1}{4} \frac{d^2}{dx^2} \left( \sum_{n = 0}^\infty \frac{{(-1)}^n}{(2n + 1)!} x^{2n + 3} \right)
+	-\frac{1}{4} \frac{d}{dx} \left( \sum_{n = 0}^\infty \frac{{(-1)}^n}{(2n + 1)!} x^{2n + 2} \right)             \\
+	 & = \frac{1}{4} \frac{d^2}{dx^2} \left( x^2 \sin x \right) - \frac{1}{4} \frac{d}{dx} \left( x \sin x \right) \\
+	 & = \frac{1}{4} \left( 2\sin x + 4x\cos x - x^2 \sin x \right) - \frac{1}{4} \left( \sin x + x \cos x \right) \\
+	 & = \frac{1 - x^2}{4} \sin x + \frac{3}{4} x \cos x
 \end{align*}

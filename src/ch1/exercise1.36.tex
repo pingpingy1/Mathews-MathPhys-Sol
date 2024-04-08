@@ -2,105 +2,105 @@
 \item
 %%%%%%%%%%%%%%%%%%%%%%
 \begin{enumerate}[wide, labelindent=0pt, label= (\alph*)]
-\item
-Assume $y = \sum_{n=0}^\infty c_n x^n$.
-Using
-\[
-	y'' = y \left( x^2 - y^2 \right),\; x^2 = \sum_{n=0}^\infty \delta_{n2} x^n,
-\]
-and
-\[
-	y^2 = \sum_{n=0}^\infty \left( \sum_{k=0}^n c_k c_{n - k} \right) x^n,
-\]
-one can find (after algebraic tedium) that
-\[
-	y \left( x^2 - y^2 \right)
-	= -c_0^2 - 3c_1 c_0^2 x + \sum_{n=2}^\infty \left(
-		c_{n - 2} - \sum_{k=0}^n \sum_{l=0}^k c_l c_{k - l} c_{n - k}
-	\right) x^n
-\]
-\begin{align*}
-	\Rightarrow
-	&\left( 2c_2 + c_0^2 \right)
-	+ \left( 6c_3 + 3c_1 c_0^2 \right) x \\
-	&+ \sum_{n=2}^\infty \left(
-		(n + 2)(n + 1) c_{n + 2} - c_{n - 2}
-		+ \sum_{k=0}^n \sum_{l=0}^k c_l c_{k - l} c_{n - k}
-	\right) x^n = 0.
-\end{align*}
+	\item
+	      Assume $y = \sum_{n=0}^\infty c_n x^n$.
+	      Using
+	      \[
+		      y'' = y \left( x^2 - y^2 \right),\; x^2 = \sum_{n=0}^\infty \delta_{n2} x^n,
+	      \]
+	      and
+	      \[
+		      y^2 = \sum_{n=0}^\infty \left( \sum_{k=0}^n c_k c_{n - k} \right) x^n,
+	      \]
+	      one can find (after algebraic tedium) that
+	      \[
+		      y \left( x^2 - y^2 \right)
+		      = -c_0^2 - 3c_1 c_0^2 x + \sum_{n=2}^\infty \left(
+		      c_{n - 2} - \sum_{k=0}^n \sum_{l=0}^k c_l c_{k - l} c_{n - k}
+		      \right) x^n
+	      \]
+	      \begin{align*}
+		      \Rightarrow
+		       & \left( 2c_2 + c_0^2 \right)
+		      + \left( 6c_3 + 3c_1 c_0^2 \right) x \\
+		       & + \sum_{n=2}^\infty \left(
+		      (n + 2)(n + 1) c_{n + 2} - c_{n - 2}
+		      + \sum_{k=0}^n \sum_{l=0}^k c_l c_{k - l} c_{n - k}
+		      \right) x^n = 0.
+	      \end{align*}
 
-We thus find two degrees of freedom, namely $c_0 = A$ and $c_1 = B$.
-\[
-	c_2 = -\frac{A^2}{2},\;
-	c_3 = -\frac{A^2 B}{2},\;
-	c_{n + 2} = -\frac{1}{(n + 2)(n + 1)} \left(
-		c_{n - 2} - \sum_{k=0}^n \sum_{l = 0}^k c_l c_{k - l} c_{n - k}
-	\right)
-\]
-We could calculate a few terms using the recurrence relation:
-\[
-	c_4
-	= \frac{1}{4 \cdot 3} \left(
-		c_0 - 3c_2 c_0^2 - 3c_1^2 c_0
-	\right)
-	= \frac{A}{12} \left(
-		1 + \frac{3}{2}A^3 - 3B^2
-	\right),
-\]
-\begin{align*}
-	c_5
-	&= \frac{1}{5 \cdot 4} \left(
-		c_1 - 3c_3 c_0^2 - 6c_2 c_1 c_0 - 3c_2 c_1
-	\right) \\
-	&= \frac{B}{20} \left(
-		1 + 3A^3 \left( \frac{A}{4} + 1 \right)
-	\right)
-\end{align*}
-\begin{align*}
-	\therefore
-	y
-	=& A + Bx
-	- \frac{A^2}{2}x^2
-	- \frac{A^2 B}{2}x^3 \\
-	&+ \frac{A}{12} \left(
-		1 + \frac{3}{2}A^3 - 3B^2
-	\right) x^4
-	+ \frac{B}{20} \left(
-		1 + 3A^3 \left( \frac{A}{4} + 1 \right)
-	\right) x^5
-	+ \cdots
-\end{align*}
+	      We thus find two degrees of freedom, namely $c_0 = A$ and $c_1 = B$.
+	      \[
+		      c_2 = -\frac{A^2}{2},\;
+		      c_3 = -\frac{A^2 B}{2},\;
+		      c_{n + 2} = -\frac{1}{(n + 2)(n + 1)} \left(
+		      c_{n - 2} - \sum_{k=0}^n \sum_{l = 0}^k c_l c_{k - l} c_{n - k}
+		      \right)
+	      \]
+	      We could calculate a few terms using the recurrence relation:
+	      \[
+		      c_4
+		      = \frac{1}{4 \cdot 3} \left(
+		      c_0 - 3c_2 c_0^2 - 3c_1^2 c_0
+		      \right)
+		      = \frac{A}{12} \left(
+		      1 + \frac{3}{2}A^3 - 3B^2
+		      \right),
+	      \]
+	      \begin{align*}
+		      c_5
+		       & = \frac{1}{5 \cdot 4} \left(
+		      c_1 - 3c_3 c_0^2 - 6c_2 c_1 c_0 - 3c_2 c_1
+		      \right)                         \\
+		       & = \frac{B}{20} \left(
+		      1 + 3A^3 \left( \frac{A}{4} + 1 \right)
+		      \right)
+	      \end{align*}
+	      \begin{align*}
+		      \therefore
+		      y
+		      = & A + Bx
+		      - \frac{A^2}{2}x^2
+		      - \frac{A^2 B}{2}x^3      \\
+		        & + \frac{A}{12} \left(
+		      1 + \frac{3}{2}A^3 - 3B^2
+		      \right) x^4
+		      + \frac{B}{20} \left(
+		      1 + 3A^3 \left( \frac{A}{4} + 1 \right)
+		      \right) x^5
+		      + \cdots
+	      \end{align*}
 
-\item
-We iteratively approximate the particular nonoscillating solution, for which the second derivative would stay relatively small.
-That is, we use the following iterative scheme:
-\[
-	-xy^{(0)} + {y^{(0)}}^3 = 0,\;
-	y^{(n + 1)} = \sqrt[3]{xy^{(n)} - {y^{(n)}}''}
-\]
-We thus get
-\[
-	y^{(0)} = \sqrt{x} = x^{1/2}
-\]
-\[
-	y^{(1)}
-	= \sqrt[3]{x^{3/2} + \frac{1}{4x^{3/2}}}
-	\approx x^{1/2} + \frac{1}{12} x^{-5/2}
-\]
-\begin{align*}
-	y^{(2)}
-	&= \sqrt[3]{x^{3/2} + \frac{1}{3}x^{-3/2} - \frac{35}{48}x^{-9/2}} \\
-	&\approx x^{1/2} + \frac{1}{9}x^{-5/2} - \frac{35}{144}x^{-11/2}
-\end{align*}
-\begin{align*}
-	y^{(3)}
-	&= \sqrt[3]{x^{3/2} + \frac{13}{36}x^{-3/2} - \frac{175}{144}x^{-9/2} + \frac{5005}{576}x^{-15/2}} \\
-	&\approx x^{1/2} + \frac{13}{108}x^{-5/2} - \frac{175}{432}x^{-11/2} + \frac{5005}{1728}x^{-17/2}
-\end{align*}
-\[
-	\therefore y \approx x^{1/2} + \frac{13}{108}x^{-5/2} - \frac{175}{432}x^{-11/2} + \frac{5005}{1728}x^{-17/2}
-\]
+	\item
+	      We iteratively approximate the particular nonoscillating solution, for which the second derivative would stay relatively small.
+	      That is, we use the following iterative scheme:
+	      \[
+		      -xy^{(0)} + {y^{(0)}}^3 = 0,\;
+		      y^{(n + 1)} = \sqrt[3]{xy^{(n)} - {y^{(n)}}''}
+	      \]
+	      We thus get
+	      \[
+		      y^{(0)} = \sqrt{x} = x^{1/2}
+	      \]
+	      \[
+		      y^{(1)}
+		      = \sqrt[3]{x^{3/2} + \frac{1}{4x^{3/2}}}
+		      \approx x^{1/2} + \frac{1}{12} x^{-5/2}
+	      \]
+	      \begin{align*}
+		      y^{(2)}
+		       & = \sqrt[3]{x^{3/2} + \frac{1}{3}x^{-3/2} - \frac{35}{48}x^{-9/2}} \\
+		       & \approx x^{1/2} + \frac{1}{9}x^{-5/2} - \frac{35}{144}x^{-11/2}
+	      \end{align*}
+	      \begin{align*}
+		      y^{(3)}
+		       & = \sqrt[3]{x^{3/2} + \frac{13}{36}x^{-3/2} - \frac{175}{144}x^{-9/2} + \frac{5005}{576}x^{-15/2}} \\
+		       & \approx x^{1/2} + \frac{13}{108}x^{-5/2} - \frac{175}{432}x^{-11/2} + \frac{5005}{1728}x^{-17/2}
+	      \end{align*}
+	      \[
+		      \therefore y \approx x^{1/2} + \frac{13}{108}x^{-5/2} - \frac{175}{432}x^{-11/2} + \frac{5005}{1728}x^{-17/2}
+	      \]
 
-(Note: One may find more accurate approximations by (i) iterating more times, or (ii) expanding to more terms for each binomial expansion above.)
+	      (Note: One may find more accurate approximations by (i) iterating more times, or (ii) expanding to more terms for each binomial expansion above.)
 
 \end{enumerate}
