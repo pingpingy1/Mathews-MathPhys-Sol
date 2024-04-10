@@ -1,0 +1,42 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+		% Axes
+		\draw[axis] (-2cm, 0cm) -- (2cm, 0cm) node[right] {$\Re$};
+		\draw[axis] (0cm, -1cm) -- (0cm, 3cm) node[right] {$\Im$};
+
+		% Poles
+		\node[pole] (A) at (0cm, -0.7cm) {}; \node[right] at (A.east) {$-ia$};
+		\node[pole] (B) at (0cm,  0.7cm) {}; \node[right] at (B.east) {$ia$};
+
+		% Contour
+		\def\R{1.8cm}
+		\draw[contour] (-\R, 0cm) node[below] {$-R$} -- (\R, 0cm) node[below] {$R$};
+		\draw[contour] (\R, 0cm) arc (0:180:\R);
+		\node[blue, right, yshift=0.2cm] at (0cm, \R) {$iR$};
+	\end{tikzpicture}
+	\caption{Contour for \refprob{}~3--12 and 3--13.}%
+	\label{fig:problem3-12}
+\end{figure}
+
+We shall perform a contour integral of $f(z) := \frac{z^2}{{\left( a^2 + z^2 \right)}^2}$ along \reffig{}~\ref{fig:problem3-12}.
+\[
+	\oint_C dz f(z)
+	= 2i\pi \res{z = ia} f(z)
+	= 2i\pi \cdot \evalAt{\frac{d}{dz} \frac{z^2}{{\left( z + ia \right)}^2}}{z = ia}
+	= \frac{\pi}{2a}
+\]
+We also have
+\begin{align*}
+	\oint_C dx f(z)
+	 & = \int_{-R}^{R} dx \frac{x^2}{{\left( a^2 + x^2 \right)}^2}
+	+\int_0^{\pi} d\theta iRe^{i\theta} \frac{R^2 e^{2i\theta}}{{\left( a^2 + R^2 e^{2i\theta} \right)}^2}     \\
+	 & \xrightarrow{R \rightarrow \infty} \int_{-\infty}^{\infty} dx \frac{x^2}{{\left( a^2 + x^2 \right)}^2}.
+\end{align*}
+\[
+	\therefore \int_{-\infty}^{\infty} dx \frac{x^2}{{a^2 + x^2}^2} = \frac{\pi}{2a}
+\]

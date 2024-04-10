@@ -1,0 +1,48 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+		% Axes
+		\draw[axis] (-2cm, 0cm) -- (2cm, 0cm) node[right] {$\Re$};
+		\draw[axis] (0cm, -1cm) -- (0cm, 3cm) node[right] {$\Im$};
+
+		% Poles
+		\def\w{0.7cm}
+		\def\e{0.2cm}
+		\node[pole] (A) at ( \w, \e) {}; \node[above] at (A.north) {$ \omega_0 + i\epsilon$};
+		\node[pole] (B) at (-\w, \e) {}; \node[above] at (B.north) {$-\omega_0 + i\epsilon$};
+
+		% Contour
+		\def\R{1.8cm}
+		\draw[contour] (-\R, 0cm) node[below] {$-R$} -- (\R, 0cm) node[below] {$R$};
+		\draw[contour] ( \R, 0cm) arc (0:180:\R);
+		\node[blue, right, yshift=0.2cm] at (0cm, \R) {$iR$};
+	\end{tikzpicture}
+	\caption{Contour for \refprob{}~3--11.}%
+	\label{fig:problem3-11}
+\end{figure}
+
+We shall perform a contour integral of $f(\omega) := \frac{e^{i\omega t}}{\omega^2 - \omega_0^2}$ along \reffig{}~\ref{fig:problem3-11}.
+\[
+	\oint_C d\omega f(\omega)
+	= 2i\pi \left( \res{\omega = -\omega_0} f(\omega) + \res{\omega = \omega_0} f(\omega) \right)
+	= -\frac{2\pi}{\omega_0} \sin \omega_0 t
+\]
+We also have
+\begin{align*}
+	\oint_C d\omega f(\omega)
+	 & = \int_{-R}^R d\omega \frac{e^{i\omega t}}{\omega^2 - \omega_0^2}
+	+ \int_0^\pi d\theta iRe^{i\theta} \frac{e^{iRte^{i\theta}}}{R^2 e^{2i\theta} - \omega_0^2}                     \\
+	 & \xrightarrow{R \rightarrow \infty} \int_{-\infty}^\infty d\omega \frac{e^{i\omega t}}{\omega^2 - \omega_0^2}
+\end{align*}
+\[
+	\therefore \int_{-\infty}^{\infty} d\omega \frac{e^{i\omega t}}{\omega^2 - \omega_0^2}
+	= -\frac{2\pi}{\omega_0} \sin \omega_0 t
+\]
+
+(Note: As there are poles on the real axis, this integral technically diverges without the ``slightly above the axis'' condition.
+If this integral were to have physical meaning, then this assumption must be physically explained, for example using causality arguments.
+Another way around this is to use the ``Cauchy principal value'' of the integral, whose formula is shown in \refeq{}~A--17.)
