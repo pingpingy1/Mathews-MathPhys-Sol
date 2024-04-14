@@ -1,0 +1,56 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+		% Axes
+		\draw[axis] (-1cm, 0cm) -- (3cm, 0cm) node[right] {$\Re$};
+		\draw[axis] (0cm, -1cm) -- (0cm, 3cm) node[right] {$\Im$};
+
+		% Poles
+		\def\poleR{0.7cm}
+		\node[pole] (A) at ( 0.809*\poleR,  0.588*\poleR) {}; \node[right] at (A.east) {$e^{i\frac{\pi}{5}}$};
+		\node[pole]     at (-0.309*\poleR,  0.951*\poleR) {};
+		\node[pole]     at (      -\poleR,           0cm) {};
+		\node[pole]     at (-0.309*\poleR, -0.951*\poleR) {};
+		\node[pole]     at ( 0.809*\poleR, -0.588*\poleR) {};
+
+		% Contour
+		\def\R{2.8cm}
+		\def\angleFrac{0.7}
+		\draw[contour] (0cm, 0cm) -- (\R, 0cm) node[below] {$R$};
+		\draw[contour] (\R, 0cm) arc (0:72:\R);
+		\draw[contour] (0.309*\R, 0.951*\R) -- (0cm, 0cm);
+		\draw[
+			black, ->, thick,
+			decoration={markings, mark=at position 0.5 with {\node[right] {$\frac{2\pi}{5}$};}},
+			postaction={decorate}
+		] (\angleFrac*\R, 0cm) arc (0:72:\angleFrac*\R);
+		% \draw[contour] (-\R, 0cm) node[below] {$-R$} -- (\R, 0cm) node[below] {$R$};
+		% \draw[contour] (\R, 0cm) arc (0:180:\R);
+		% \node[blue, right, yshift=0.2cm] at (0cm, \R) {$iR$};
+	\end{tikzpicture}
+	\caption{Contour for \refprob{}~3--15.}%
+	\label{fig:problem3-15}
+\end{figure}
+
+We shall perform a contour integral of $f(z) := \frac{z}{1 + z^5}$ along \reffig{}~\ref{fig:problem3-15}.
+\[
+	\oint_C dz f(z)
+	= 2i\pi \res{z = e^{i\frac{\pi}{5}}} f(z)
+	= 2i\pi \cdot \evalAt{\frac{z}{5z^4}}{z = e^{i\frac{\pi}{5}}}
+	= \frac{2\pi}{5} e^{-i\frac{\pi}{10}}
+\]
+We also have
+\begin{align*}
+	\oint_C dx f(z)
+	 & = \int_0^R dx \frac{x}{1 +x^5}
+	+ \int_0^{\frac{2\pi}{5}} d\theta iRe^{i\theta} \frac{Re^{i\theta}}{1 + R^5 e^{5i\theta}}
+	+ \int_R^0 dx e^{i\frac{2\pi}{5}} \frac{xe^{i\frac{2\pi}{5}}}{1 + x^5}                                           \\
+	 & \xrightarrow{R \rightarrow \infty} \left( 1 + e^{-i\frac{\pi}{5}} \right) \int_0^\infty dx \frac{x}{1 + x^5}.
+\end{align*}
+\[
+	\therefore \int_0^\infty dx \frac{x}{1 + x^5} = \frac{\pi}{5 \cos \frac{\pi}{10}}
+\]

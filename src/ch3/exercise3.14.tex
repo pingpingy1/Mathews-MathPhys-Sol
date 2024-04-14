@@ -1,0 +1,19 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{align*}
+	I
+	 & := \int_{-1}^1 \frac{dx}{\sqrt{1 - x^2} (a + bx)}                                                                  \\
+	 & = \int_{-\halfpi}^\halfpi d\theta \frac{\cos\theta}{\cos\theta \left( a + b\sin\theta \right)} & (x = \sin \theta) \\
+	 & = \half \int_0^{2\pi} \frac{d\theta}{a + b\sin\theta}                                                              \\
+	 & = \oint_{\abs{z} = 1} \frac{dz/iz}{a + \frac{b}{2i}\left( z - \frac{1}{z} \right)}             & (z = e^{i\theta}) \\
+	 & = \oint_{\abs{z} = 1} \frac{dz}{bz^2 + 2iaz - b}
+\end{align*}
+Notice that the last integrand has simple poles at $z_{\pm}^* := \frac{-a \pm \sqrt{a^2 - b^2}}{b}i$,
+of which only the positive one lies inside the unit circle.
+\[
+	\therefore I
+	= 2i\pi \res{z = z_+^*} \frac{1}{bz^2 + 2iaz - b}
+	= \frac{\pi}{\sqrt{a^2 - b^2}}
+\]
