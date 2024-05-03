@@ -1,0 +1,44 @@
+%%%%%%%%%%%%%%%%%%%%%%%                                                          
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+Let $z := e^{i\theta}$.
+\[
+	dz = ie^{i\theta} d\theta,\;
+	\cos\theta = \half\left( z + \inv{z} \right),\;
+	\sin^2 \theta = \frac{1 - \cos 2\theta}{2} = \inv{4}\left( 2 - z^2 - \inv{z^2} \right)
+\]
+\begin{align*}
+	I
+    &:= \int_0^{2\pi} d\theta \frac{\sin^2 \theta}{a + b\cos\theta} \\
+    &= \half \oint_{\abs{z} = 1} \frac{
+        -{\left( z^2 - 1 \right)}^2
+    }{
+        z \left( bz^2 + 2az + b \right)
+    }
+\end{align*}
+Let $f(z)$ be the integrand here.
+$f(z)$ has simple poles at
+\[
+    0,\; z^*_\pm := \frac{-a \pm \sqrt{a^2 - b^2}}{b},
+\]
+among which $0$ and $z^*_+$ lie within the unit circle (which is our contour).
+
+\begin{align*}
+    \therefore I
+    &= \half \cdot 2i\pi \left( \res{z = 0} f(z) + \res{z = z^*_+} f(z) \right) \\
+    &= i\pi \left(
+        \evalAt{
+            \frac{-{\left( z^2 - 1 \right)}^2}{bz^2 + 2az + b}
+        }{z = 0} + \evalAt{ 
+            \frac{-{\left( z^2 - 1 \right)}^2}{z \left( bz + a + \sqrt{a^2 - b^2} \right)}
+        }{z = z^*_+}
+    \right) \\
+    &= \frac{i\pi}{b} \left(
+        -1 + 4\frac{
+            a^4 + b^4 - 2ab\left( (a-b)\sqrt{a^2 - b^2} + b^2 \right)
+        }{
+            -a + \sqrt{a^2 - b^2}
+        }
+    \right)
+\end{align*}

@@ -1,0 +1,73 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+		% Axes
+		\draw[axis] (-2cm, 0cm) -- (2cm, 0cm) node[right] {$\Re$};
+		\draw[axis] (0cm, -1cm) -- (0cm, 3cm) node[right] {$\Im$};
+
+		% Poles
+        \node[pole] (A) at (0cm, -0.7cm) {}; \node[right] at (A.east) {$-i$};
+        \node[pole] (B) at (0cm,  0.7cm) {}; \node[right] at (B.east) {$i$};
+        \node[pole] (C) at (0cm,  1.4cm) {}; \node[right] at (C.east) {$2i$};
+        \node[pole] (D) at (0cm,  2.1cm) {}; \node[right] at (D.east) {$3i$};
+
+		% Contour
+		\def\R{1.8cm}
+        \draw[contour] (-\R, 0cm) node[below] {$-R$} -- (\R, 0cm) node[below] {$R$};
+		\draw[contour] (\R, 0cm) arc (0:180:\R);
+        \node[blue, left, yshift=0.2cm] at (0cm, \R) {$iR$};
+	\end{tikzpicture}
+	\caption{Contour for \refprob{}~3--17.}%
+	\label{fig:problem3-17}
+\end{figure}
+
+We must first determine whether, or more precisely, for which values of $a$, this integral converges.
+As $\abs{x} \rightarrow \infty$, $\sinh ax \sim e^{\abs{ax}}$.
+Thus, this integral converges whenever $\abs{a} < \pi$.
+
+Let $f(z) := \frac{\sinh az}{\sinh \pi z}$
+The singularity at the origin is removable, as
+\[
+    \lim{z \rightarrow 0} \frac{\sinh az}{\sinh \pi z}
+    = \lim_{z \rightarrow 0} \frac{a \cosh az}{\pi \cosh \pi z}
+    = \frac{a}{\pi}
+\]
+via L'H\^opital's rule.
+(Note the sloppy math here:
+the first equality hold only because the second expression does indeed converge to a finite number.
+If this were a calculus class, this equation is prone to points lost;
+since this is physics, we can proceed as is.)
+Thus, $f(z)$ has poles at $z = im,\; m \in \mathbb{Z} \backslash \{0\}$.
+We ignore cases where $a$ is a rational multiple of $\pi$ for convinience;
+these cases are left as exercise for the reader.\footnote{
+Just kidding!
+I will come back for this later, but if you'd like to help,
+please consider discussing on \url{https://github.com/pingpingy1/Mathews-MathPhys-Sol/issues/1}.
+}
+
+Consider the contour shown in \reffig~\ref{fig:problem3-17}.
+\begin{align*}
+    \oint_C dz f(z)
+    &\xrightarrow{R \rightarrow \infty} 2i\pi \sum_{m=1}^\infty \res{z = im} f(z) \\
+    &= 2i \sum_{m=1}^\infty \frac{\sinh iam}{\cosh i\pi m} \\
+    &= 2\sum_{m=1}^\infty {(-1)}^{m-1} \sin am \\
+    &= 2 \Im\left\{ \sum_{m=1}^\infty e^{i(m-1)\pi} e^{iam} \right\} \\
+    &= \tan \frac{a}{2}
+\end{align*}
+We also have
+\begin{align*}
+    \oint_C dz f(z)
+    &= \int_{-R}^R dx \frac{\sinh ax}{\sinh \pi x}
+     + \int_0^\pi d\theta iRe^{i\theta} \frac{\sinh\left( aRe^{i\theta} \right)}{\sinh\left( \pi Re^{i\theta} \right)} \\ 
+    &= \int_{-R}^R dx \frac{\sinh ax}{\sinh \pi x}
+     + O\left( \frac{R}{e^{\left( \pi - \abs{a} \right)}R} \right) \\
+    &\xrightarrow{R \rightarrow \infty} \int_{-\infty}^\infty dx \frac{\sinh ax}{\sinh \pi x}
+\end{align*}
+
+\[
+    \therefore \int_{-\infty}^\infty dx \frac{\sinh ax}{\sinh \pi x} = \tan \frac{a}{2}
+\]
