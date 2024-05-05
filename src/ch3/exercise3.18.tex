@@ -1,0 +1,71 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+		% Axes
+		\draw[axis] (-2cm, 0cm) -- (2cm, 0cm) node[right] {$\Re$};
+		\draw[axis] (0cm, -2cm) -- (0cm, 2cm) node[right] {$\Im$};
+
+		% Branch cut
+		\node[pole] at (0cm, 0cm) {};
+		\draw[branch cut] (0cm, 0cm) -- (1.9cm, 0cm);
+
+		% Poles
+        	\node[pole] (A) at (0cm, -0.7cm) {}; \node[right] at (A.east) {$-i$};
+        	\node[pole] (B) at (0cm,  0.7cm) {}; \node[right] at (B.east) {$i$};
+
+		% Contour
+		\def\R{1.8cm}
+		\def\eps{0.4cm}
+        	%%% TODO: Remove these magical constants
+		\draw[contour] (0.7071*\eps, 0.7071*\eps) -- (1.7776cm, 0.7071*\eps) node[below] {$R$};
+		\draw[contour] (1.7776cm, 0.7071*\eps) arc (9.0406:350.9093:\R);
+		\draw[contour] (1.7776cm, -0.7071*\eps) -- (0.7071*\eps, -0.7071*\eps);
+		\draw[contour] (0.7071*\eps, -0.7071*\eps) arc (315:45:\eps);
+	\end{tikzpicture}
+	\caption{Contour for \refprob{}~3--18.}%
+	\label{fig:problem3-18}
+\end{figure}
+
+Recalling the exercise in the main text regarding \refeq~(3--37),
+we could infer that a direct contour integration of the integrand along some contour analogous to \reffig~3--3
+would lead to a loss in the exponent of the logarithm (or one could just do it and observe).
+
+Thus, let $f(z) := \frac{{\left( \ln z \right)}^3}{1 + z^2}$,
+where we place the branch cut on the real axis and $\arg z = 0$ just above the real axis.
+As such, the poles of $f(z)$ have arguments $\frac{\pi}{2}$ and $\frac{3\pi}{2}$.
+Consider the contour shown in \reffig~\ref{fig:problem3-18}.
+\begin{align*}
+	\oint_C dz f(z)
+	&= 2i\pi \left( \res{z=i} f(z) + \res{z=-i} f(z) \right) \\
+	&= 2i\pi \left( \evalAt{\frac{{\left( \ln z \right)}^3}{2z}}{z=i} + \evalAt{\frac{{\left( \ln z \right)}^3}{2z}}{z=-i} \right) \\
+	&= \frac{13}{4}i\pi
+\end{align*}
+We also have
+\begin{align*}
+    \oint_C dz f(z)
+    &= \int_\epsilon^R dx \frac{{\left( \ln x \right)}^3}{1 +x^2}
+     + \int_0^{2\pi} d\theta iRe^{i\theta} \frac{{\left( \ln R + i\theta\right)}^3}{R^2 e^{2i\theta} + 1}
+     + \int_R^\epsilon dx \frac{{\left( \ln x + 2i\pi \right)}^3}{1 + x^2}
+     + \int_{2\pi}^0 d\theta i\epsilon e^{i\theta} \frac{{\left(\ln\epsilon + i\theta\right)}^3}{\epsilon^2 e^{2i\theta} + 1} \\
+    &\xrightarrow[\epsilon \rightarrow 0]{R \rightarrow \infty}
+        -6i\pi \int_0^\infty dx \frac{{\left( \ln x \right)}^2}{1 + x^2}
+	+ 12\pi^2 \int_0^\infty dx \frac{\ln x}{1 + x^2}
+	+ 4i\pi^4.
+\end{align*}
+
+This same procedure can be used to show that
+\[
+    \int_0^\infty dx \frac{\ln x}{1 + x^2} = 0,
+\]
+which is left as an exercise to the reader\footnote{
+Just kidding!
+I will get back to this, but if you could, please consider discussing on \url{https://github.com/pingpingy1/Mathews-MathPhys-Sol/issues/2}.
+}.
+
+\[
+	\therefore \int_0^\infty dx \frac{{\ln x}^2}{1 + x^2} = \frac{\pi^3}{8}
+\]
