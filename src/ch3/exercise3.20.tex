@@ -1,0 +1,42 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+		% Axes
+		\draw[axis] (-2cm, 0cm) -- (2cm, 0cm) node[right] {$\Re$};
+		\draw[axis] (0cm, -1cm) -- (0cm, 3cm) node[right] {$\Im$};
+
+		% Poles
+		\node[pole] (A) at (0cm, -0.7cm) {}; \node[right] at (A.east) {$-i\sqrt{\frac{a}{b}}$};
+		\node[pole] (B) at (0cm,  0.7cm) {}; \node[right] at (B.east) {$i\sqrt{\frac{a}{b}}$};
+
+		% Contour
+		\def\R{1.8cm}
+		\draw[contour] (-\R, 0cm) node[below] {$-R$} -- (\R, 0cm) node[below] {$R$};
+		\draw[contour] (\R, 0cm) arc (0:180:\R);
+		\node[blue, right, yshift=0.2cm] at (0cm, \R) {$iR$};
+	\end{tikzpicture}
+	\caption{Contour for \refprob{}~3--20.}%
+	\label{fig:problem3-20}
+\end{figure}
+
+We shall perform a contour integral of $f(z) := \inv{{\left( a + bz^2 \right)}^3}$ along \reffig{}~\ref{fig:problem3-20}.
+\[
+	\oint_C dz f(z)
+	= 2i\pi \res{z=i\sqrt{\frac{a}{b}}} f(z)
+	= \frac{2i\pi}{2!} \cdot \evalAt{\frac{d^2}{dz^2} \inv{b^{3/2} {\left( \sqrt{b}z + i\sqrt{a} \right)}^3}}{z=i\sqrt{\frac{a}{b}}}
+	= \frac{3\pi}{8 a^{5/2} b^{1/2}}
+\]
+We also have
+\[
+    \oint_C dx f(z)
+    = \int_{-R}^{R} \frac{dx}{{\left( a + bx^2 \right)}^3}
+     + \int_0^{\pi} d\theta \frac{iRe^{i\theta}}{{\left( a + bR^2 e^{2i\theta} \right)}^3}
+    \xrightarrow{R \rightarrow \infty} 2\int_0^{\infty} \frac{dx}{{\left( a + bx^3 \right)}^3}.
+\]
+\[
+	\therefore \int_0^{\infty} \frac{dx}{{\left( a + bx^3 \right)}^3} = \frac{3\pi}{16 a^{5/2} b^{1/2}}
+\]

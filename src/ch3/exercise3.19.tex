@@ -1,0 +1,52 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+		% Axes
+		\draw[axis] (-2cm, 0cm) -- (2cm, 0cm) node[right] {$\Re$};
+		\draw[axis] (0cm, -1cm) -- (0cm, 3cm) node[right] {$\Im$};
+
+		% Poles
+		\node[pole] (A) at ( 0.35cm,  0.6062cm) {}; \node[right] at (A.east) {$e^{i\frac{\pi}{3}}$};
+		\node[pole] (B) at (-0.35cm,  0.6062cm) {}; \node[left]  at (B.west) {$e^{i\frac{2\pi}{3}}$};
+		\node[pole]     at ( 0.35cm, -0.6062cm) {};
+		\node[pole]     at (-0.35cm, -0.6062cm) {};
+
+		% Contour
+		\def\R{1.8cm}
+		\draw[contour] (-\R, 0cm) node[below] {$-R$} -- (\R, 0cm) node[below] {$R$};
+		\draw[contour] (\R, 0cm) arc (0:180:\R);
+		\node[blue, right, yshift=0.2cm] at (0cm, \R) {$iR$};
+	\end{tikzpicture}
+	\caption{Contour for \refprob{}~3--19.}%
+	\label{fig:problem3-19}
+\end{figure}
+
+Let $f(z) := \inv{1 + z^2 + z^4}$.
+Notice that $z^6 - 1 = \left( z^2 - 1 \right) \left( z^4 + z^2 + 1 \right)$,
+so the poles of $f(z)$ lie at
+$e^{i\frac{\pi}{3}},\; e^{i\frac{2\pi}{3}},\; e^{i\frac{4\pi}{3}} \text{, and } e^{i\frac{5\pi}{3}}$.
+
+Consider the contour shown in \reffig~\ref{fig:problem3-19}.
+\begin{align*}
+	\oint_C dz f(z)
+	&= 2i\pi \left( \res{z=e^{i\frac{\pi}{3}}} f(z) + \res{z=e^{i\frac{2\pi}{3}}} f(z) \right) \\
+	&= 2i\pi \left( \evalAt{\inv{4z^3 + 2z}}{z=e^{i\frac{\pi}{3}}} + \evalAt{\inv{4z^3 + 2z}}{z=e^{i\frac{2\pi}{3}}} \right) \\
+	&= \frac{\pi}{\sqrt{3}}
+\end{align*}
+
+We also have
+\[
+    \oint_C dz f(z)
+    = \int_{-R}^R \frac{dx}{1 + x^2 + x^4}
+     + \int_0^\pi d\theta \frac{iRe^{i\theta}}{1 + R^2 e^{2i\theta} + R^4 e^{4i\theta}} \\
+    \xrightarrow{R \rightarrow \infty}
+     2\int_0^\infty \frac{dx}{1 + x^2 + x^4}.
+\]
+
+\[
+    \therefore \int_0^\infty \frac{dx}{1 + x^2 + x^4} = \frac{\pi}{2\sqrt{3}}
+\]
