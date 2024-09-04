@@ -1,0 +1,15 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+We suspect that changing the range of integration to $[0, 1]$ might be beneficial
+in expressing this integral as a Beta function.
+Thus, let $u := \frac{x + 2}{4}$.
+
+\begin{align*}
+    \int_{-2}^2 dx {\left( 4 - x^2 \right)}^{1/6}
+    &= \int_0^1 4du \cdot {\left( 4 - {\left( 4u - 2 \right)}^2 \right)}^{1/6} \\
+    &= 2^{8/3} \int_0^1 du u^{1/6} {(1 - u)}^{1/6} \\
+    &= 2^{8/3} \Beta\left( \inv{6}, \inv{6} \right)
+     = 2^{8/3} \frac{{\Gamma\left( \inv{6} \right)}^2}{\Gamma\left( \inv{3} \right)}
+\end{align*}

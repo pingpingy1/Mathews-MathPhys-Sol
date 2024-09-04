@@ -1,0 +1,23 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+Let us perform the change of variable $z := e^{i\theta}$,
+such that the contour of integration is around the unit circle.
+\begin{align*}
+    \int_0^{2\pi} \frac{d\theta}{{\left( a + b\cos\theta \right)}^2}
+    &= \oint_{\abs{z} = 1} \frac{dz / iz}{{\left( a + \frac{b}{2}\left( z + \inv{z} \right) \right)}^2} \\
+    &= -4i \oint_{\abs{z} = 1} dz \frac{z}{{\left( bz^2 + 2az + b \right)}^2}
+\end{align*}
+The integrand has poles of second order at
+\[
+    z_\pm^* := \frac{-a \pm \sqrt{a^2 - b^2}}{b},
+\]
+but only $z_+^*$ lies inside the unit circle.
+
+\begin{align*}
+    \therefore \int_0^{2\pi} \frac{d\theta}{{\left( a + b\cos\theta \right)}^2}
+    &= -4i \cdot 2i\pi \res{z = z_+^*} f(z) \\
+    &= 8\pi \cdot \evalAt{\frac{d}{dz} \frac{z}{{\left( bz + a + \sqrt{a^2 - b^2} \right)}^2}}{z = z_+^*} \\
+    &= \frac{2\pi a}{{\left( a^2 - b^2 \right)}^{3/2}}
+\end{align*}

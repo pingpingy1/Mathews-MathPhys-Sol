@@ -1,0 +1,62 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+		% Axes
+		\draw[axis] (-2cm, 0cm) -- (2cm, 0cm) node[right] {$\Re$};
+		\draw[axis] (0cm, -2cm) -- (0cm, 2cm) node[right] {$\Im$};
+
+		% Branch cut
+		\node[pole] at (0cm, 0cm) {};
+		\draw[branch cut] (0cm, 0cm) -- (1.9cm, 0cm);
+
+		% Poles
+        \node[pole] (A) at (-0.7cm, 0cm) {}; \node[below] at (A.south) {$-1$};
+
+		% Contour
+		\def\R{1.8cm}
+		\def\eps{0.4cm}
+        	%%% TODO: Remove these magical constants
+		\draw[contour] (0.7071*\eps, 0.7071*\eps) -- (1.7776cm, 0.7071*\eps) node[below] {$R$};
+		\draw[contour] (1.7776cm, 0.7071*\eps) arc (9.0406:350.9093:\R);
+		\draw[contour] (1.7776cm, -0.7071*\eps) -- (0.7071*\eps, -0.7071*\eps);
+		\draw[contour] (0.7071*\eps, -0.7071*\eps) arc (315:45:\eps);
+	\end{tikzpicture}
+	\caption{Contour for \refprob{}~3--24.}%
+	\label{fig:problem3-24}
+\end{figure}
+
+Let $f(z) := \frac{{\left( \ln z \right)}^2}{{\left( z + 1 \right)}^2}$,
+where we place the branch cut on the real axis and $\arg z = 0$ just above the real axis.
+(Recall the exercise in the main text regarding \refeq~(3--37);
+we need an extra $\ln z$ for this procedure!)
+As such, the pole of $f(z)$ has argument $\pi$.
+Consider the contour shown in \reffig~\ref{fig:problem3-24}.
+\begin{align*}
+	\oint_C dz f(z)
+	&= 2i\pi \res{z=-1} f(z) \\
+	&= 2i\pi \cdot \evalAt{\frac{d^2}{dz^2} {\left( \ln z \right)}^2}{z = e^{i\pi}} \\
+	&= 4\pi^2
+\end{align*}
+We also have
+\begin{align*} % TODO: Make this prettier!!
+    \oint_C dz f(z)
+    &= \int_\epsilon^R dx \frac{{\left( \ln x \right)}^2}{{\left( x + 1 \right)}^2}
+      + \int_0^{2\pi} d\theta iRe^{i\theta} \frac{{\left( \ln R + i\theta\right)}^2}{{\left( Re^{i\theta} + 1 \right)}^2} \\
+    & + \int_R^\epsilon dx \frac{{\left( \ln x + 2i\pi \right)}^2}{{\left( x + 1 \right)}^2}
+      + \int_{2\pi}^0 d\theta i\epsilon e^{i\theta} \frac{{\left(\ln\epsilon + i\theta\right)}^2}{{\left( \epsilon e^{i\theta} + 1 \right)}^2} \\
+    &\xrightarrow[\epsilon \rightarrow 0]{R \rightarrow \infty} \\
+    &   \int_0^\infty dx \frac{{\left( \ln x \right)}^2}{{\left( x + 1 \right)}^2} + 0 \\
+    & + \left( - \int_0^\infty dx \frac{{\left( \ln x \right)}^2}{{\left( x + 1 \right)}^2}
+      - 4i\pi \int_0^\infty dx \frac{\ln x}{{\left( x + 1 \right)}^2}
+      + 4\pi^2 \int_0^\infty \frac{dx}{{\left( x + 1 \right)}^2} \right) \\
+    & + 0 \\
+    &= -4i\pi \int_0^\infty dx \frac{\ln x}{{\left( x + 1 \right)}^2} + 4\pi^2.
+\end{align*}
+
+\[
+	\therefore \int_0^\infty dx \frac{\ln x}{{\left( x + 1 \right)}^2} = 0
+\]

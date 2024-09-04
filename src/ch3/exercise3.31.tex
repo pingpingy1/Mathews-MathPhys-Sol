@@ -1,0 +1,115 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand*{\zoff}[1]{z_{\text{off}}^{\left( #1 \right)}}   % Poles off of the real axis
+\newcommand*{\Roff}[1]{R_{\text{off}}^{\left( #1 \right)}}   % Residues off the real axis
+\newcommand*{\zon}[1]{z_{\text{on}}^{\left( #1 \right)}}     % Poles on the real axis
+\newcommand*{\Ron}[1]{R_{\text{on}}^{\left( #1 \right)}}     % Residues on the real axis
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+		% Axes
+		\draw[axis] (-3cm, 0cm) -- (3cm, 0cm) node[right] {$\Re$};
+		\draw[axis] (0cm, -2cm) -- (0cm, 2cm) node[right] {$\Im$};
+
+		% Poles
+		\node[pole] (A) at (-2.1cm, 0cm) {}; \node[below] at (A.south) {$-3$};
+		\node[pole] (B) at (-1.4cm, 0cm) {}; \node[below] at (B.south) {$-2$};
+		\node[pole] (C) at (-0.7cm, 0cm) {}; \node[below] at (C.south) {$-1$};
+        \node[pole] (D) at (   0cm, 0cm) {}; \node[below, xshift=-0.2cm] at (D.south) {$0$};
+        \node[pole] (E) at ( 0.7cm, 0cm) {}; \node[below] at (E.south) {$ 1$};
+        \node[pole] (F) at ( 1.4cm, 0cm) {}; \node[below] at (F.south) {$ 2$};
+        \node[pole] (G) at ( 2.1cm, 0cm) {}; \node[below] at (G.south) {$ 3$};
+
+        \node[pole] (H) at ( 0.9cm,  1.2cm) {}; \node[right] at (H.east) {$\zoff{i}$};
+        \node[pole]     at (-2.0cm,  0.9cm) {};
+        \node[pole]     at (-0.3cm, -1.1cm) {};
+
+        \node[pole] (I) at (0.35cm, 0cm) {}; \node[above] at (I.north) {$\zon{i}$};
+
+		% Contour
+        \draw[contour] ( 2.7cm, 0cm) arc (  0:180:2.7cm and 0.7cm);
+        \draw[contour] (-2.7cm, 0cm) arc (180:360:2.7cm and 0.7cm);
+        \node[blue] at (2.6cm, 0.5cm) {$C_1$};
+
+        \draw[contour, color=magenta] ( 2.1066cm,  0.4821cm) arc (-10:85:3cm and 1.5cm);
+        \draw[contour, color=magenta] ( 2.1066cm, -0.4821cm) arc (320:40:2.75cm and 0.75cm);
+        \draw[contour, color=magenta] (-0.5864cm, -2.2369cm) arc (-85:10:3cm and 1.5cm);
+        \node[magenta] at (2.5cm, -0.7cm) {$C_2$};
+	\end{tikzpicture}
+	\caption{Contour for \refprob{}~3--31.}%
+	\label{fig:problem3-31}
+\end{figure}
+
+\begin{enumerate}[wide, labelindent = 0pt, label = (\alph*)]
+\item
+For simplicity, we shall assume that $f(z)$ has no poles exactly on any of the real integers.
+(In fact, I am not sure if this procedure could even be done with them!)
+Let us denote the poles of $f(z)$ off of the real axis as $\zoff{i}$
+and those on the real axis as $\zon{i}$.
+(Of course, we are also assuming that $f(z)$ only has isolated singularities on the entire plane.
+Note that this is a tiny bit more general than \href{https://en.wikipedia.org/wiki/Meromorphic_function}{meromorphic functions}%
+\footnote{\url{https://en.wikipedia.org/wiki/Meromorphic_function}}, since we allow the singularities to be essential, not poles.
+We just need them to be discrete, i.e., no cluster points.)
+
+We first consider the contour $C_1$ to obtain
+\begin{align*}
+    \oint_{C_1} dz f(z) \cot \pi z
+    &= 2i\pi \sum_n \res{z=n}{f(z) \cot \pi z} + 2i\pi \sum_i \res{z=\zon{i}}{f(z) \cot \pi z} \\
+    &= 2i\pi \sum_n \evalAt{\frac{f(z) \cos \pi z}{\pi \cos \pi z}}{z=n}
+     + 2i\pi \sum_i \res{z=\zon{i}}{f(z) \cot \pi z} \\
+    &=: 2i \sum_n f(n) + 2i\pi \sum_i \Ron{i}
+\end{align*}
+where $\Ron{i} := \res{z=\zon{i}}{f(z) \cot \pi z}$.
+Similarly for $C_2$,
+\[
+    \oint_{C_2} dz f(z) \cot \pi z
+    = 2i\pi \sum_i \res{z=\zoff{i}}{f(z) \cot \pi z}
+    =: 2i \sum_n f(n) + 2i\pi \sum_i \Roff{i}
+\]
+where $\Roff{i} := \res{z=\zoff{i}}{f(z) \cot \pi z}$.
+
+Now, following the exercise regarding \refeq~(3--43), we note that
+if $\abs{f(z)}$ vanishes sufficiently quickly\footnote{But what does this mean??!} as $z$ approaches infinity,
+then
+\[
+    \oint_{C_1 + C_2} dz f(z) \cot \pi z \xrightarrow{R \rightarrow \infty} 0.
+\]
+\[
+    \therefore \sum_n f(n)
+    = -\pi \sum_i \Ron{i} - \pi \sum_i \Roff{i}
+    = -\pi \sum_i R^{(i)}
+\]
+where we drop the subscript as the distinction between the two types of residues have disappeared.
+
+(Note: One may be tempted to write
+\[
+    R^{(i)} = \cot \pi z^{(i)} \cdot \res{z=z^{(i)}}{f(z)}
+\]
+which may seem so since $\cot \pi z$ is analytic on a neighborhood of $z^{(i)}$;
+goodness knows I fell for this.
+However, if one considers the entire Laurent series, they can show that this is not the case.
+In particular, if $z^{(i)}$ is a pole of $n$th order,
+then the residue can be caluclated using the first $n$ Taylor coefficients of $\cot \pi z$ around $z^{(i)}$.
+This means that this naive equation holds for simple poles, specifically!
+See also: \href{https://en.wikipedia.org/wiki/Convolution}{Convolutions}%
+\footnote{\url{https://en.wikipedia.org/wiki/Convolution})}
+
+\item
+Let $f(z) := \inv{z^2 + a^2}$. This function has simple poles at $\pm ia$.
+We require that $ia$ not be an integer, as per the above discussion.
+\[
+    \res{z = \pm ia}{f(z)}
+    = \evalAt{\frac{\cot \pi z}{z \pm ia}}{z = \pm ia}
+    = \frac{\cot \pm i\pi a}{\pm 2ia}
+    = -\inv{2a} \coth \pi a
+\]
+\[
+    \therefore g(a)
+    = -\pi \left( R_+ + R_- \right)
+    = -\frac{\pi}{a} \coth \pi a
+\]
+
+\end{enumerate}

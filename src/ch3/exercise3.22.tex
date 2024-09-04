@@ -1,0 +1,27 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+We shall perform a contour integral of $f(z) := \frac{\sin z}{z \left( a^2 + z^2 \right)}$ along \reffig{}~\ref{fig:problem3-12}.
+Note that the singularity at the origin is removable, as we may define
+$f(0) := \lim_{z\rightarrow 0} f(z) = \inv{a^2}$.
+\[
+	\oint_C dz f(z)
+	= 2i\pi \res{z = ia} f(z)
+	= 2i\pi \cdot \evalAt{\frac{\sin z}{z \left( z + ia \right)}}{z = ia}
+	= \frac{\pi \sin a}{a^2}
+\]
+We also have
+\begin{align*}
+	\oint_C dx f(z)
+    &= \int_{-R}^{R} dx \frac{\sin x}{x \left( a^2 + x^2 \right)}
+     + \int_0^{\pi} d\theta iRe^{i\theta} \frac{\sin\left( Re^{i\theta} \right)}{Re^{i\theta} \left( a^2 + R^2 e^{2i\theta} \right)}     \\
+    &\xrightarrow{R \rightarrow \infty} 2\int_0^\infty dx \frac{\sin x}{x \left( a^2 + x^2 \right)}.
+\end{align*}
+(Note: One may object that it is nontrivial that the second integral vanishes in the limit,
+as $\sin z$ grows without bound along the imaginary axis.
+A physicist like myself would sweep this fact under the rug,
+but if any mathematician would like to give a more rigorous proof of this fact, I'm all ears!)
+\[
+	\therefore \int_0^\infty dx \frac{x^2}{{a^2 + x^2}^3} = \frac{\pi \sin a}{2a^2}
+\]

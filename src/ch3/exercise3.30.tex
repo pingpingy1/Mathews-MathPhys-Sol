@@ -1,0 +1,45 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+		% Axes
+		\draw[axis] (-1cm, 0cm) -- (3cm, 0cm) node[right] {$\Re$};
+		\draw[axis] (0cm, -2cm) -- (0cm, 2cm) node[right] {$\Im$};
+
+		% Branch cut
+		\node[pole] at (0cm, 0cm) {};
+		\draw[branch cut] (0cm, 0cm) -- (2.9cm, 0cm);
+
+		% Contour
+		\def\eps{0.4cm}
+        	%%% TODO: Remove these magical constants
+		\draw[contour] (2.9cm, -0.7071*\eps) -- (0.7071*\eps, -0.7071*\eps);
+		\draw[contour] (0.7071*\eps, -0.7071*\eps) arc (315:45:\eps);
+		\draw[contour] (0.7071*\eps, 0.7071*\eps) -- (2.9cm, 0.7071*\eps);
+	\end{tikzpicture}
+	\caption{Contour for \refprob{}~3--30.}%
+	\label{fig:problem3-30}
+\end{figure}
+
+The contour described in the problem is shown in \reffig~\ref{fig:problem3-30}.
+The choice of branch is such that $\Im\left\{ \ln(-t) \right\}$ equals $\pi$ just below the branch cut
+and $-\pi$ just above it.
+
+\begin{align*}
+    F(z)
+    &= \int_C dt {(-t)}^{z - 1} e^{-t} \\
+	&= \int_\infty^\epsilon dx e^{(z - 1) (\ln x + i\pi) - x} \\
+    &+ \int_0^{2\pi} d\theta i\epsilon e^{i\theta} e^{(z - 1) (\ln\epsilon + i(\pi - \theta)) - \epsilon e^{i\theta}} \\
+    &+ \int_\epsilon^\infty dx e^{(z - 1) (\ln x - i\pi) - x} \\
+    &\xrightarrow{\epsilon \rightarrow 0+}
+       - \int_0^\infty dx e^{(z - 1) (\ln x + i\pi) - x}
+       + \int_0^\infty dx e^{(z - 1) (\ln x - i\pi) - x} \\
+    &= 2i \sin \pi z \Gamma(z)
+\end{align*}
+
+\[
+	\therefore (\text{something}) = 2i \sin \pi z
+\]

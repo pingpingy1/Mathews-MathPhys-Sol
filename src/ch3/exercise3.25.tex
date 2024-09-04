@@ -1,0 +1,35 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+Let us define
+\[
+	I(a) := \int_0^\infty dx e^{-x^2} \Ci(ax).
+\]
+\begin{align*}
+    I'(a)
+    &= \int_0^\infty dx \frac{\partial}{\partial a} \left( e^{-x^2} \Ci(ax) \right) \\
+    &= \inv{a} \int_0^\infty dx e^{-x^2} \cos ax \\
+    &= \inv{2a} \int_{-\infty}^\infty dx e^{-x^2} \cos ax \\
+    &= \inv{2a} \Re \left\{ \int_{-\infty}^\infty dx e^{-x^2 + iax} \right\} \\
+    &= \frac{e^{-a^2/4}}{2a} \Re \left\{ \int_{-\infty}^\infty dx e^{-{\left( x - \frac{ia}{2} \right)}^2} \right\} \\
+    &= \frac{\sqrt{\pi} e^{-a^2/4}}{2a}
+\end{align*}
+Also, $\lim_{x \rightarrow \infty} \Ci(x) = 0$, so $\lim_{a \rightarrow \infty} I(a) = 0$.
+
+\begin{align*}
+    \therefore I(a)
+    &= \frac{\sqrt{\pi}}{2} \int_\infty^a dt \frac{e^{-t^2/4}}{t} \\
+    &= -\frac{\sqrt{\pi}}{4} \int_{-\infty}^{-a^2/4} dv \frac{e^v}{v} && (v := -\frac{t^2}{4}) \\
+    &= -\frac{\sqrt{\pi}}{4} \Ei\left( -\frac{a^2}{4} \right)
+\end{align*}
+
+(Note: What if we used $\Si$ instead of $\Ci$ inside the integrand?
+This is a harder problem since the integral
+\[
+    \int_0^\infty dx e^{-x^2} \sin ax
+\]
+is rather tricky.
+The reader is encouraged to explore this, possibly with the help of the
+\href{https://en.wikipedia.org/wiki/Dawson_function}{Dawson function}%
+\footnote{\url{https://en.wikipedia.org/wiki/Dawson_function}}.)

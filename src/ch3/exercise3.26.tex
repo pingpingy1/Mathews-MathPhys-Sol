@@ -1,0 +1,13 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{align*}
+    \int_0^\infty dx e^{-ax} \erf x
+    &= \diffBetween{-\inv{a} e^{-ax} \erf x}{0}{\infty}
+     + \inv{a} \int_0^\infty dx e^{-ax} \cdot \frac{2}{\sqrt{\pi}} e^{-x^2} \\
+    &= 0 + \frac{2}{\sqrt{\pi} a} \int_0^\infty dx e^{-x^2 - ax} \\
+    &= \frac{2}{\sqrt{\pi} a} \int_0^\infty dx e^{-{\left( x + \frac{a}{2} \right)}^2 + \frac{a^2}{4}} \\
+    &= \frac{2 e^{a^2/4}}{\sqrt{\pi} a} \int_{a/2}^\infty dx e^{-x^2} \\
+    &= \inv{a} e^{a^2/4} \left( 1 - \erf \frac{a}{2} \right)
+\end{align*}

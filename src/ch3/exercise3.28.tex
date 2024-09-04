@@ -1,0 +1,18 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\[
+    -\Ei(-x)
+    = \int_{-\infty}^{-x} dy \frac{e^y}{y}
+    = \int_\infty^x dt \frac{e^{-t}}{t}
+\]
+\begin{align*}
+    \therefore \int_0^\infty dx e^{-ax} \left( -\Ei(-x) \right)
+    &= \int_0^\infty dx \int_{\infty}^x dt \frac{e^{-ax - t}}{t} \\
+    &= -\int_0^\infty dx \int_{-(a + 1)x}^\infty du \frac{e^{-u}}{u - ax} && (u := ax + t) \\
+    &= -\int_0^\infty du \int_0^{u / (a + 1)} dx \frac{e^{-u}}{u - ax} \\ 
+    &= -\int_0^\infty du \int_0^{1/a(a + 1)} dv \frac{u}{a} \frac{e^{-u}}{u(1 - v)} && (v := \frac{ax}{u}) \\
+    &= -\inv{a} \left( \int_0^\infty du e^{-u} \right) \cdot \left( \int_0^{1/a(a + 1)} \frac{dv}{1 - v} \right) \\
+    &= \inv{a} \ln\left( 1 - \inv{a(a + 1)} \right)
+\end{align*}

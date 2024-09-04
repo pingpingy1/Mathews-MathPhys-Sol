@@ -1,0 +1,21 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+We shall perform a contour integral of $f(z) := \frac{z^2}{{\left( a^2 + z^2 \right)}^3}$ along \reffig{}~\ref{fig:problem3-12}.
+\[
+	\oint_C dz f(z)
+	= 2i\pi \res{z = ia} f(z)
+	= \frac{2i\pi}{2!} \cdot \evalAt{\frac{d^2}{dz^2} \frac{z^2}{{\left( z + ia \right)}^3}}{z = ia}
+	= \frac{\pi}{8a^3}
+\]
+We also have
+\begin{align*}
+	\oint_C dx f(z)
+    &= \int_{-R}^{R} dx \frac{x^2}{{\left( a^2 + x^2 \right)}^3}
+     + \int_0^{\pi} d\theta iRe^{i\theta} \frac{R^2 e^{2i\theta}}{{\left( a^2 + R^2 e^{2i\theta} \right)}^3}     \\
+    &\xrightarrow{R \rightarrow \infty} 2\int_0^\infty dx \frac{x^2}{{\left( a^2 + x^2 \right)}^3}.
+\end{align*}
+\[
+	\therefore \int_0^\infty dx \frac{x^2}{{a^2 + x^2}^3} = \frac{\pi}{16a^3}
+\]
