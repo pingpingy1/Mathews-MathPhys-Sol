@@ -1,0 +1,32 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+As $e^{\alpha z}$ is analytic everywhere, $\Gamma(z) e^{\alpha z}$ has poles precisely at the nonpositive integers.
+\[
+    I := \oint_{\abs{z} = \frac{5}{2}} dz \Gamma(z) e^{\alpha z}
+    = 2i\pi \left(
+        \res{z = 0}{\Gamma(z) e^{\alpha z}}
+        + \res{z = -1}{\Gamma(z) e^{\alpha z}}
+        + \res{z = -2}{\Gamma(z) e^{\alpha z}}
+    \right)
+\]
+
+To calculate these residues, we wish to transform the equation
+\[
+    \res{z = -n}{\Gamma(z) e^{\alpha z}}
+    = \lim_{z \rightarrow -n} (z + n) \Gamma(z) e^{\alpha z}
+\]
+in such a way to make the argument of the gamma function positive, where $n$ is a nonnegative integer.
+\begin{align*}
+    \res{z = -n}{\Gamma(z) e^{\alpha z}}
+    &= \lim_{z \rightarrow -n} (z + n) \Gamma(z) e^{\alpha z} \\
+    &= \lim_{z \rightarrow -n} (z + n) \cdot \frac{z (z + 1) \cdots (z + n)}{z (z + 1) \cdots (z + n)} \Gamma(z) e^{\alpha z} \\
+    &= \lim_{z \rightarrow -n} \frac{\Gamma(z + n + 1) e^{\alpha z}}{z (z + 1) \cdots (z + n - 1)} \\
+    &= \frac{\Gamma(0) e^{-n \alpha}}{(-n) (-n + 1) \cdots (-1)} \\
+    &= \frac{{\left( -e^\alpha \right)}^n}{n!}
+\end{align*}
+\[
+    \therefore I
+    = 2i\pi \left( 1 - e^\alpha + \frac{e^{2\alpha}}{2} \right)
+\]

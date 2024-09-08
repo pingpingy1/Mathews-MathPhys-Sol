@@ -1,0 +1,21 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+We make use of the saddle-point approximation for this integral.
+Let $f(t) := xt - e^t$ such that $I(x) = \int_0^\infty dt \exp(f(t))$.
+$f(t)$ has a single stationary point, which is a global maximum at $\left( \ln x, x\ln x - x \right)$.
+The second derivative of $f(t)$ is evaluated to $-x$.
+\begin{align*}
+    \therefore I
+    &\approx \int_{-\infty}^\infty dt e^{-\frac{x}{2}{\left(t - \ln x\right)}^2 + x\ln x - x} \\
+    &= e^{x\ln x - x} \int_{-\infty}^\infty dt e^{-\frac{x}{2} t^2} \\
+    &= \sqrt{\frac{2\pi}{x}} {\left( \frac{x}{e} \right)}^x
+\end{align*}
+
+What might be more important than this calculation is defending that the saddle-point approximation holds in this case.
+To this end, one should argue that the integral around the ``hump'' of $f(x)$ contributes the most to the integral.
+For this, one notices that the height of the hump grows like $x\ln x$, while the curvature at that point grows like $x$.
+Thus, the width of the hump, which can be approximated by the full width at half maximum of the parabola it is approximated as, grows like $\sqrt{\ln x}$.
+While the exact value of the width tends to grow with $x$, it is positioned at $t = \ln x$, which moves away from the origin quadratically faster than the growth of the width.
+Thus, as $x$ becomes larger, the integral is better approximated via the parabola at the hump, i.e., the saddle-point approximation.

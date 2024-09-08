@@ -1,0 +1,38 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+The average number of reactions per time is given by the integral
+\[
+    I
+    := \int_0^\infty dE N E e^{-E/kT} \cdot M e^{-\alpha / \sqrt{E}}
+    = NM \int_0^\infty dE \exp\left( -\frac{E}{kT} - \frac{\alpha}{\sqrt{E}} + \ln E \right).
+\]
+To employ the saddle-point approximation, let
+\[
+    f(E) := -\frac{E}{kT} - \frac{\alpha}{\sqrt{E}} + \ln E.
+\]
+\[
+    \Rightarrow f'(E) = -\inv{kT} + \frac{\alpha}{2E^{3/2}} + \inv{E}
+\]
+Suppose $f(E)$ has a stationary point at $E_0 = \lambda_0 kT$.
+\[
+    f'(E_0) = -\inv{kT} + \frac{\alpha}{2{(kT)}^{3/2}} \lambda_0^{-3/2} + \inv{\lambda_0 kT} = 0
+    \Rightarrow \lambda_0 \approx 1
+\]
+\[
+    \Rightarrow f(kT)
+    = -1 - \frac{\alpha}{\sqrt{kT}} + \ln(kT)
+    \approx \ln(kT) - 1
+\]
+\[
+    f''(kT)
+    = -\frac{3}{4} \frac{\alpha}{{(kT)}^{5/2}} - \inv{{(kT)}^2}
+    \approx -\inv{{(kT)}^2}
+\]
+\begin{align*}
+    \therefore I
+    &\approx NM \int_{-\infty}^\infty dv \exp\left( \ln(kT) - 1 - \frac{v^2}{2{(kT)}^2} \right) \\
+    &= NM \frac{kT}{e} \cdot \sqrt{2\pi {(kT)}^2} \\
+    &= \frac{\sqrt{2\pi}}{e} NM {(kT)}^2
+\end{align*}

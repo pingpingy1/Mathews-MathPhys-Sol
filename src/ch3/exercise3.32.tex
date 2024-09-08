@@ -1,0 +1,66 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+Let $\theta$ denote the angle away from the dotted axis in the figure.
+We need not consider the azimuthal angle around it as the system is cylindrically symmetric.
+The intensity of neutrons as emitted by the source into a range $[\theta, \theta + d\theta]$ is given by
+\[
+    dI_{\text{source}}
+    = I_0 \frac{d\Omega}{4\pi}
+    = \frac{I_0}{2} \sin \theta d\theta
+\]
+where $I_0$ is the total intensity of neutrons.
+Such neutrons travel a distance of $T \sec \theta$ through the absorber,
+so the intensity of neutrons that arrive at the film is given by
+\[
+    dI_{\text{film}}
+    = \frac{I_0}{2} e^{-\frac{T}{\lambda} \sec \theta} \sin \theta d\theta.
+\]
+These neutrons travel through the film, again, a distance proportional to $\sec \theta$.
+Thus, one can introduce a proportionality constant $C$ to obtain
+\[
+    dA
+    = C e^{-\frac{T}{\lambda} \sec \theta} \sin \theta d\theta \cdot \sec \theta
+    = C e^{-\frac{T}{\lambda} \sec \theta} \tan \theta d\theta.
+\]
+Therefore, integrating over the film, we obtain the following formula for the total activity:
+\begin{align*}
+    A(\lambda)
+    &= \int_0^{\tan^{-1} \left( \frac{b}{a} \right)} d\theta C e^{-\frac{T}{\lambda} \sec \theta} \tan \theta \\
+    &= C \int_1^{\frac{\sqrt{a^2 + b^2}}{a}} du \frac{\exp \left( -\frac{T}{\lambda} u \right)}{u}
+       && (u := \sec \theta) \\
+    &= C \int_{\frac{T}{\lambda}}^{\frac{T}{\lambda} \frac{\sqrt{a^2 + b^2}}{a}}
+         dv \frac{\exp(-v)}{v}
+       && (v := \frac{T}{\lambda}u) \\
+    &= C \left(
+            \left( -\Ei\left( -\frac{T}{\lambda}\frac{\sqrt{a^2 + b^2}}{a} \right) \right)
+            - \left( -\Ei\left( -\frac{T}{\lambda} \right) \right)
+       \right).
+\end{align*}
+The activity without the absorber is given by
+\[
+    A_0
+    = \lim_{T \rightarrow 0} A(\lambda)
+    = \int_0^{\tan^{-1} \left( \frac{b}{a} \right)} d\theta C \tan \theta
+    = C \ln \left( \frac{\sqrt{a^2 + b^2}}{a} \right).
+\]
+Hence, we obtain
+\[
+    \frac{A}{A_0}
+    = \frac{
+        \left( -\Ei\left( -\frac{T}{\lambda}\frac{\sqrt{a^2 + b^2}}{a} \right) \right)
+        - \left( -\Ei\left( -\frac{T}{\lambda} \right) \right)
+    }{\ln \left( \frac{\sqrt{a^2 + b^2}}{a} \right)}
+\]
+which, given the numerical constants, is an equation that the almighty WolframAlpha could solve!
+Plugging in the given constants and assuming $\lambda$ is in units of centimeters, we get
+\[
+    0.25 = \frac{
+        \left( -\Ei\left( -\frac{\sqrt{2}}{\lambda} \right) \right)
+        - \left( -\Ei\left( -\inv{\lambda} \right) \right)
+    }{\ln\left( \sqrt{2} \right)}.
+\]
+\[
+    \therefore \lambda \approx 0.856\, \mathrm{cm}
+\]

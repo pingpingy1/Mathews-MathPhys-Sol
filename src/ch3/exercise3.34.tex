@@ -1,0 +1,43 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{enumerate}[wide, labelindent = 0pt, label = (\roman*)]
+\item $\abs{x} << 1$:
+We use the familiar Taylor expansion of $\sin t$.
+\begin{align*}
+    \int_0^x dt \frac{\sin t}{t}
+    &= \int_0^x dt \sum_{k=0}^\infty \frac{{(-1)}^k}{(2k + 1)!} t^{2k} \\
+    &= \sum_{k=0}^\infty \frac{{(-1)}^k}{(2k + 1) \cdot (2k + 1)!} x^{2k + 1} \\
+    &= x - \frac{x^3}{18} + \frac{x^5}{600} - \cdots
+\end{align*}
+Note that this series absolutely converges for all values of $x$.
+
+\item $\abs{x} >> 1$:
+Here, following the exercise deriving \refeq{3}{72}, we perform repeated integration by parts.
+To deal with the trigonometric functions more easily, we express them as complex exponentials.
+\begin{align*}
+    \int_0^x dt \frac{\sin t}{t}
+    &= \halfpi - \Im\left\{ \int_x^\infty dt \frac{e^{it}}{t} \right\} \\
+    &= \halfpi + \Im\left\{ \int_x^\infty dt \frac{e^{i(t - \pi)}}{t} \right\} \\
+    &= \halfpi + \Im\left\{
+        \diffBetween{\frac{-ie^{i(t - \pi)}}{t}}{x}{\infty}
+        - \int_x^\infty dt \frac{-ie^{i(t - \pi)}}{-t^2}
+    \right\} \\
+    &= \halfpi + \Im\left\{ \frac{e^{i\left( x - \halfpi \right)}}{x} \right\}
+     + \Im\left\{ \int_x^\infty dt \frac{e^{i\left( t - \frac{3\pi}{2} \right)}}{t^2} \right\} \\
+    &= \halfpi + \Im\left\{ \frac{e^{i\left( x - \halfpi \right)}}{x} \right\}
+     + \Im\left\{
+         \diffBetween{\frac{-ie^{i\left( t - \frac{3\pi}{2} \right)}}{t}}{x}{\infty}
+         - 2\int_x^\infty dt \frac{-ie^{i\left( t - \frac{3\pi}{2} \right)}}{-t^3}
+    \right\} \\
+    &= \halfpi + \Im\left\{ \frac{e^{i\left( x - \halfpi \right)}}{x} \right\} + \Im\left\{ \frac{e^{i(x - \pi)}}{x^2} \right\}
+     + 2\Im\left\{ \int_x^\infty dt \frac{e^{i( t - 2\pi)}}{t^3} \right\} \\
+    &= \cdots \\
+    &= \halfpi
+     + \sum_{k=0}^n k! \Im\left\{ \frac{e^{i\left( x - \frac{k + 1}{2}\pi \right)}}{x^{k + 1}} \right\}
+     + (n + 1)! \Im\left\{ \int_x^\infty dt \frac{e^{i\left( t - \frac{n + 3}{2}\pi \right)}}{t^{n + 2}} \right\}
+\end{align*}
+Note that the sum in this expression diverges for all finite values of $x$, since the summand grows like $k!$.
+
+\end{enumerate}

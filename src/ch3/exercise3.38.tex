@@ -1,0 +1,37 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+If you have read the textbook thoroughly (unlike myself),
+then you may recall the ``method of stationary phase'' explained around \refeq{3}{88}.
+\[
+    f_n(x) = \int_C dt \exp\left( ix \left( \frac{n}{x} t - \sin t \right) \right)
+\]
+Let $g(t) := \frac{n}{x} t - \sin t$.
+For large positive values of $x$, nearly all contribution to the integral comes near
+\[
+    g'(t_0) = \frac{n}{x} - \cos t_0 = 0
+    \Rightarrow t_0 = -\cos^{-1} \frac{n}{x}.
+\]
+\[
+    g(t_0) = -\frac{n}{x} \cos^{-1} \frac{n}{x} + \sqrt{1 - {\left( \frac{n}{x} \right)}^2}
+\]
+\[
+    g''(t_0) = -\sqrt{1 - {\left( \frac{n}{x} \right)}^2}
+\]
+\begin{align*}
+    \therefore f_n(x)
+    &\approx \int_{-\infty}^\infty dt \exp\left(
+        ix \left( g(t_0) + \frac{g''(t_0)}{2} {(t - t_0)}^2 \right)
+    \right) \\
+    &= e^{ixg(t_0)} \sqrt{\frac{2\pi}{ixg''(t_0)}} \\
+    &= e^{i\left( \sqrt{x^2 - n^2} - n \cos^{-1} \frac{n}{x} - \frac{\pi}{4} \right)}
+     \sqrt{\frac{2\pi}{x\left( 1 - \half {\left(\frac{n}{x} \right)}^2 \right)}}
+\end{align*}
+For large values of $x$, we can simplify this expression to only consider leading powers of $x$.
+\begin{align*}
+    \therefore f_n(x)
+    &\approx e^{i\left( x \left( 1 - \half {\left(\frac{n}{x} \right)}^2 \right) - n \left( \halfpi - \frac{n}{x} \right) - \frac{\pi}{4} \right)}
+     \sqrt{\frac{2\pi}{x}} \left( 1 + \inv{4} {\left( \frac{n}{x} \right)}^2 \right) \\
+    &\approx \sqrt{\frac{2\pi}{x}} e^{i\left( x - \frac{2n + 1}{4} \pi \right)} \left( 1 + \frac{in^2}{2x} \right)
+\end{align*}

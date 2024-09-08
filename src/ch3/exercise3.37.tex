@@ -1,0 +1,111 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+We must evaluate the integral
+\[
+    \psi \left(\mathbb{k}, \mathbb{l} \right)
+    := \int \frac{d\Omega}{\left( 1 + \mathbb{k} \cdot \unitvec{r} \right) \left( 1 + \mathbb{l} \cdot \unitvec{r} \right)}
+\]
+using Feynman's identity (\refeq{3}{28}).
+\begin{align*}
+    \Rightarrow \psi \left(\mathbb{k}, \mathbb{l} \right)
+    &= \int d\Omega \int_0^1 du \inv{{\left(
+        \left( 1 + \mathbb{k} \cdot \unitvec{r} \right) u
+        + \left( 1 + \mathbb{l} \cdot \unitvec{r} \right) (1 - u)
+    \right)}^2} \\
+    &= \int_0^1 du \int \frac{d\Omega}{{\left(
+        1 + \left(u \mathbb{k} + (1 - u) \mathbb{l}\right) \cdot \unitvec{r}
+    \right)}^2}
+\end{align*}
+
+Let
+\[
+    F(\mathbb{v}) := \int \frac{d\Omega}{{\left( 1 + \mathbb{v} \cdot \unitvec{r} \right)}^2}.
+\]
+This scalar-valued integral is a function of a vector;
+thus, it may only depend on the vector's magnitude.
+Let $v := \norm{\mathbb{v}}$.
+\begin{align*}
+    \Rightarrow F(\mathbb{v})
+    &= F \left( v \zhat \right) \\
+    &= \int \frac{d\Omega}{{\left( 1 + vz \right)}^2} \\
+    &= \int_0^\pi d\theta \int_0^{2\pi} d\phi \sin \theta \cdot \inv{{\left( 1 + v\cos \theta \right)}^2} \\
+    &= 2\pi \diffBetween{\inv{v(1 + v \cos \theta)}}{0}{\pi} \\
+    &= \frac{4\pi}{1 - v^2}
+\end{align*}
+\begin{align*}
+    \Rightarrow \psi \left(\mathbb{k}, \mathbb{l} \right)
+    &= \int_0^1 du F\left( u\mathbb{k} + (1 - u)\mathbb{l} \right) \\
+    &= 4\pi \int_0^1 \frac{du}{1 - \norm{u\mathbb{k} + (1 - u)\mathbb{l}}^2} \\
+    &= 4\pi \int_0^1 \frac{du}{
+        1 - l^2
+        - 2\left( \mathbb{k}\cdot\mathbb{l} - l^2 \right) u
+        + \left( k^2 + l^2 - 2\mathbb{k}\cdot\mathbb{l} \right) u^2
+    }
+\end{align*}
+where $k := \norm{\mathbb{k}}$ and $l := \norm{\mathbb{l}}$.
+Now, notice that
+\[
+    \frac{d}{dx} \tanh^{-1} x = \inv{1 - x^2}.
+\]
+\begin{align*}
+    \Rightarrow \inv{c - 2bx - ax^2}
+    &=  \inv{\sqrt{ac + b^2}} \cdot \frac{\frac{a}{\sqrt{ac + b^2}}}{1 - {\left(
+        \frac{a}{\sqrt{ac + b^2}} \left( x + \frac{b}{a} \right)
+    \right)}^2} \\
+    &= \frac{d}{dx} \left( \inv{\sqrt{ac + b^2}} \tanh^{-1} \left( \frac{ax + b}{\sqrt{ac + b^2}} \right) \right)
+\end{align*}
+\begin{align*}
+    \Rightarrow \psi \left(\mathbb{k}, \mathbb{l} \right)
+    &= \frac{4\pi}{\sqrt{
+        {\left( 1 - \mathbb{k}\cdot\mathbb{l} \right)}^2
+        - \left( 1 - k^2 \right) \left( 1 - l^2 \right)
+    }} \\
+    &\times \diffBetween{\tanh^{-1} \left(
+        \frac{
+            \left( k^2 + l^2 - 2\mathbb{k}\cdot\mathbb{l} \right) u 
+            + \mathbb{k}\cdot\mathbb{l} - l^2
+        }{\sqrt{
+             {\left( 1 - \mathbb{k}\cdot\mathbb{l} \right)}^2
+            - \left( 1 - k^2 \right) \left( 1 - l^2 \right)
+        }}
+    \right)}{0}{1} \\
+    &= \frac{4\pi}{\sqrt{A^2 - B^2}} \left(
+        \tanh^{-1} \left( \frac{A - 1 + k^2}{\sqrt{A^2 - B^2}} \right)
+        + \tanh^{-1} \left( \frac{A - 1 + l^2}{\sqrt{A^2 - B^2}} \right)
+    \right)
+\end{align*}
+where $A := 1 - \mathbb{k}\cdot\mathbb{l}$ and $B := \sqrt{\left( 1 - k^2 \right) \left( 1 - l^2 \right)}$.
+
+Now, note that
+\begin{align*}
+    \cosh \left( \tanh^{-1} x + \tanh^{-1} y \right)
+    &= \cosh \left( \tanh^{-1} x \right) \cosh \left( \tanh^{-1} y \right) \\
+    &+ \sin \left( \tanh^{-1} x \right) \sinh \left( \tanh^{-1} y \right) \\
+    &= \inv{\left( 1 - x^2 \right)} \cdot \inv{\left( 1 - x^2 \right)}
+     + \frac{x}{\left( 1 - x^2 \right)} \cdot \frac{y}{\left( 1 - y^2 \right)} \\
+    &= \frac{1 + xy}{\sqrt{\left( 1 - x^2 \right) \left( 1 - y^2 \right)}}.
+\end{align*}
+In our case, we have
+\[
+    x = \frac{A - 1 + k^2}{\sqrt{A^2 - B^2}} \text{ and } y = \frac{A - 1 + l^2}{\sqrt{A^2 - B^2}}
+\]
+which yields
+\[
+    1 + xy = \frac{A}{A^2 - B^2} \left( 2A + k^2 + l^2 - 2 \right)
+\]
+and
+\[
+    \sqrt{\left( 1 - x^2 \right) \left( 1 - y^2 \right)}
+    = \frac{B}{A^2 - B^2} \left( 2A + k^2 + l^2 - 2 \right).
+\]
+\[
+    \Rightarrow \tanh^{-1} x + \tanh^{-1} y
+    = \cosh^{-1} \left( \frac{1 + xy}{\sqrt{\left( 1 - x^2 \right) \left( 1 - y^2 \right)}} \right)
+    = \cosh^{-1} \frac{A}{B}
+\]
+\[
+    \therefore \psi \left(\mathbb{k}, \mathbb{l} \right)
+    = \frac{4\pi}{\sqrt{A^2 - B^2}} \cosh^{-1} \frac{A}{B}
+\]
