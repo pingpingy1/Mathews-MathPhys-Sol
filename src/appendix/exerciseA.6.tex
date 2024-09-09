@@ -1,0 +1,228 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item[6.] % TODO: Solve A--1 to A--5 and remove this!
+%%%%%%%%%%%%%%%%%%%%%%%
+
+(This single problem had cost me months of my life, and here's the unsatisfying conclusion of that journey.
+I am fairly certain that there are a myriad of different possible answers for this problem with varying levels of sophistication,
+and possibly even more ways to derive said solutions.
+For my purposes, I have settled on a solution that is semi-straightforward with an answer that I can plug into almighty WolframAlpha.)
+
+We will derive a procedure to (painstakingly) calculate the Laurent series of the given function.
+First, let us define some notations.
+Recall that if a function $f(z)$ is analytic on an annulus around a point $z_0$,
+then it can be expanded into a unique Laurent series
+\begin{align*}
+    f(z)
+    &= \sum_{k=-\infty}^\infty a_k {(z - z_0)}^k \\
+    &= \cdots + \frac{a_{-2}}{{(z - z_0)}^2} + \frac{a_{-1}}{z - z_0}
+     + a_0 + a_1 (z - z_0) + a_2 {(z - z_0)}^2 + \cdots.
+\end{align*}
+For Laurent series specifically centered around the origin,
+let us denote the Laurent coefficients as
+\[
+    \Laurentcoeff{k}{f(z)} := a_k.
+\]
+Then, multiplying a monomial corresponds to
+\[
+    \Laurentcoeff{k}{z^l f(z)} = \Laurentcoeff{k - l}{f(z)}.
+\]
+Also, the residue at the origin can be compactly expressed as
+\[
+    \res{z=0}{f(z)} = \Laurentcoeff{-1}{f(z)}.
+\]
+
+The residue asked of us is given by
+\begin{align*}
+    \res{z=\pi}{z^2 e^{\inv{\sin z}}}
+    &= \res{z=0}{{(z + \pi)}^2 e^{\inv{\sin (z + \pi)}}} \\
+    &= \Laurentcoeff{-1}{\left( z^2 + 2\pi z + \pi^2 \right) e^{-\inv{\sin z}}} \\
+    &= \Laurentcoeff{-3}{e^{-\inv{\sin z}}}
+     + 2\pi \Laurentcoeff{-2}{e^{-\inv{\sin z}}}
+     + \pi^2 \Laurentcoeff{-1}{e^{-\inv{\sin z}}}.
+\end{align*}
+Thus, our job is reduced to calculating the Laurent coefficients of $e^{-\inv{\sin z}}$.
+We expand the exponential into its Taylor series and obtain
+\[
+    \Laurentcoeff{-n}{e^{-\inv{\sin z}}}
+    = \sum_{k=0}^\infty \frac{{(-1)}^k}{k!} \Laurentcoeff{-n}{{(\sin z)}^{-k}}.
+\]
+
+Squaring, cubing, and so forth a power series (or even a Laurent series) is something achievable,
+but inverting a power series is a much more complicated task.
+We thus investigate a general method of calculating the inverse powers of a general series.
+Consider the following manipulation:
+\begin{align*}
+    \Laurentcoeff{-n}{{(f(z))}^{-k}}
+    &= \Laurentcoeff{-1}{z^{n - 1} {(f(z))}^{-k}} \\
+    &= \Laurentcoeff{-1}{{\left( \frac{z^n}{n} \right)}' {(f(z))}^{-k}} \\
+    &= \Laurentcoeff{-1}{{\left( \frac{z^n}{n} {(f(z))}^{-k} \right)}'}
+     - \Laurentcoeff{-1}{\frac{z^n}{n} {\left( {(f(z))}^{-k} \right)}'}
+\end{align*}
+which comes mostly from playing around, but perhaps reasonable since the $-1$th%
+\footnote{I had to search for whether it should be `st' or `th'; see \url{https://english.stackexchange.com/questions/326604/is-it-correct-to-say-1th-or-1st}.}
+coefficient seems to be special in certain ways.
+In fact, it is so special that we can immediately see that the first term must be zero,
+regardless of whether $f(z)$ is analytic at the origin!
+This is because no derivative of a monomial yields the $-1$th power term.%
+\footnote{This can also be seen via $\res{z=0}{f(z)} = \inv{2i\pi} \oint dz f'(z) = 0$ around the origin.}
+Thus,
+\begin{align*}
+    \Laurentcoeff{-n}{{(f(z))}^{-k}}
+    &= -\Laurentcoeff{-1}{\frac{z^n}{n} {\left( {(f(z))}^{-k} \right)}'} \\
+    &= \frac{k}{n} \Laurentcoeff{-1}{z^n {(f(z))}^{-k-1} f'(z)}.
+\end{align*}
+Let $g(z) := z^n {(f(z))}^{-k-1} f'(z)$ and $g_{-1} := \Laurentcoeff{-1}{g(z)}$.
+The Laurent series of $g(z) - g_{-1} z^{-1}$ contains no $z^{-1}$ term,
+and thus can be integrated to an analytic function; let us call it $G(z)$.
+Hence, $g(z) = G'(z) + g_{-1} z^{-1}$.
+\[
+    g(f^{-1}(z)) {\left( f^{-1} (z) \right)}'
+    = {\left( G(f^{-1} (z)) \right)}'+ g_{-1} \frac{{\left( f^{-1} (z) \right)}'}{f^{-1} (z)}
+\]
+Again, ${\left( G(f^{-1} (z)) \right)}'$ has zero residue.
+If the residue of $\frac{{\left( f^{-1} (z) \right)}'}{f^{-1} (z)}$ could be easily calculated and is nonzero,
+then we get an elegant formula for $g_{-1}$ as
+\begin{align*}
+    g_{-1}
+    &= \frac{
+        \Laurentcoeff{-1}{g(f^{-1}(z)) {\left( f^{-1} (z) \right)}'}
+    }{
+        \Laurentcoeff{-1}{\frac{{\left( f^{-1} (z) \right)}'}{f^{-1} (z)}}
+    } \\
+    &= \frac{
+        \Laurentcoeff{-1}{{(f^{-1} (z))}^n z^{-k-1} f'\left( f^{-1} (z) \right) {\left( f^{-1} (z) \right)}'}
+    }{
+        \Laurentcoeff{-1}{\frac{{\left( f^{-1} (z) \right)}'}{f^{-1} (z)}}
+    } \\
+    &= \frac{\Laurentcoeff{k}{{(f^{-1} (z))}^n}}{
+        \Laurentcoeff{-1}{\frac{{\left( f^{-1} (z) \right)}'}{f^{-1} (z)}}
+    }
+\end{align*}
+and consequently
+\[
+    \Laurentcoeff{-n}{{(f(z))}^{-k}}
+    = \frac{k}{n} \frac{\Laurentcoeff{k}{{(f^{-1} (z))}^n}}{
+        \Laurentcoeff{-1}{\frac{{\left( f^{-1} (z) \right)}'}{f^{-1} (z)}}
+    }.
+\]
+Now, \emph{if} $f(z)$ is analytic at the origin \emph{and} $f(0) = 0$ \emph{and} $f'(0) \neq 0$
+(which just so happens to hold for $f(z) = \sin z$),
+then one could show that these same conditions hold for $f^{-1} (z)$ and consequently
+\[
+    \Laurentcoeff{-1}{\frac{{\left( f^{-1} (z) \right)}'}{f^{-1} (z)}} = 1.
+\]
+(This could be shown by substituting $n = -1$ for \refprob~A--4,
+since we did not require that $n$ be positive anyway!)
+Therefore, we arrive at the pivotal formula
+\[
+    \Laurentcoeff{-n}{{(f(z))}^{-k}} = \frac{k}{n} \Laurentcoeff{k}{{(f^{-1} (z))}^n}.
+\]
+This is known in the maths world as the \href{https://en.wikipedia.org/wiki/Formal_power_series#The_Lagrange_inversion_formula}{Lagrange inversion formula},%
+\footnote{\url{https://en.wikipedia.org/wiki/Formal_power_series\#The_Lagrange_inversion_formula}}
+and it is what we desperately needed to calculate the residue in question!
+
+Having sufficiently patted ourselves on our respective backs after that long derivation,
+let us go back to the original question.
+We have essentially derived the formula
+\[
+    \Laurentcoeff{-n}{{(\sin z)}^{-k}} = \frac{k}{n} \Laurentcoeff{k}{{(\arcsin z)}^n}.
+\]
+(Note that I use $\arcsin$ in lieu of $\sin^{-1}$ as all these exponents are getting confusing.)
+Let us substitute this formula into the previous equation:
+\begin{align*}
+    \Laurentcoeff{-n}{e^{-\inv{\sin z}}}
+    &= \sum_{k=0}^\infty \frac{{(-1)}^k}{k!} \Laurentcoeff{-n}{{(\sin z)}^{-k}} \\
+    &= \sum_{k=0}^\infty \frac{{(-1)}^k}{k!} \cdot \frac{k}{n} \Laurentcoeff{k}{{(\arcsin z)}^n} \\
+    &= \inv{n} \sum_{k=1}^\infty \frac{{(-1)}^k}{(k-1)!} \Laurentcoeff{k}{{(\arcsin z)}^n}.
+\end{align*}
+As for the powers of $\arcsin z$, let us simply expand out the multiplications
+using the Taylor series of $\arcsin z$ only.
+\begin{align*}
+    \arcsin z
+    &= \int_0^z \frac{du}{\sqrt{1 - u^2}} \\
+    &= \int_0^z dt \sum_{t=0}^\infty \binom{-\half}{t} u^{2t} \\
+    &= \sum_{t=0}^\infty \frac{(-1/2) (-3/2) \cdots (1/2 - t)}{2^t t!} \cdot \frac{u^{2t + 1}}{2t + 1} \\
+    &= \sum_{t=0}^\infty \frac{{(-1)}^t (2t)!}{4^t (2t+1) {(t!)}^2} u^{2t + 1}
+\end{align*}
+\begin{align*}
+    \Rightarrow \Laurentcoeff{k}{{(\arcsin z)}^n}
+    &= \sum_{t_1 + \cdots + t_k = n} \prod_{j=1}^n \Laurentcoeff{t_j}{\arcsin z} \\
+    &= \sum_{(2l_1 + 1) + \cdots + (2l_k + 1) = n} \prod_j \Laurentcoeff{2l_j + 1}{\arcsin z} \\
+    &= \sum_{2\sum_j l_j + k = n} {\left( -\inv{4} \right)}^{\sum_j l_j}
+       \prod_j \left( \frac{(2l_j)!}{(2l_j + 1) {(l_j !)}^2} \right)
+\end{align*}
+\begin{align*}
+    \Rightarrow \Laurentcoeff{-n}{e^{-\inv{\sin z}}}
+    &= \inv{n} \sum_{k=1}^\infty \frac{{(-1)}^k}{(k-1)!} \Laurentcoeff{k}{{(\arcsin z)}^n} \\
+    &= \inv{n} \sum_{k=1}^\infty \frac{{(-1)}^k}{(k-1)!} \\
+    &\times \sum_{2\sum_j l_j + k = n} {\left( -\inv{4} \right)}^{\sum_j l_j}
+            \prod_j \left( \frac{(2l_j)!}{(2l_j + 1) {(l_j !)}^2} \right) \\
+    &= \inv{n} \sum_{l_1=0}^\infty \cdots \sum_{l_n=0}^\infty
+       \frac{{(-1)}^{n - 2\sum_j l_j}}{\left( n - 1 + 2\sum_j l_j \right)!} \\
+    &\times {\left( -\inv{4} \right)}^{\sum_j l_j}
+            \prod_j \left( \frac{(2l_j)!}{(2l_j + 1) {(l_j !)}^2} \right) \\
+    &= \inv{n} \sum_{l_1=0}^\infty \cdots \sum_{l_n=0}^\infty
+       \frac{{(-1)}^{\sum_j l_j + n}}{4^{\sum_j l_j} \left( n - 1 + 2\sum_j l_j \right)!} \\
+    &\times \prod_j \left( \frac{(2l_j)!}{(2l_j + 1) {(l_j !)}^2} \right)
+\end{align*}
+
+We evaluate this formula for $n = 1, 2, 3$.
+\[
+    \Laurentcoeff{-1}{e^{-\inv{\sin z}}}
+    = \sum_{l_1 = 0}^\infty \frac{{(-1)}^{l_1 + 1}}{4^{l_1} (2l_1 + 1) {(l_1 !)}^2}
+\]
+\[
+    \Laurentcoeff{-2}{e^{-\inv{\sin z}}}
+    = \half \sum_{l_1 = 0}^\infty \sum_{l_2 = 0}^\infty
+      \frac{{(-1)}^{l_1 + l_2}}{4^{l_1 + l_2} (2l_1 + 2l_2 + 1)!}
+      \frac{(2l_1)!}{(2l_1 + 1) {(l_1 !)}^2} \frac{(2l_2)!}{(2l_2 + 1) {(l_2 !)}^2}
+\]
+\begin{align*}
+    \Laurentcoeff{-3}{e^{-\inv{\sin z}}}
+    &= \inv{3} \sum_{l_1 = 0}^\infty \sum_{l_2 = 0}^\infty \sum_{l_3 = 0}^\infty
+       \frac{{(-1)}^{l_1 + l_2 + l_3 + 1}}{4^{l_1 + l_2 + l_3} (2l_1 + 2l_2 + 2l_3 + 2)!} \\
+    &\times \frac{(2l_1)!}{(2l_1 + 1) {(l_1 !)}^2} \frac{(2l_2)!}{(2l_2 + 1) {(l_2 !)}^2}
+            \frac{(2l_3)!}{(2l_3 + 1) {(l_3 !)}^2}
+\end{align*}
+
+\[
+\begin{split}
+    \therefore \res{z=\pi}{z^2 e^{\inv{\sin z}}}
+    &= \sum_{l_1=0}^\infty \frac{{(-1)}^{l_1 + 1} (2l_1)!}{4^{l_1} (2l_1 + 1) {(l_1 !)}^2} \left(
+        \frac{\pi^2}{(2l_1)!}
+    \right.\\
+    &\quad - \sum_{l_2=0}^\infty \frac{{(-1)^{l_2}} (2l_2)!}{4^{l_2} (2l_2 + 1) {(l_2 !)}^2} \left(
+        \frac{\pi}{(2l_1 + 2l_2 + 1)!}
+    \right. \\
+    &\quad - \left.\left. \sum_{l_3=0}^\infty \frac{{(-1)^{l_3}} (2l_3)!}{4^{l_3} (2l_3 + 1) {(l_3 !)}^2}
+       \cdot \inv{3(2l_1 + 2l_2 + 2l_3 + 2)!} \right)\right)
+\end{split}
+\]
+
+\paragraph{Concluding remarks:}
+\begin{enumerate}[wide, labelindent = 0pt, label = (\roman*)]
+\item
+This result, while hard achieved on my part, is still pretty shitty;
+for one, it cannot be calculated via WolframAlpha alone.%
+\footnote{If any Mathematica wizards could numerically calculate this, I'm all ears.}
+Some points for improvement include:
+\begin{itemize}
+    \item More compact expressions for the Taylor coefficients of ${(\arcsin z)}^k$
+    \item A numerical evaluation of the residue
+    \item Even a closed-form solution?
+    (This sounds crazy, but $\Laurentcoeff{-1}{e^{-\inv{\sin z}}}$ \emph{does} have a closed-form expression!
+    It uses a hypergeometric function, somehow.)
+\end{itemize}
+And we all know that ``We leave so-and-so to future work.'' translates to
+either ``I give up.'' or ``Give me more money.''
+
+\item
+I have been hinted at that this problem could also be solved via a contour integral method,
+where we try to evaluate
+\[
+    \oint_{\abs{z} = 1} dz z^2 e^{\inv{\sin z}}
+\]
+using some tabulated-function trickery.
+I'm too tired to pursue this path, but it is still another viable method.
+
+\end{enumerate}
