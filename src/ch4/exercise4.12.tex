@@ -1,0 +1,22 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{align*}
+    J_0 (x)
+    &= \inv{2\pi} \int_0^{2\pi} d\theta \frac{e^{i\cos\theta x} + e^{-i\cos\theta x}}{2} \\
+    &= \inv{2\pi} \int_0^{2\pi} d\theta e^{i\cos\theta x}
+    \quad \left( \because \cos\theta \text{ symmetric about } \left( 0, \halfpi \right) \right) \\
+    &= \inv{2\pi} \int_{-1}^1 \frac{dk}{\sqrt{1 - k^2}} e^{ikx}
+    \quad (k := \cos\theta) \\
+    &= \inv{2i\pi} \int_{-i}^i \frac{ds}{\sqrt{1 + s^2}} e^{sx}
+    \quad (s := ik) \\
+    &= \inv{2i\pi} \int_{-i\infty}^{i\infty} ds \frac{\indicator{-1< \Im s < 1}}{\sqrt{1 + s^2}} e^{sx}
+\end{align*}
+\[
+    \therefore \Lapltransf{J_0}(s)
+    = \frac{\indicator{-1 < \Im s < 1}}{\sqrt{1 + s^2}}
+\]
+Here, $\indicator{p}$ evaluates to $1$ if $p$ is true and $0$ if $p$ is false.
+This function is used to constrain $s$ to be inside a horizontal strip,
+where the Laplace transform stays analytic.

@@ -1,0 +1,65 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{enumerate}[wide, labelindent = 0pt, label = (\alph*)]
+\item
+We basically express the piecewise function
+\[
+    f(x) = \begin{cases}
+        -e^{x} & (-1 < x < 0) \\
+        e^{-x} & ( 0 < x < 1) \\
+    \end{cases}
+\]
+as a Fourier series.
+Since this function is defined to be odd, we will only obtain the sine terms:
+\[
+    f(x) = \sum_{n=1}^\infty B_n \sin n\pi x.
+\]
+\[
+    \Rightarrow B_n
+    = 2\int_0^1 dx e^{-x} \sin n\pi x 
+    = \frac{2n\pi}{n^2 \pi^2 + 1} \left( 1 - \frac{{(-1)}^n}{e} \right)
+\]
+\begin{align*}
+    \therefore f(x)
+    &= \sum_{n=1}^\infty \frac{2\pi n}{n^2 \pi^2 + 1} \left( 1 - \frac{{(-1)}^n}{e} \right) \sin n\pi x \\
+    &= \frac{ \pi}{ \pi^2 + 1} \left( 1 + \inv{e} \right) \sin  \pi x
+     + \frac{2\pi}{4\pi^2 + 1} \left( 1 - \inv{e} \right) \sin 2\pi x \\
+    &\quad + \frac{3\pi}{9\pi^2 + 1} \left( 1 - \inv{e} \right) \sin 3\pi x
+     + \cdots
+\end{align*}
+
+\item
+Let
+\[
+    f(x)
+    = e^{-x}
+    = \frac{A_0}{2} + \sum_{n=1}^\infty \left( A_n \cos 2n\pi x + B_n \sin 2n\pi x \right)
+    \quad (0 < x < 1).
+\]
+\[
+    \Rightarrow A_n
+    = 2 \int_0^1 dx e^{-x} \cos 2n\pi x
+    = \frac{2}{4n^2 \pi^2 + 1} \left( 1 - \inv{e} \right)
+\]
+\[
+    B_n
+    = 2 \int_0^1 dx e^{-x} \sin 2n\pi x
+    = \frac{4n\pi}{4n^2 \pi^2 + 1} \left( 1 - \inv{e} \right)
+\]
+\begin{align*}
+    \therefore f(x)
+    &= \left( 1 - \inv{e} \right) \left(
+        1 + \sum_{n=1}^\infty \frac{2\cos 2n\pi x + 4n\pi\sin 2n\pi}{4n^2 \pi^2 + 1}
+    \right) \\
+    &= \left( 1 - \inv{e} \right) \left(
+        1
+        + \frac{2\cos 2\pi x + 4\pi\sin 2\pi x}{4\pi^2 + 1} \right. \\
+    &\quad\left. + \frac{2\cos 4\pi x + 8\pi\sin 4\pi x}{16\pi^2 + 1}
+        + \frac{2\cos 6\pi x + 12\pi\sin 6\pi x}{36\pi^2 + 1}
+        + \cdots
+    \right)
+\end{align*}
+
+\end{enumerate}

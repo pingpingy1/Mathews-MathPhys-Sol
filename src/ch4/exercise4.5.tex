@@ -1,0 +1,52 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+Let
+\[
+    f(\theta) := \sum_{n=0}^\infty \frac{\cos (2n+1) \theta}{{(2n+1)}^2}.
+\]
+\[
+    \Rightarrow f''(\theta)
+    = -\sum_{n=0}^\infty \cos (2n+1) \theta
+    = -\Re\left\{ \sum_{n=0}^\infty e^{i(2n+1)\theta} \right\}
+    = 0
+\]
+\[
+    \Rightarrow f'(\theta)
+    = f'\left( \halfpi \right)
+    = -\sum_{n=0}^\infty \frac{{(-1)}^n}{2n+1}
+    = -\frac{\pi}{4}
+\]
+\[
+    \Rightarrow f(\theta)
+    = f(0) - \frac{\pi}{4} \theta
+    = \sum_{n=0}^\infty \inv{{(2n+1)}^2} - \frac{\pi}{4} \theta
+    = \frac{\pi^2}{8} \left( 1 - \frac{2}{\pi}\theta \right)
+\]
+
+Now note that $f$ must be periodic and even, which this linear function definitely is not.
+Yet, nowhere in our derivation did we specify the range of $\theta$!
+What went wrong?
+
+The answer is that our $f''(\theta)$ is not strictly true;
+it diverges at integral multiples of $\pi$.
+Hence, we cannot invoke the fundamental theorem of calculus to obtain $f'(\theta)$ in one go.
+However, the above derivation works on the interval $(0,\pi)$,
+which we periodically and evenly extend to the entire real line.
+
+\[
+    \therefore f(\theta) = \begin{cases}
+        \frac{\pi^2}{8} \left( 1 - \frac{2}{\pi} (\theta - 2k\pi) \right) & (2k\pi < \theta < (2k+1)\pi) \\
+        \frac{\pi^2}{8} \left( 1 + \frac{2}{\pi} (\theta - 2k\pi) \right) & ((2k-1)\pi < \theta < 2k\pi) \\
+    \end{cases}
+\]
+
+(Note: What about the part where we evaluate $f(0)$? Is that also erroneous?
+Technically yes, but the diligent mathematicians have proven
+\urlfoot{https://en.wikipedia.org/wiki/Abel\%27s_theorem}{Abel's theorem},
+with which we may correctly write
+\[
+    \lim_{\theta \rightarrow 0+} f(\theta) = \frac{\pi^2}{8}.
+\]
+Of course, we are physicists, so \emph{obviously} it works!)

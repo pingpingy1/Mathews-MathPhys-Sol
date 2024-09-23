@@ -1,0 +1,21 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+The crucial insight to solve this problem (at least in my case) was the realization that
+the transformation $f(x) \mapsto g(y)$ is linear in its arguments.
+Hence, describing the transformation for only a set of basis functions is enough!
+\[
+    f(x) := e^{i\omega x} = \sum_{n=0}^\infty \frac{{(i\omega)}^n}{n!} x^n
+\]
+\[
+    \mapsto g(y) = \sum_{n=0}^\infty {(i\omega y)}^n = \inv{1 - i\omega y}
+\]
+\begin{align*}
+    \therefore g(y)
+    &= \int \frac{d\omega}{\sqrt{2\pi}} \Tilde{f}(\omega) \cdot \inv{1 - i\omega y} \\
+    &= \int \frac{d\omega}{\sqrt{2\pi}} \inv{1 - i\omega y}
+     \cdot \int \frac{dx}{\sqrt{2\pi}} f(x) e^{-i\omega x} \\
+    &= \inv{2\pi} \int d\omega \int dx f(x) \frac{e^{-i\omega x}}{1 - i\omega y}
+\end{align*}
+Here, the ranges of the integrals are assumed to be over the entire real axis.

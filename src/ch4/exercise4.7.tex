@@ -1,0 +1,21 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+It is 0. It is just 0. No doubt.
+
+You need an explanation?
+The integrand is identically zero on the integration range $[0, \pi] \times [1, 2]$.
+Just look! Never are both of the arguments to the delta functions zero.
+
+Fine, I'll give a formal proof. It's really no need, you see.
+\begin{align*}
+    I
+    &:= \int_0^\pi dx \int_1^2 dy \delta\left( \sin x \right) \delta\left( x^2 - y^2 \right) \\
+    &= \int_0^\pi dx \delta\left( \sin x \right) \left(
+        \indicator{x \in [1,2]} \cdot \evalAt{\inv{\abs{-2y}}}{y = x}
+        + \indicator{x \in [1,2]} \cdot \evalAt{\inv{\abs{-2y}}}{y = -x}
+    \right) \\
+    &= 0
+\end{align*}
+Here, $\indicator{p}$ equals 1 if $p$ is true and 0 if false.

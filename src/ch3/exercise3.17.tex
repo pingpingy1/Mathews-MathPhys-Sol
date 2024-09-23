@@ -32,7 +32,7 @@ Thus, this integral converges whenever $\abs{a} < \pi$.
 Let $f(z) := \frac{\sinh az}{\sinh \pi z}$
 The singularity at the origin is removable, as
 \[
-    \lim{z \rightarrow 0} \frac{\sinh az}{\sinh \pi z}
+    \lim_{z \rightarrow 0} \frac{\sinh az}{\sinh \pi z}
     = \lim_{z \rightarrow 0} \frac{a \cosh az}{\pi \cosh \pi z}
     = \frac{a}{\pi}
 \]
@@ -64,7 +64,7 @@ We also have
     &= \int_{-R}^R dx \frac{\sinh ax}{\sinh \pi x}
      + \int_0^\pi d\theta iRe^{i\theta} \frac{\sinh\left( aRe^{i\theta} \right)}{\sinh\left( \pi Re^{i\theta} \right)} \\ 
     &= \int_{-R}^R dx \frac{\sinh ax}{\sinh \pi x}
-     + O\left( \frac{R}{e^{\left( \pi - \abs{a} \right)}R} \right) \\
+     + \bigO\left( \frac{R}{e^{\left( \pi - \abs{a} \right)}R} \right) \\
     &\xrightarrow{R \rightarrow \infty} \int_{-\infty}^\infty dx \frac{\sinh ax}{\sinh \pi x}
 \end{align*}
 

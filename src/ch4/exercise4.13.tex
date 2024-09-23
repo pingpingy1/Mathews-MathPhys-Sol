@@ -1,0 +1,30 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{enumerate}[wide, labelindent = 0pt, label = (Solution \arabic*)]
+\item
+We perform a partial fraction decomposition to obtain formulae
+whose inverse Laplace transforms are trivial (or at least well documented).
+\[
+    \inv{\left( s^2 + 1 \right) (s - 1)}
+    = \frac{-s/2 - 1/2}{s^2 + 1} + \frac{1/2}{s - 1}
+    = \half \left( \inv{s - 1} - \frac{s}{s^2 + 1} - \inv{s^2 +1} \right)
+\]
+\[
+    \therefore \invLapltransf{\inv{\left( s^2 + 1 \right) (s - 1)}}(x)
+    = \half \left( e^x - \cos x - \sin x \right)
+\]
+
+\item
+We apply properties of Laplace transforms to gradually reduce the problem.
+\begin{align*}
+    \invLapltransf{\inv{\left( s^2 + 1 \right) (s - 1)}}(x)
+    &= e^x \invLapltransf{\inv{\left( {(s + 1)}^2 + 1 \right) s}}(x) \\
+    &= e^x \int_0^x dt \invLapltransf{\inv{{(s + 1)}^2 + 1}}(t) \\
+    &= e^x \int_0^x dt e^{-t} \invLapltransf{\inv{s^2 + 1}(t)} \\
+    &= e^x \int_0^x dt e^{-t} \sin t \\
+    &= \half \left( e^x - \cos x - \sin x \right)
+\end{align*}
+
+\end{enumerate}

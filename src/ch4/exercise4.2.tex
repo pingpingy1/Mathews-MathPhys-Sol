@@ -1,0 +1,42 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{enumerate}[wide, labelindent = 0pt, label = (\alph*)]
+\item
+The Fourier series is given by \refeq{4}{4}:
+\[
+    f(\theta)
+    = \frac{4}{\pi} \sum_{n=0}^\infty \frac{\sin (2n+1) \theta}{2n + 1}.
+\]
+Thus, let us denote the partial sums as
+\[
+    f_n (\theta)
+    := \frac{4}{\pi} \sum_{k=0}^n \frac{\sin (2k+1) \theta}{2k + 1}.
+\]
+\begin{align*}
+    \Rightarrow f_n'(\theta)
+    &= \frac{4}{\pi} \sum_{k=0}^n \cos (2k+1) \theta \\
+    &= \frac{4}{\pi} \Re \left\{ \sum_{k=0}^n e^{i (2k+1) \theta} \right\} \\
+    &= \frac{4}{\pi} \Re \left\{ \frac{e^{i\theta} \left( 1 - e^{2in\theta} \right)}{1 - e^{2i\theta}} \right\} \\
+    &= \frac{2}{\pi} \frac{\sin 2n\theta}{\sin \theta}
+\end{align*}
+Hence, the first overshoot, i.e., local maximum occurs at $\frac{\pi}{2n}$.
+\[
+    \therefore \delta_n
+    = f_n \left( \frac{\pi}{2n} \right) - 1
+    = \frac{4}{\pi} \sum_{k=0}^n \inv{2k+1} \sin \left( \frac{2k+1}{2n} \right) \pi - 1
+\]
+
+\item
+\begin{align*}
+    \lim_{n \rightarrow \infty} \delta_n
+    &= \frac{4}{\pi} \lim_{n \rightarrow \infty} \sum_{k=0}^n \cfrac{
+        \sin \cfrac{2k+1}{2n} \pi
+    }{\cfrac{2k+1}{2n}} \cdot \inv{2n} - 1 \\
+    &= \frac{2}{\pi} \int_0^1 dx \frac{\sin \pi x}{x} - 1 \\
+    &= \frac{2}{\pi} \int_0^\pi du \frac{\sin u}{u} - 1 && (u := \pi x) \\
+    &= \frac{2}{\pi} \Si(\pi) - 1
+\end{align*}
+
+\end{enumerate}

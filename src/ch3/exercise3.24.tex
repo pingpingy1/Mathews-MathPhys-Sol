@@ -46,14 +46,16 @@ We also have
     \oint_C dz f(z)
     &= \int_\epsilon^R dx \frac{{\left( \ln x \right)}^2}{{\left( x + 1 \right)}^2}
       + \int_0^{2\pi} d\theta iRe^{i\theta} \frac{{\left( \ln R + i\theta\right)}^2}{{\left( Re^{i\theta} + 1 \right)}^2} \\
-    & + \int_R^\epsilon dx \frac{{\left( \ln x + 2i\pi \right)}^2}{{\left( x + 1 \right)}^2}
+    &\quad + \int_R^\epsilon dx \frac{{\left( \ln x + 2i\pi \right)}^2}{{\left( x + 1 \right)}^2}
       + \int_{2\pi}^0 d\theta i\epsilon e^{i\theta} \frac{{\left(\ln\epsilon + i\theta\right)}^2}{{\left( \epsilon e^{i\theta} + 1 \right)}^2} \\
-    &\xrightarrow[\epsilon \rightarrow 0]{R \rightarrow \infty} \\
-    &   \int_0^\infty dx \frac{{\left( \ln x \right)}^2}{{\left( x + 1 \right)}^2} + 0 \\
-    & + \left( - \int_0^\infty dx \frac{{\left( \ln x \right)}^2}{{\left( x + 1 \right)}^2}
-      - 4i\pi \int_0^\infty dx \frac{\ln x}{{\left( x + 1 \right)}^2}
-      + 4\pi^2 \int_0^\infty \frac{dx}{{\left( x + 1 \right)}^2} \right) \\
-    & + 0 \\
+    &\xrightarrow[\epsilon \rightarrow 0]{R \rightarrow \infty}
+     \int_0^\infty dx \frac{{\left( \ln x \right)}^2}{{\left( x + 1 \right)}^2} + 0 \\
+    &\quad + \left(
+        - \int_0^\infty dx \frac{{\left( \ln x \right)}^2}{{\left( x + 1 \right)}^2}
+        - 4i\pi \int_0^\infty dx \frac{\ln x}{{\left( x + 1 \right)}^2}
+        + 4\pi^2 \int_0^\infty \frac{dx}{{\left( x + 1 \right)}^2}
+     \right) \\
+    &\quad + 0 \\
     &= -4i\pi \int_0^\infty dx \frac{\ln x}{{\left( x + 1 \right)}^2} + 4\pi^2.
 \end{align*}
 

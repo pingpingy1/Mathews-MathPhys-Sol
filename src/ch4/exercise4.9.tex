@@ -1,0 +1,51 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{enumerate}[wide, labelindent = 0pt, label = (\alph*)]
+\item
+The Fourier transform of the input function is given by
+\begin{align*}
+    \Tilde{f}(\omega)
+    &= \int_{-\infty}^\infty \frac{d\omega}{\sqrt{2\pi}} f(t) e^{-i\omega t} \\
+    &= \inv{\sqrt{2\pi}} \int_0^\infty dt e^{-(\lambda + i\omega) t} \\
+    &= \inv{\sqrt{2\pi}} \inv{\lambda + i\omega}
+\end{align*}
+while that of the response function is given by
+\begin{align*}
+    \Tilde{F}(\omega)
+    &= \int_{-\infty}^\infty \frac{d\omega}{\sqrt{2\pi}} F(t) e^{-i\omega t} \\
+    &= \inv{\sqrt{2\pi}} \int_0^\infty dt \left(
+        e^{-(\lambda + i\omega)t} - e^{-(\lambda + \alpha + i\omega)t}
+    \right) \\
+    & = \inv{\sqrt{2\pi}} \left(
+        \inv{\lambda + i\omega} - \inv{\lambda + \alpha + i\omega}
+    \right).
+\end{align*}
+Meanwhile, since the system is linear, we know that
+\[
+    \Tilde{F}(\omega) = G(-\omega) \Tilde{f}(\omega)
+\]
+since each oscillatory mode $e^{i\omega t}$ transforms to $G(-\omega) e^{-i\omega t}$.
+\[
+    \therefore G(\omega) = 1 + \frac{\lambda - i\omega}{\lambda + \alpha - i\omega}
+\]
+
+\item
+\begin{align*}
+    \Tilde{f}(\omega)
+    &= \int_{-\infty}^\infty \frac{dt}{\sqrt{2\pi}} A \delta(x) e^{-i\omega t} \\
+    &= \frac{A}{\sqrt{2\pi}}
+\end{align*}
+\begin{align*}
+    \Rightarrow \Tilde{F}(\omega)
+    &= G(-\omega) \Tilde{f}(\omega) \\
+    &= \frac{A}{\sqrt{2\pi}} \left(1 + \frac{\lambda - i\omega}{\lambda + \alpha - i\omega} \right) \\
+    &= \frac{A}{\sqrt{2\pi}} \left(2 - \frac{\alpha}{\lambda + \alpha - i\omega} \right)
+\end{align*}
+\[
+    \therefore F(t)
+    = A \left( 2\delta(t) - \alpha e^{-(\lambda + \alpha + i\omega)t} \right)
+\]
+
+\end{enumerate}

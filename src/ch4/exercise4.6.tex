@@ -1,0 +1,21 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+Equalities between delta ``function''-like things should be dealt with care.
+A rigorous-enough definition of equality for physicists is given by
+\[
+    A(x) = B(x) \Leftrightarrow
+    \left( \forall f(x) \right) \int dx f(x) A(x) = \int dx f(x) B(x).
+\]
+Hence, this problem could be viewed as proving the equality
+\[
+    \delta\left[ g(x) \right] = \frac{\delta(x - x_0)}{\abs{g'(x_0)}}.
+\]
+\begin{align*}
+    \int_a^b dx f(x) \delta\left[ g(x) \right]
+    &= \int_{g(a)}^{g(b)} \frac{du}{g'(x(u))} f(x(u)) \delta(u) && (u := g(x)) \\
+    &= \evalAt{ \sign\left( g(b) - g(a) \right) \frac{f(x(u))}{g'(x(u))} }{u = 0} \\
+    &= \sign\left( g'(x_0) \right) \frac{f(x_0)}{g'(x_0)} \\
+    &= \frac{f(x_0)}{\abs{g'(x_0)}}
+\end{align*}

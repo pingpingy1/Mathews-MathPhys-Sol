@@ -117,8 +117,8 @@ Therefore, we arrive at the pivotal formula
 \[
     \Laurentcoeff{-n}{{(f(z))}^{-k}} = \frac{k}{n} \Laurentcoeff{k}{{(f^{-1} (z))}^n}.
 \]
-This is known in the maths world as the \href{https://en.wikipedia.org/wiki/Formal_power_series#The_Lagrange_inversion_formula}{Lagrange inversion formula},%
-\footnote{\url{https://en.wikipedia.org/wiki/Formal_power_series\#The_Lagrange_inversion_formula}}
+This is known in the maths world as the
+\urlfoot{https://en.wikipedia.org/wiki/Formal_power_series\#The_Lagrange_inversion_formula}{Lagrange inversion formula},
 and it is what we desperately needed to calculate the residue in question!
 
 Having sufficiently patted ourselves on our respective backs after that long derivation,
@@ -155,15 +155,15 @@ using the Taylor series of $\arcsin z$ only.
     \Rightarrow \Laurentcoeff{-n}{e^{-\inv{\sin z}}}
     &= \inv{n} \sum_{k=1}^\infty \frac{{(-1)}^k}{(k-1)!} \Laurentcoeff{k}{{(\arcsin z)}^n} \\
     &= \inv{n} \sum_{k=1}^\infty \frac{{(-1)}^k}{(k-1)!} \\
-    &\times \sum_{2\sum_j l_j + k = n} {\left( -\inv{4} \right)}^{\sum_j l_j}
+    &\quad \times \sum_{2\sum_j l_j + k = n} {\left( -\inv{4} \right)}^{\sum_j l_j}
             \prod_j \left( \frac{(2l_j)!}{(2l_j + 1) {(l_j !)}^2} \right) \\
     &= \inv{n} \sum_{l_1=0}^\infty \cdots \sum_{l_n=0}^\infty
        \frac{{(-1)}^{n - 2\sum_j l_j}}{\left( n - 1 + 2\sum_j l_j \right)!} \\
-    &\times {\left( -\inv{4} \right)}^{\sum_j l_j}
+    &\quad \times {\left( -\inv{4} \right)}^{\sum_j l_j}
             \prod_j \left( \frac{(2l_j)!}{(2l_j + 1) {(l_j !)}^2} \right) \\
     &= \inv{n} \sum_{l_1=0}^\infty \cdots \sum_{l_n=0}^\infty
        \frac{{(-1)}^{\sum_j l_j + n}}{4^{\sum_j l_j} \left( n - 1 + 2\sum_j l_j \right)!} \\
-    &\times \prod_j \left( \frac{(2l_j)!}{(2l_j + 1) {(l_j !)}^2} \right)
+    &\quad \times \prod_j \left( \frac{(2l_j)!}{(2l_j + 1) {(l_j !)}^2} \right)
 \end{align*}
 
 We evaluate this formula for $n = 1, 2, 3$.
@@ -181,7 +181,7 @@ We evaluate this formula for $n = 1, 2, 3$.
     \Laurentcoeff{-3}{e^{-\inv{\sin z}}}
     &= \inv{3} \sum_{l_1 = 0}^\infty \sum_{l_2 = 0}^\infty \sum_{l_3 = 0}^\infty
        \frac{{(-1)}^{l_1 + l_2 + l_3 + 1}}{4^{l_1 + l_2 + l_3} (2l_1 + 2l_2 + 2l_3 + 2)!} \\
-    &\times \frac{(2l_1)!}{(2l_1 + 1) {(l_1 !)}^2} \frac{(2l_2)!}{(2l_2 + 1) {(l_2 !)}^2}
+    &\quad \times \frac{(2l_1)!}{(2l_1 + 1) {(l_1 !)}^2} \frac{(2l_2)!}{(2l_2 + 1) {(l_2 !)}^2}
             \frac{(2l_3)!}{(2l_3 + 1) {(l_3 !)}^2}
 \end{align*}
 
@@ -194,7 +194,7 @@ We evaluate this formula for $n = 1, 2, 3$.
     &\quad - \sum_{l_2=0}^\infty \frac{{(-1)^{l_2}} (2l_2)!}{4^{l_2} (2l_2 + 1) {(l_2 !)}^2} \left(
         \frac{\pi}{(2l_1 + 2l_2 + 1)!}
     \right. \\
-    &\quad - \left.\left. \sum_{l_3=0}^\infty \frac{{(-1)^{l_3}} (2l_3)!}{4^{l_3} (2l_3 + 1) {(l_3 !)}^2}
+    &\qquad - \left.\left. \sum_{l_3=0}^\infty \frac{{(-1)^{l_3}} (2l_3)!}{4^{l_3} (2l_3 + 1) {(l_3 !)}^2}
        \cdot \inv{3(2l_1 + 2l_2 + 2l_3 + 2)!} \right)\right)
 \end{split}
 \]

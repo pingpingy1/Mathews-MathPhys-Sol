@@ -1,0 +1,67 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+In matrix form, the coupled differential equations can be written as
+\[
+    \frac{d}{dt} \begin{pmatrix} N_1 \\ N_2 \\ N_3 \end{pmatrix}
+    = \begin{pmatrix}
+        -\lambda_1 &            &            \\
+         \lambda_1 & -\lambda_2 &            \\
+                   &  \lambda_2 & -\lambda_3 \\
+    \end{pmatrix}
+    \begin{pmatrix} N_1 \\ N_2 \\ N_3 \end{pmatrix}.
+\]
+Let
+\[
+    F_i := \Lapltransf{N_i}(s).
+\]
+\[
+    \Rightarrow \Lapltransf{\dot{N_i}}(s)
+    = sF_i - N_i(0)
+\]
+\[
+    \Rightarrow \begin{pmatrix} sF_1 - N \\ sF_2 \\ sF_3 - n \end{pmatrix}
+    = \begin{pmatrix}
+        -\lambda_1 &            &            \\
+         \lambda_1 & -\lambda_2 &            \\
+                   &  \lambda_2 & -\lambda_3 \\
+    \end{pmatrix}
+    \begin{pmatrix} F_1 \\ F_2 \\ F_3 \end{pmatrix}
+\]
+\[
+    \Rightarrow \begin{pmatrix}
+        s + \lambda_1 &               &               \\
+           -\lambda_1 & s + \lambda_2 &               \\
+                      &    -\lambda_2 & s + \lambda_3 \\
+    \end{pmatrix}
+    \begin{pmatrix} F_1 \\ F_2 \\ F_3 \end{pmatrix}
+    = \begin{pmatrix} N \\ \\ m \end{pmatrix}
+\]
+\begin{align*}
+    \Rightarrow F_3
+    &= \frac{n}{s + \lambda_3} - \frac{N\lambda_1 \lambda_2}{(\lambda_1 - \lambda_2) (\lambda_2 - \lambda_3) (\lambda_3 - \lambda_1)} \\
+    &\quad\cdot \left(
+        \frac{\lambda_2 - \lambda_3}{s - \lambda_1} +
+        \frac{\lambda_3 - \lambda_1}{s - \lambda_2} +
+        \frac{\lambda_1 - \lambda_2}{s - \lambda_3}
+    \right)
+\end{align*}
+\begin{align*}
+    \therefore N_3(t)
+    &= ne^{-\lambda_3 t} - \frac{N\lambda_1 \lambda_2}{(\lambda_1 - \lambda_2) (\lambda_2 - \lambda_3) (\lambda_3 - \lambda_1)} \\
+    &\quad\cdot \left(
+        (\lambda_2 - \lambda_3) e^{-\lambda_1} +
+        (\lambda_3 - \lambda_1) e^{-\lambda_2} +
+        (\lambda_1 - \lambda_2) e^{-\lambda_3}
+    \right)
+\end{align*}
+(Note 1: What if two of the $\lambda_i$'s are the same?
+In this case, the inverse Laplace transform becomes more complicated,
+and the solution would take the form of
+either $te^{-t}$ (multiplicity 2) or $t^2 e^{-t}$ (multiplicity 3).)
+(Note 2: Solving the linear system of equations, in this case is straightforward
+since the matrix is already lower triangular.
+However, since only $F_3$ is of interest in our case, the
+\urlfoot{https://en.wikipedia.org/wiki/Cramer\%27s_rule}{Cramer's rule}
+may be more efficient, especially because the determinant calculations are also relatively simple.)

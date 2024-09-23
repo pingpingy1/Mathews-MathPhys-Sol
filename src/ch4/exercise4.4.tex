@@ -1,0 +1,61 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+For sinusoidal input functions, we can rewrite the linear system's outputs as
+\[
+    \inv{T} \int_0^T dt' G(t - t') \sin \frac{2n\pi}{T}t'
+    = {\left( \frac{\omega_0 T}{2n\pi} \right)}^2 \sin \frac{2n\pi}{T}t,
+\]
+\[
+    \inv{T} \int_0^T dt' G(t - t') \cos \frac{2n\pi}{T}t'
+    = {\left( \frac{\omega_0 T}{2n\pi} \right)}^2 \cos \frac{2n\pi}{T}t,
+\]
+and
+\[
+    \inv{T} \int_0^T dt' G(t - t') = 0.
+\]
+For ``sufficiently well-behaved'' inputs%
+\footnote{As in, inputs in the domain densly spanned by the sinusoidal functions.} $f$,
+these conditions are sufficient to ensure the correct behavior of the linear system,
+as these inputs may be expanded into Fourier series, which the system acts on termwise.
+
+Now, let us consider the Fourier expansion of $G(t)$ itself as
+\[
+    G(-(t - t_0))
+    := \frac{A_0}{2} + \sum_{n=1}^\infty \left(
+        A_n \cos \frac{2n\pi}{T}t + B_n \sin \frac{2n\pi}{T}t
+    \right)
+\]
+where the coefficients $A_n$ and $B_n$ will, in general, depend on $t_0$.
+\[
+    A_0
+    = \frac{2}{T} \int_0^T dt' G(t_0 - t')
+    = 0
+\]
+\[
+    \Rightarrow A_n
+    = \frac{2}{T} \int_0^T dt' G(t_0 - t') \cos \frac{2n\pi}{T}t'
+    = 2 {\left( \frac{\omega_0 T}{2n\pi} \right)}^2 \cos \frac{2n\pi}{T}t_0
+\]
+\[
+    B_n
+    = \frac{2}{T} \int_0^T dt' G(t_0 - t') \sin \frac{2n\pi}{T}t'
+    = 2 {\left( \frac{\omega_0 T}{2n\pi} \right)}^2 \sin \frac{2n\pi}{T}t_0
+\]
+\begin{align*}
+    \Rightarrow G(t_0 - t)
+    &= \frac{\omega_0^2  T^2}{2\pi^2} \sum_{n=1}^\infty \inv{n^2} \left(
+        \cos \frac{2n\pi}{T}t_0 \cos \frac{2n\pi}{T}t_0
+        + \cos \frac{2n\pi}{T}t_0 \cos \frac{2n\pi}{T}t_0
+    \right) \\
+    &= \frac{\omega_0^2  T^2}{2\pi^2} \sum_{n=1}^\infty \inv{n^2} \cos \frac{2n\pi}{T} (t_0 - t)
+\end{align*}
+
+\[
+    \therefore G(t)
+    = \frac{\omega_0^2  T^2}{2\pi^2} \sum_{n=1}^\infty \inv{n^2} \cos \frac{2n\pi}{T} t
+\]
+(Note: This series might look like it could be further simplified;
+however, to do so requires defining something like the \urlfoot{https://en.wikipedia.org/wiki/Polylogarithm}{polylogarithm function},
+which is a step I will not take.)
