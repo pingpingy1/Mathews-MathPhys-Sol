@@ -6,16 +6,25 @@
 \usepackage{hyperref}
 \usepackage{fontawesome5}
 \usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{subcaption}
 
-% Contour integral
+% Graph Drawing
 \usepackage{tikz}
-\usetikzlibrary{calc, shapes.misc, decorations.pathmorphing, decorations.markings, arrows}
+\usetikzlibrary{calc, shapes.misc, decorations.pathmorphing, decorations.markings, arrows, patterns.meta}
 \tikzset{%
-	axis/.style={black, thick, ->},
-	pole/.style={draw, red, cross out, very thick, draw, minimum size=2 * (#1-\pgflinewidth), inner sep=0cm, outer sep=0cm},
-	pole/.default={0.15cm},
-	branch cut/.style={red, thick, decorate, decoration={snake}},
-	contour/.style={blue, very thick, postaction={decorate}, decoration={markings, mark={at position 0.5 with {\arrow{>}}}}}
+    axis/.style={black, thick, ->},
+    pole/.style={
+        draw, red, cross out, very thick, draw, minimum size=2 * (#1-\pgflinewidth),
+        inner sep=0cm, outer sep=0cm
+    },
+    pole/.default={0.15cm},
+    branch cut/.style={red, thick, decorate, decoration={snake}},
+    contour/.style={
+        blue, very thick, postaction={decorate},
+        decoration={markings, mark={at position 0.5 with {\arrow{>}}}}
+    },
+    charged strip/.style={orange, very thick}
 }
 
 % General
@@ -30,6 +39,7 @@
 \newcommand{\abs}[1]{\left| #1 \right|}
 \newcommand{\inv}[1]{\frac{1}{#1}}
 \newcommand{\Laurentcoeff}[2]{\left[ z^{#1} \right] \left( #2 \right)}
+\newcommand{\const}{\text{const.}}
 
 % Vectors
 \renewcommand{\mathbb}{\mathbbm}
@@ -45,6 +55,9 @@
 \newcommand{\refprob}{Problem}
 \newcommand{\reffig}{Figure}
 \newcommand{\urlfoot}[2]{\href{#1}{#2}\footnote{\url{#1}}}
+\newcommand{\notyet}{\faTired[regular] Whoops!
+This problem is under construction ($\because$ author's skill issue).
+Please wait or consider contributing!}
 
 % Operators
 \DeclareMathOperator{\Ci}{Ci}

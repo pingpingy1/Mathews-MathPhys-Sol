@@ -1,0 +1,151 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}{\textwidth}
+        \centering
+        \begin{tikzpicture}
+            % Axes
+            \draw[axis] (-3.7cm, 0cm) -- (3.7cm, 0cm) node[right] {$\Re$};
+            \draw[axis] (0cm, -2cm) -- (0cm, 2cm) node[right] {$\Im$};
+            \node (name) at (3.2cm, 1.5cm) {$z$};
+            \draw (name.north west) |- (name.south east);
+    
+            % Charges
+            \draw[charged strip]
+                (-0.8cm, 0cm) -- node[midway, above] {$+\lambda$} (0.8cm, 0cm);
+            \draw[charged strip]
+                (1.4cm, 0cm) -- node[midway, above] {$+\lambda$} (3cm, 0cm);
+            \draw[charged strip]
+                (-3cm, 0cm) -- node[midway, above] {$+\lambda$} (-1.4cm, 0cm);
+            \node[below] at (   0cm, 0cm) {$2a$};
+            \node[below] at ( 2.2cm, 0cm) {$2a$};
+            \node[below] at (-2.2cm, 0cm) {$2a$};
+            \node[above] at ( 1.1cm, 0cm) {$2b$};
+            \node[above] at (-1.1cm, 0cm) {$2b$};
+
+            \draw[dashed, gray] ( 1.1cm, -1.8cm) -- ( 1.1cm, 1.8cm);
+            \draw[dashed, gray] (-1.1cm, -1.8cm) -- (-1.1cm, 1.8cm);
+
+        \end{tikzpicture}
+        \caption{}%
+        \label{subfig:problem5-1:original}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.4\textwidth}
+        \centering
+        \begin{tikzpicture}
+            % Axes
+            \draw[axis] (-2cm, 0cm) -- (2cm, 0cm) node[right] {$\Re$};
+            \draw[axis] (0cm, -2cm) -- (0cm, 2cm) node[right] {$\Im$};
+            \node (name) at (1.5cm, 1.5cm) {$\zeta$};
+            \draw (name.north west) |- (name.south east);
+    
+            % Charges
+            \draw[charged strip] (1cm, 0cm) arc (0:131:1cm);
+            \draw[charged strip] (1cm, 0cm) arc (0:-131:1cm);
+            \node[right, yshift=0.2cm, orange] at (0.65cm, 0.65cm) {$+\lambda$};
+            \node[below, xshift=0.2cm] at (1cm, 0cm) {$1$};
+            \draw[dashed, gray] (0cm, 0cm)
+                -- (-1.312cm,  1.509cm) node[above] {$\theta =  \frac{\pi a}{a + b}$};
+            \draw[dashed, gray] (0cm, 0cm)
+                -- (-1.312cm, -1.509cm) node[below] {$\theta = -\frac{\pi a}{a + b}$};
+            
+        \end{tikzpicture}
+        \caption{}%
+        \label{subfig:problem5-1:exp}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.4\textwidth}
+        \centering
+        \begin{tikzpicture}
+            % Axes
+            \draw[axis] (-2cm, 0cm) -- (2cm, 0cm) node[right] {$\Re$};
+            \draw[axis] (0cm, -2cm) -- (0cm, 2cm) node[right] {$\Im$};
+            \node (name) at (1.5cm, 1.5cm) {$\eta$};
+            \draw (name.north west) |- (name.south east);
+    
+            % Charges
+            \draw[charged strip] (-1cm, 0cm) -- node[midway, above] {$+\lambda$} (1cm, 0cm);
+            \node[below] at ( 1cm, 0cm) {$ \tan \frac{\pi a}{2(a+b)}$};
+            \node[below] at (-1cm, 0cm) {$-\tan \frac{\pi a}{2(a+b)}$};
+            
+        \end{tikzpicture}
+        \caption{}%
+        \label{subfig:problem5-1:final}
+    \end{subfigure}
+    \caption{Results of conformal mappings used in \refprob~5--1.}%
+    \label{fig:problem5-1}
+\end{figure}
+
+The problem describes a linear array of charged stripts,
+as shown in \reffig~\ref{subfig:problem5-1:original}.
+We wish to find a conformal map that transforms this into a problem with a known solution.
+It is helpful to approach this step by step.
+
+The first problem we see is that there are infinitely many charged sheets;
+we wish to collapse them into a single strip.
+To do so, we should employ a map that is periodic with period $2(a+b)$.
+Hence, we employ the map
+\[
+    \zeta := \exp\left( i\frac{\pi z}{a + b} \right)
+    \Leftrightarrow z = -i (a + b) \ln\zeta.
+\]
+This yields \reffig~\ref{subfig:problem5-1:exp}, where the charged strips collapse into
+a single one shaped as a circular arc (or a cylindrical arc in 3D).
+
+We now want to map this circular arc into a well-known shape.
+One way to do so is given by the
+\urlfoot{https://en.wikipedia.org/wiki/M\%C3\%B6bius_transformation}{M\"obius transformation},
+which is often introduced as an important class of conformal mappings in other textbooks.
+With that motivation-via-divine-intervention aside, let us consider the map
+\[
+    \eta = \frac{a\zeta + b}{c\zeta + d}.
+\]
+We will attempt to transform the unit circle in the $\zeta$ plane
+into the real axis in the $\eta$ plane.
+Also, it would be nice to have $1$ map to the origin for more symmetry
+and $-1$ to infinity because it is not part of the charged strip.
+These conditions constrain the transformation to
+\[
+    \eta = a \frac{1 - \zeta}{1 + \zeta}.
+\]
+Finally, requiring that $i$ maps to a point on the real axis, we get
+\[
+    \eta := i \frac{1 - \zeta}{1 + \zeta}
+    \Leftrightarrow \zeta = \frac{i - \eta}{i + \eta}.
+\]
+This transformation actually maps the point $e^{i\alpha}$ to $\tan\frac{\alpha}{2}$,
+so it places the charged strip on the real interval
+from $-\tan\frac{\pi a}{2(a+b)}$ to $\tan\frac{\pi a}{2(a+b)}$.
+This is shown in \reffig~\ref{subfig:problem5-1:final}.
+
+This final situation in the $\eta$ was dealt with in the main text
+and is solved by
+\[
+    f(\eta) = -\frac{\lambda}{2\pi\epsilon_0} \sin^{-1} \left(
+        \frac{\eta}{\tan (\pi a / 2(a + b))}
+    \right).
+\]
+Composing the two conformal maps yields
+\[
+    \eta(z) = \tan \left( \frac{\pi z}{2(a + b)} \right).
+\]
+\begin{align*}
+    \therefore F(z)
+    &= f(\eta(z)) \\
+    &= -\frac{\lambda}{2\pi\epsilon_0} \sin^{-1} \left(
+        \frac{\tan \left( \frac{\pi z}{2(a + b)} \right)}{\tan \left( \frac{\pi a}{2(a + b)} \right)}
+    \right)
+\end{align*}
+The potential is given by the imaginary part of this function.
+
+(Note: It may be possible to directly motivate the conformal map $\eta(z)$ as follows:
+The map should be periodic as discussed earlier,
+but we also require that real values are mapped to real values.
+This would ensure that the charged strips stay straight, which may be easier to calculate.
+The tangent function achieves this as shown in this solution,
+but one may be tempted to use one of the other trigonometric functions.
+The reader is encouraged to try out other possible mappings.)

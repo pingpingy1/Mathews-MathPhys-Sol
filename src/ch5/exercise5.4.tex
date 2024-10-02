@@ -1,0 +1,64 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+        % Conductor
+        \draw[thick] (0cm, 0cm) -- (4cm, 0cm);
+        \pattern[pattern={Lines[angle=45,distance=0.1cm]}]
+            (0cm, 0cm) -- (4cm, 0cm) -- (4cm, -1cm) -- (0cm, -1cm) -- cycle;
+        \node at (2cm, -0.5cm) {$+\sigma$};
+
+        % Contour and Fields
+        \draw[thick, blue, ->]
+            (0.7cm, 0.5cm) node[left] {$P$}
+            -- (3.3cm, 0.5cm) node[right] {$Q$};
+        \draw[thick, red, ->]
+            (1.0cm, 0.7cm)
+            -- node[midway, above] {$d\mathbb{s}$}
+            (1.4cm, 0.7cm);
+        \draw[thick, orange, ->]
+            (2.5cm, 0.7cm)
+            -- node[midway, right] {$E_n$}
+            (2.5cm, 1.3cm);
+        \draw[thick, cyan, ->]
+            (2.5cm, 0.7cm)
+            -- node[midway, right, yshift=-0.1cm] {$\nabla V$}
+            (2.5cm, 0.1cm);
+        \draw[thick, magenta, ->]
+            (2.5cm, 0.7cm)
+            -- node[midway, above] {$\nabla U$}
+            (1.9cm, 0.7cm);
+        
+    \end{tikzpicture}
+    \caption{The surface of a charged conductor, used in \refprob~5--4.}%
+    \label{fig:problem5-4}
+\end{figure}
+
+Suppose we traverse near the surface of a sheet of conductor from $P$ to $Q$,
+such that the conductor stays on the right of the direction of traversal.
+Such a contour is shown in \reffig~\ref{fig:problem5-4}.
+The electric field and the gradients of the potential and the streaming function are also shown,
+where $\nabla V$ must be counterclockwise to $\nabla U$.
+
+For computational ease, let us equate the 2D vector $(a, b)$ with the complex number $a + ib$.
+This leads to some rather uncomfortable, yet wieldy expressions such as
+\[
+    \nabla V = -E_n = i \nabla U.
+\]
+\begin{align*}
+    \Rightarrow \frac{\sigma}{\epsilon_0}
+    &= E_n \\
+    &= -\nabla V \cdot \unitvec{n} \\
+    &= - \left( i\nabla U \right) \cdot \left( i \unitvec{s} \right) \\
+    &= \nabla U \cdot \unitvec{s}
+\end{align*}
+\begin{align*}
+    \therefore C(P, Q)
+    &= \int_P^Q ds \sigma \\
+    &= \epsilon_0 \int_P^Q ds \nabla U \cdot \unitvec{s} \\
+    &= \epsilon_0 \int_P^Q d\mathbb{s} \cdot \nabla U \\
+    &= \epsilon_0 \left( U(Q) - U(P) \right)
+\end{align*}

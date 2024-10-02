@@ -1,0 +1,120 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}{0.4\textwidth}
+        \centering
+        \begin{tikzpicture}
+            % Axes
+            \draw[axis] (-2cm, 0cm) -- (2cm, 0cm) node[right] {$\Re$};
+            \draw[axis] (0cm, -2cm) -- (0cm, 2cm) node[right] {$\Im$};
+            \node (name) at (1.5cm, 1.5cm) {$z$};
+            \draw (name.north west) |- (name.south east);
+    
+            % Charges & Conductors
+            \node[pole] (A) at (0cm, 0.8cm) {}; \node[right, red] at (A.east) {$+\lambda$};
+                                                \node[left]       at (A.west) {$a$};
+            \draw[charged strip] (-1.8cm, 0cm) -- (1.8cm, 0cm);
+            \draw[charged strip, blue] (-1.8cm, 1.2cm) -- (1.8cm, 1.2cm);
+            \node[right] at (0cm, 1.4cm) {$b$};
+
+            % Ground connections
+            \draw[orange] (1.5cm, 0cm) -- (1.5cm, -0.2cm);
+            \draw[orange] (1.2cm, -0.2cm) -- (1.8cm, -0.2cm);
+            \draw[orange] (1.3cm, -0.3cm) -- (1.7cm, -0.3cm);
+            \draw[orange] (1.4cm, -0.4cm) -- (1.6cm, -0.4cm);
+
+            \draw[blue] (1.5cm, 1.2cm) -- (1.5cm, 1.0cm);
+            \draw[blue] (1.2cm, 1.0cm) -- (1.8cm, 1.0cm);
+            \draw[blue] (1.3cm, 0.9cm) -- (1.7cm, 0.9cm);
+            \draw[blue] (1.4cm, 0.8cm) -- (1.6cm, 0.8cm);
+            
+        \end{tikzpicture}
+        \caption{}%
+        \label{subfig:problem5-3:original}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.4\textwidth}
+        \centering
+        \begin{tikzpicture}
+            % Axes
+            \draw[axis] (-2cm, 0cm) -- (2cm, 0cm) node[right] {$\Re$};
+            \draw[axis] (0cm, -2cm) -- (0cm, 2cm) node[right] {$\Im$};
+            \node (name) at (1.5cm, 1.5cm) {$\zeta$};
+            \draw (name.north west) |- (name.south east);
+    
+            % Charges & Conductors
+            \draw[dotted, gray] (0cm, 0cm) -- (-1cm, 1.732cm)
+                node[above] {$\theta = \frac{a}{b}\pi$};
+            \draw[dotted, gray] (1cm, 0cm) arc (0:360:1cm);
+            \node[right, gray] at (0.7cm, 0.7cm) {$r = 1$};
+            \node[pole] (A) at (-0.5cm, 0.866cm) {}; \node[left, red] at (A.west) {$+\lambda$};
+
+            \draw[charged strip] (0cm, 0cm) -- (1.8cm, 0cm);
+            \draw[charged strip, blue] (-1.8cm, 0cm) -- (0cm, 0cm);
+
+            \draw[dotted, gray] (0cm, 0cm) -- (-1cm, -1.732cm)
+                node[above] {$\theta = -\frac{a}{b}\pi$};
+            \node[right, gray] at (0.7cm, 0.7cm) {$r = 1$};
+            \node[pole, opacity = 0.5] (B) at (-0.5cm, -0.866cm) {};
+                \node[left, red, opacity=0.5] at (B.west) {$-\lambda$};
+
+            % Ground connections
+            \draw[orange] (1.5cm, 0cm) -- (1.5cm, -0.2cm);
+            \draw[orange] (1.2cm, -0.2cm) -- (1.8cm, -0.2cm);
+            \draw[orange] (1.3cm, -0.3cm) -- (1.7cm, -0.3cm);
+            \draw[orange] (1.4cm, -0.4cm) -- (1.6cm, -0.4cm);
+
+            \draw[blue] (-1.5cm, 0cm) -- (-1.5cm, -0.2cm);
+            \draw[blue] (-1.2cm, -0.2cm) -- (-1.8cm, -0.2cm);
+            \draw[blue] (-1.3cm, -0.3cm) -- (-1.7cm, -0.3cm);
+            \draw[blue] (-1.4cm, -0.4cm) -- (-1.6cm, -0.4cm);
+            
+        \end{tikzpicture}
+        \caption{}%
+        \label{subfig:problem5-3:final}
+    \end{subfigure}
+    \caption{Results of conformal mappings used in \refprob~5--3.
+    Note that the grounded symbols have not been mapped conformally.}%
+    \label{fig:problem5-3}
+\end{figure}
+
+The effects of the given transformation is shown in \reffig~\ref{fig:problem5-3}.
+The region between the plates in the $z$ plane
+is mapped to the upper half plane in the $\zeta$ plane.
+Moreover, the two charged plates are mapped onto the positive and negative halves of the real axis.
+Therefore, we should find a complex function $F(\zeta)$
+such that its imaginary part vanishes on the real axis
+while showing a log-like behavior near $e^{i\frac{a}{b}\pi}$.
+Those with some electrostatic problem-solving experience may recall the
+\urlfoot{https://en.wikipedia.org/wiki/Method_of_image_charges}{image charge method}.
+Those without could tinker around, perhaps placing some negative charges trying to
+cancel out the potential on the real axis.
+This may lead you to placing a charged line of charge density $-\lambda$
+at $\zeta = e^{-i\frac{a}{b}\pi}$.
+
+\[
+    \Rightarrow F(\zeta)
+    = \frac{i\lambda}{2\pi\epsilon_0} \left(
+        \ln \left( \zeta - e^{-i\frac{a}{b}\pi} \right)
+        - \ln \left( \zeta - e^{i\frac{a}{b}\pi} \right)
+    \right)
+\]
+\begin{align*}
+    \Rightarrow f(z)
+    &= F(\zeta(z)) \\
+    &= \frac{i\lambda}{2\pi\epsilon_0} \left(
+        \ln \left( e^{i\frac{z}{b}} - e^{-i\frac{a}{b}\pi} \right)
+        - \ln \left( e^{i\frac{z}{b}} - e^{i\frac{a}{b}\pi} \right)
+    \right)
+\end{align*}
+\begin{align*}
+    \therefore V(x, y)
+    &= \Im \left\{ f(z) \right\} \\
+    &= \frac{\lambda}{2\pi\epsilon_0} \Re \left\{ \left(
+        \ln \left( e^{i\frac{x + iy}{b}} - e^{-i\frac{a}{b}\pi} \right)
+        - \ln \left( e^{i\frac{x + iy}{b}} - e^{i\frac{a}{b}\pi} \right)
+    \right) \right\}
+\end{align*}

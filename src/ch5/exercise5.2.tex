@@ -1,0 +1,61 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+First, consider a single line charge $\lambda$ at the origin.
+We want to express the potential $V(x, y)$ as the imaginary component of some complex function
+\[
+    F(z) = U(x, y) + iV(x, y).
+\]
+Rotational symmetry implies that $V$ is solely a function of $r := \abs{z}$;
+consequently, the streamlines formed by $U = \const$ must be radial.
+Moreover, $U$ must be multivalued since the integral
+\[
+    \oint_{r = \const} dz (\nabla V)_n  = \Delta U
+\]
+is nonzero (unless $V$ itself is zero).
+In other words, following a circular contour around the origin increments $U$ by a fixed amount.
+``Therefore,'' the only analytic function that satisfies these conditions is
+\[
+    F(z)
+    := iC \ln z
+    = C \left( -\theta + i\ln r \right) \quad (z = re^{i\theta}).
+\]
+(Note: I really hoped that I could come up with an air-tight argument for the logarithm to appear here;
+if you have any ideas other than direct calculation of the potential, please let me know!)
+
+Integration around the origin then should represent the total linear charge density enclosed:
+\[
+    \frac{\lambda}{\epsilon_0}
+    = \oint_{r = \const} dz (\nabla V)_n 
+    = \Delta U
+    = -2\pi C.
+\]
+\[
+    \Rightarrow C = -\frac{\lambda}{2\pi\epsilon_0}
+    \Rightarrow F(z) = -\frac{i\lambda}{2\pi\epsilon_0} \ln z
+\]
+Confusingly enough, this problem in particular requires that the \emph{real} part be the potential.
+Thus, we divide by $i$ and use
+\[
+    F(z) = -\frac{\lambda}{2\pi\epsilon_0} \ln z.
+\]
+
+For the 2D-equivalent of the electric dipole as described in the problem,
+we simply superpose the functions for each of the line charge.
+\begin{align*}
+    \therefore W(z)
+    &= \lim_{d \rightarrow 0^+} \left(
+        -\frac{p/2d}{2\pi\epsilon_0} \ln (z - id)
+        + \left( -\frac{-p/2d}{2\pi\epsilon_0} \ln (z + id) \right)
+    \right) \\
+    &= \frac{ip}{2\pi\epsilon_0} \lim_{d \rightarrow 0^+} \frac{
+        \ln (z + id) - \ln (z - id)
+    }{2id} \\
+    &= \frac{ip}{2\pi\epsilon_0 z}
+\end{align*}
+Notice that the electric potential is given by
+\[
+    \Re \left\{ W(z) \right\}
+    = \frac{p}{2\pi\epsilon_0} \frac{y}{x^2 + y^2}.
+\]
