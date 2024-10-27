@@ -1,0 +1,55 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{enumerate}[wide, labelindent = 0pt, label = (\alph*)]
+\item
+\begin{align*}
+    {\left( C^{-1} A C \right)}^\dagger
+    &= C^\dagger A^\dagger {\left( C^{-1} \right)}^\dagger \\
+    &= C^{-1} A {\left( C^{-1} \right)}^\dagger
+\end{align*}
+Now, notice that for a general invertible matrix $M$,
+\begin{align*}
+    {\left( M^{-1} \right)}^\dagger M^\dagger
+    &= {\left( M M^{-1} \right)}^\dagger \\
+    &= 1^\dagger \\
+    &= 1
+\end{align*}
+and
+\begin{align*}
+    M^\dagger {\left( M^{-1} \right)}^\dagger
+    &= {\left( M^{-1} M \right)}^\dagger \\
+    &= 1^\dagger \\
+    &= 1,
+\end{align*}
+hence implying
+\[
+    {\left( M^{-1} \right)}^\dagger = {\left( M^\dagger \right)}^{-1}.
+\]
+\begin{align*}
+    \therefore {\left( C^{-1} A C \right)}^\dagger
+    &= C^{-1} A {\left( C^{-1} \right)}^\dagger \\
+    &= C^{-1} A {\left( C^\dagger \right)}^{-1} \\
+    &= C^{-1} A {C^{-1}}^{-1} \\
+    &= C^{-1} A C
+\end{align*}
+
+\item
+\begin{align*}
+    {\left( C^{-1} D C \right)}^\dagger
+    &= C^\dagger D^\dagger {\left( C^{-1} \right)}^\dagger \\
+    &= C^{-1} D^{-1} {\left( C^\dagger \right)}^{-1} \\
+    &= C^{-1} D^{-1} {\left( C^{-1} \right)}^{-1} \\
+    &= {\left( C^{-1} D C \right)}^{-1}
+\end{align*}
+
+\item
+\begin{align*}
+    {\left( i (AB - BA) \right)}^\dagger
+    &= i^* \left( B^\dagger A^\dagger - A^\dagger B^\dagger \right) \\
+    &= -i (BA - AB) \\
+    &= i (AB - BA)
+\end{align*}
+
+\end{enumerate}

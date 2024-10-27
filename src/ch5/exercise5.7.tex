@@ -1,0 +1,157 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}{0.4\textwidth}
+        \centering
+        \begin{tikzpicture}
+            % Region Shading
+            \pattern[pattern={Lines[angle=45,distance=0.1cm]}, pattern color=yellow]
+                (-1.8cm, 1.8cm) -- (-1.8cm, 0cm) -- (1.8cm, 0cm) -- (1.8cm, 1.8cm) -- cycle;
+
+            % Axes
+            \draw[axis] (-2cm, 0cm) -- (2cm, 0cm) node[right] {$\Re$};
+            \draw[axis] (0cm, -2cm) -- (0cm, 2cm) node[right] {$\Im$};
+            \node (name) at (1.5cm, 1.5cm) {$z$};
+            \draw (name.north west) |- (name.south east);
+    
+            % Poles
+            \node[pole] (A) at (-1.3cm, 0cm) {}; \node[below] at (A.south) {$a_1$};
+            \node[pole] (B) at ( 1.3cm, 0cm) {}; \node[below] at (B.south) {$a_2$};
+
+        \end{tikzpicture}
+        \caption{}%
+        \label{subfig:problem5-7:original}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.4\textwidth}
+        \centering
+        \begin{tikzpicture}
+            % Region Shading
+            \pattern[pattern={Lines[angle=45,distance=0.1cm]}, pattern color=yellow]
+                (-1.8cm,  1.8cm) -- (-1.8cm, -0.6cm) -- (-1cm, 0.5cm)
+                -- (1cm, 0.9cm) -- (1.8cm, -1.6cm) -- (1.8cm,  1.8cm) -- cycle;
+            
+            % Axes
+            \draw[axis] (-2cm, 0cm) -- (2cm, 0cm) node[right] {$\Re$};
+            \draw[axis] (0cm, -2cm) -- (0cm, 2cm) node[right] {$\Im$};
+            \node (name) at (1.5cm, 1.5cm) {$\zeta$};
+            \draw (name.north west) |- (name.south east);
+    
+            % Poles & Boundary
+            \draw[gray, dashed] (-1cm, 0.5cm) -- (-0.0545cm,  1.8cm);
+            \draw[gray, dashed] ( 1cm, 0.9cm) -- (    1.8cm, 1.06cm);
+            \draw[charged strip]
+                (-1.8cm, -0.6cm)
+                -- ( -1cm,  0.5cm) node[pole] (A) {}
+                -- (  1cm,  0.9cm) node[pole] (B) {}
+                -- (1.8cm, -1.6cm);
+            
+            \node[left] at (A.west) {$z = a_1$};
+            \node[below, xshift=-0.4cm] at (B.south) {$z = a_2$};
+
+            \draw[->] (-0.7818cm, 0.8cm)
+                arc (53.973:11.310:0.3709cm) node[midway, right, yshift=0.15cm] {$\pi s_1$};
+            \draw[->] (1.3cm, 0.96cm)
+                arc (11.310:-72.255:0.3059cm) node[midway, right] {$\pi s_2$};
+
+            % Derivative Infinitesimal Vectors
+            \draw[thick, magenta, ->] (-1.6cm,  -0.325cm)
+                -- node[midway, right, xshift=-0.1cm, yshift=-0.1cm]
+                    {$d\mathbb{s} \propto Ae^{i\pi (s_1 + s_2)}$}
+                ( -1.3cm,  0.0875cm);
+            \draw[thick, magenta, ->] (   0cm,     0.7cm)
+                -- node[midway, above, yshift=0.3cm] {$d\mathbb{s} \propto Ae^{i\pi s_2}$}
+                (  0.4cm,    0.78cm);
+            \draw[thick, magenta, ->] ( 1.5cm, -0.6625cm)
+                -- node[midway, left] {$d\mathbb{s} \propto A$}
+                (1.625cm, -1.0625cm);
+
+        \end{tikzpicture}
+        \caption{}%
+        \label{subfig:problem5-7:general}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \begin{tikzpicture}
+            % Region Shading
+            \pattern[pattern={Lines[angle=45,distance=0.1cm]}, pattern color=yellow]
+                (-1cm,  1.8cm) -- (-1cm, 0cm) -- (1cm, 0cm) -- (1cm, 1.8cm) -- cycle;
+            
+            % Axes
+            \draw[axis] (-2cm, 0cm) -- (2cm, 0cm) node[right] {$\Re$};
+            \draw[axis] (0cm, -2cm) -- (0cm, 2cm) node[right] {$\Im$};
+            \node (name) at (1.5cm, 1.5cm) {$\zeta$};
+            \draw (name.north west) |- (name.south east);
+    
+            % Poles & Boundary
+            \draw[charged strip]
+                (-1cm, 1.8cm)
+                -- (-1cm,   0cm) node[pole] (A) {}
+                -- ( 1cm,   0cm) node[pole] (B) {}
+                -- ( 1cm, 1.8cm);
+            
+            \node[left, yshift=0.2cm] at (A.west) {$z = -1$};
+            \node[below] at (B.south) {$z =  1$};
+
+            \draw[gray, dashed] (-1cm, 0cm) -- (-1cm, -1cm);
+
+            \draw[->] ( -1cm, -0.4cm)
+                arc (-90:0:0.4cm) node[midway, right] {$-\halfpi$};
+            \draw[->] (1.4cm,    0cm)
+                arc (0:90:0.4cm) node[midway, right, yshift=0.2cm] {$-\halfpi$};
+
+        \end{tikzpicture}
+        \caption{}%
+        \label{subfig:problem5-7:arcsin}
+    \end{subfigure}
+    \caption{Results of conformal mappings used in \refprob~5--7.}%
+    \label{fig:problem5-7}
+\end{figure}
+
+\begin{enumerate}[wide, labelindent = 0pt, label = (\alph*)]
+\item
+The proof has basically been outlined in \reffig~\ref{subfig:problem5-7:general}.
+This transformation, which can be searched for as%
+\urlfoot{https://en.wikipedia.org/wiki/Schwarz\%E2\%80\%93Christoffel_mapping}{%
+the Schwarz-Christoffel mapping}%
+\footnote{The lack of `t' in `Schwarz' here hurts my brain.
+Which is right --- the textbook or Wikipedia?
+Probably Wikipedia; it claims that this is Schwarz in the Cauchy-Schwarz inequality.},
+uses the key insight that the phase of $z^s$ takes a jump discontinuity
+on the real axis at the origin.
+Quantitatively, it is $\pi s$ for $x < 0$ and $0$ for $x > 0$ (slightly above the real axis).
+Therefore, the slope of the mapping, which is basically the phase of $\frac{d\zeta}{dz}$,
+changes discontinuously at $z = a_1, a_2$.
+How discontinuous? Well, it decreases by $\pi s_1$ at $z = a_1$ and $\pi s_2$ at $z = a_2$,
+just as the problem claimed!
+
+\item
+For simplicity, suppose the vertices correspond to $z = \pm 1$.
+As shown in \reffig~\ref{subfig:problem5-7:arcsin}, this leads to phase shifts of $-\halfpi$.
+\begin{align*}
+    \Rightarrow \zeta(z)
+    &= A\int \frac{dz}{{(z + 1)}^{1/2} {(z - 1)}^{1/2}} \\
+    &= A\int \frac{dz}{{\left( z^2 - 1 \right)}^{1/2}} \\
+    &= A\cosh^{-1} z + B
+\end{align*}
+The constants $A, B$ are fixed by the conditions
+\[
+    \zeta(z=-1) = i\pi A + B = -a,\; \zeta(z=1) = B = a.
+\]
+\[
+    \Rightarrow A = \frac{2ia}{\pi},\; B = a
+\]
+\begin{align*}
+    \therefore \zeta(z)
+    &= \frac{2ia}{\pi} \cosh^{-1} z + a \\
+    &= \frac{2a}{\pi} \cos^{-1} z + a \\
+    &= \frac{2a}{\pi} \left( \cos^{-1} z + \halfpi \right) \\
+    &= \frac{2a}{\pi} \sin^{-1} z
+\end{align*}
+Thus, we have recovered the arcsine transformation as shown in \reffig~5--3 from the main text.
+
+\end{enumerate}

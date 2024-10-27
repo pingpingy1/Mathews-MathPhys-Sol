@@ -1,0 +1,46 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{enumerate}[wide, labelindent = 0pt, label = (\alph*)]
+\item
+\[
+    \Re F(x)
+    = \Re F(x_0)
+    + \frac{x - x_0}{\pi} \Pint_{-\infty}^\infty dx' \frac{\Im F(x')}{(x' - x_0)(x' - x)}
+\]
+\[
+    \Rightarrow \frac{\Re F(x) - \Re F(x_0)}{x - x_0}
+    = \inv{\pi} \Pint_{-\infty}^\infty dx' \frac{\Im F(x')}{(x' - x_0)(x' - x)}
+\]
+\begin{align*}
+    \xRightarrow{x_0 \rightarrow x} \Re F'(x)
+    &= \inv{\pi} \Pint_{-\infty}^\infty dx' \frac{\Im F(x')}{{(x' - x)}^2} \\
+    &= \inv{\pi} \left(
+        \diffBetween{-\frac{\Im F(x')}{x' - x}}{-\infty}{\infty}
+        + \int_{-\infty}^\infty dx' \frac{F'(x')}{x' - x}
+    \right) \\
+    &= \inv{\pi} \Pint_{-\infty}^\infty dx' \frac{F'(x')}{x' - x}
+\end{align*}
+Therefore, replacing $F'$ with $F$ and substituting $x = 0$ yields the desired sum rule.
+
+\item
+You substitute $x = 0$.
+I really don't understand what the problem is here.
+
+\item
+\notyet\footnote{%
+But my beef with this problem lies beyond the simple ``What should I do?'' confusion.
+I feel like whatever we derived in part~(a) is a large nothing-burger;
+it is simply the unsubtracted relation evaluated at $0$, as stated in part~(b).
+What am I proving? What is the goal?
+If we want to express some rule such as
+\[
+    \Re F(x) = \Pint dx' \Im F(x) \cdot (\text{something}),
+\]
+when what kind of properties are we trying to get for $(\text{something})$?
+How close of an analogy are we talking about?
+Could you tell I'm losing my mind here?
+}
+
+\end{enumerate}

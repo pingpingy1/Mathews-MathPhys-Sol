@@ -1,0 +1,215 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}{0.4\textwidth}
+        \centering
+        \begin{tikzpicture}
+            % Region Shading
+            \pattern[pattern={Lines[angle=45,distance=0.1cm]}, pattern color=red]
+                (0cm, 0cm) -- (0cm,  0.6cm) -- (-1.8cm,  0.6cm) -- (-1.8cm, 0cm) -- cycle;
+            \pattern[pattern={Lines[angle=45,distance=0.1cm]}, pattern color=green]
+                (0cm, 0cm) -- (0cm, -0.6cm) -- (-1.8cm, -0.6cm) -- (-1.8cm, 0cm) -- cycle;
+            \pattern[pattern={Lines[angle=45,distance=0.1cm]}, pattern color=cyan]
+                (0cm, 0cm) -- (0cm, -0.6cm) -- ( 1.8cm, -0.6cm) -- ( 1.8cm, 0cm) -- cycle;
+            \pattern[pattern={Lines[angle=45,distance=0.1cm]}, pattern color=yellow]
+                (0cm, 0cm) -- (0cm,  0.6cm) -- ( 1.8cm,  0.6cm) -- ( 1.8cm, 0cm) -- cycle;
+
+            % Axes
+            \draw[axis] (-2cm, 0cm) -- (2cm, 0cm) node[right] {$\Re$};
+            \draw[axis] (0cm, -2cm) -- (0cm, 2cm) node[right] {$\Im$};
+            \node (name) at (1.5cm, 1.5cm) {$z$};
+            \draw (name.north west) |- (name.south east);
+    
+            % Conductors
+            \draw[charged strip, blue] (0cm,  1.8cm) -- (1.8cm,  1.8cm);
+            \draw[charged strip]       (0cm,  1.2cm) -- (1.8cm,  1.2cm);
+            \draw[charged strip, blue] (0cm,  0.6cm) -- (1.8cm,  0.6cm);
+            \draw[charged strip]       (0cm,    0cm) -- (1.8cm,    0cm);
+            \draw[charged strip, blue] (0cm, -0.6cm) -- (1.8cm, -0.6cm);
+            \draw[charged strip]       (0cm, -1.2cm) -- (1.8cm, -1.2cm);
+            \draw[charged strip, blue] (0cm, -1.8cm) -- (1.8cm, -1.8cm);
+            
+            \node[right, orange] at (1.8cm, 1.2cm) {$+V_0$};
+            \node[right, blue]   at (1.8cm, 0.6cm) {$-V_0$};
+
+        \end{tikzpicture}
+        \caption{}%
+        \label{subfig:problem5-5:original}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.4\textwidth}
+        \centering
+        \begin{tikzpicture}
+            % Region Shading
+            \pattern[pattern={Lines[angle=45,distance=0.1cm]}, pattern color=red]
+                (-0.6cm, 0cm) arc ( 180:0:0.6cm) -- cycle;
+            \pattern[pattern={Lines[angle=45,distance=0.1cm]}, pattern color=green]
+                (-0.6cm, 0cm) arc (-180:0:0.6cm) -- cycle;
+            \pattern[pattern={Lines[angle=45,distance=0.1cm]}, pattern color=cyan]
+                (1.8cm, -1.8cm) -- (1.8cm, 0cm) -- (0.6cm, 0cm) arc (0:-180:0.6cm)
+                -- (-0.6cm, 0cm) -- (-1.8cm, 0cm) -- (-1.8cm, -1.8cm) -- cycle;
+            \pattern[pattern={Lines[angle=45,distance=0.1cm]}, pattern color=yellow]
+                (1.8cm,  1.8cm) -- (1.8cm, 0cm) -- (0.6cm, 0cm) arc (0: 180:0.6cm)
+                -- (-0.6cm, 0cm) -- (-1.8cm, 0cm) -- (-1.8cm,  1.8cm) -- cycle;
+            
+            % Axes
+            \draw[axis] (-2cm, 0cm) -- (2cm, 0cm) node[right] {$\Re$};
+            \draw[axis] (0cm, -2cm) -- (0cm, 2cm) node[right] {$\Im$};
+            \node (name) at (1.5cm, 1.5cm) {$W$};
+            \draw (name.north west) |- (name.south east);
+    
+            % Conductors
+            \draw[charged strip]       ( 0.6cm, 0cm) -- ( 1.8cm, 0cm);
+            \draw[charged strip, blue] (-0.6cm, 0cm) -- (-1.8cm, 0cm);
+            \draw[gray, dashed] (0.6cm, 0cm) arc (0:360:0.6cm);
+            \node[right, gray] at (0.5cm, 0.5cm) {$r = 1$};
+
+        \end{tikzpicture}
+        \caption{}%
+        \label{subfig:problem5-5:exp}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.4\textwidth}
+        \centering
+        \begin{tikzpicture}
+            % Region Shading
+            \pattern[pattern={Lines[angle=45,distance=0.1cm]}, pattern color=red]
+                (-0.9425cm, 0cm)
+                plot[domain=-1.57:1.57, smooth, variable=\x]
+                    ({0.6*\x},{0.6*0.8813*(1-0.4053*\x*\x)})
+                -- cycle;
+            \pattern[pattern={Lines[angle=45,distance=0.1cm]}, pattern color=green]
+                (-0.9425cm, 0cm)
+                plot[domain=-1.57:1.57, smooth, variable=\x]
+                    ({0.6*\x},{-0.6*0.8813*(1-0.4053*\x*\x)})
+                -- cycle;
+            \pattern[pattern={Lines[angle=45,distance=0.1cm]}, pattern color=cyan]
+                (-0.9425cm, 0cm)
+                plot[domain=-1.57:1.57, smooth, variable=\x]
+                    ({0.6*\x},{-0.6*0.8813*(1-0.4053*\x*\x)})
+                -- (0.9425cm, -1.8cm) -- (-0.9425cm, -1.8cm) -- cycle;
+            \pattern[pattern={Lines[angle=45,distance=0.1cm]}, pattern color=yellow]
+                (-0.9425cm, 0cm)
+                plot[domain=-1.57:1.57, smooth, variable=\x]
+                    ({0.6*\x},{0.6*0.8813*(1-0.4053*\x*\x)})
+                -- (0.9425cm, 1.8cm) -- (-0.9425cm, 1.8cm) -- cycle;
+            
+            % Axes
+            \draw[axis] (-2cm, 0cm) -- (2cm, 0cm) node[right] {$\Re$};
+            \draw[axis] (0cm, -2cm) -- (0cm, 2cm) node[right] {$\Im$};
+            \node (name) at (1.5cm, 1.5cm) {$\zeta$};
+            \draw (name.north west) |- (name.south east);
+    
+            % Conductors
+            \draw[charged strip]       ( 0.9425cm, -1.8cm) -- ( 0.9425cm, 1.8cm);
+            \draw[charged strip, blue] (-0.9425cm, -1.8cm) -- (-0.9425cm, 1.8cm);
+            \draw[gray, dashed, domain=-1.57:1.57, smooth, variable=\x]
+                plot ({0.6*\x},{0.6*0.8813*(1-0.4053*\x*\x)});
+            \draw[gray, dashed, domain=-1.57:1.57, smooth, variable=\x]
+                plot ({0.6*\x},{-0.6*0.8813*(1-0.4053*\x*\x)});
+            \node[right, yshift=-0.2cm] at ( 0.9425cm, 0cm) {$+V_0$};
+            \node[ left, yshift=-0.2cm] at (-0.9425cm, 0cm) {$-V_0$};
+
+        \end{tikzpicture}
+        \caption{}%
+        \label{subfig:problem5-5:final}
+    \end{subfigure}
+    \caption{Results of conformal mappings used in \refprob~5--5.}%
+    \label{fig:problem5-5}
+\end{figure}
+
+\begin{enumerate}[wide, labelindent = 0pt, label = (\alph*)]
+\item
+\urlfoot{https://arxiv.org/pdf/2205.11916}{Let's think step by step.}
+That is, let us consider the intermediary tranformation
+\[
+    W := e^{\frac{\pi z}{d}},
+\]
+which is plausible since it is periodic with period $id$.
+Its effect is shown in \reffig~\ref{subfig:problem5-5:exp},
+with matching regions correspondingly shaded.
+
+Of course, a manual that claims to be useful should explain how this can be drawn by hand.
+The orange conductor(s) is (are) mapped to the real interval $[1, \infty)$,
+while the blue conductors to the interval $(-\infty, -1]$,
+which is straightforward to see.
+(Note that for the blue conductor,
+\[
+    e^{\frac{\pi}{d}(x + (2n+1)id)} = -e^{\frac{\pi x}{d}}
+\]
+would account for the negative sign.)
+The gray boundary is the image of the imaginary interval $[-id, id]$
+(if such a notation makes sense), which is given by
+\[
+    \left\{ e^{\frac{i\pi t}{d}} : t \in [-d, d] \right\}
+\]
+which traces out the unit circle.
+
+We finally apply the arcsine transformation, which we have encountered in both
+the example regarding \refeq{5}{9} in the main text and \refprob~5--1.
+The result of this transformation is given in \reffig~\ref{subfig:problem5-5:final},
+where the two conductors are now parallel plates, and we only consider the region between them.
+At this point, how the regions are transformed doesn't really matter,
+but they are pretty so they get to stay.\footnote{%
+Note that the boundary is only approximately drawn;
+the actual boundary is given by (ignoring scales)
+$y = \pm \cosh^{-1}\left( \sqrt{1 + \cos^2 x} \right)$,
+while I have drawn two parabolas with the same zeros and peaks.
+They do look quite similar according to Desmos, but I felt like I should mention it.
+}
+
+The problem states that now the potential-finding problem is trivial.
+I don't like the word `trivial,' but it seems safe to say that this problem is way easier now.
+We need to find an analytic function $F(\zeta)$ such that
+\[
+    \evalAt{\Im F(\zeta)}{\Re \zeta = \pm V_0} = \pm V_0.
+\]
+This can be achieved by the function $F(\zeta) := i\zeta$ (quite simple indeed!).
+\[
+    \Rightarrow F(\zeta(z))
+    = \frac{2iV_0}{\pi} \sin^{-1} e^{\frac{\pi z}{d}}
+\]
+\begin{align*}
+    \therefore V(x, y)
+    &= \Im F(\zeta(z)) \\
+    &= \frac{2V_0}{\pi} \Re\left\{ \sin^{-1} e^{\frac{\pi z}{d}} \right\}
+\end{align*}
+
+\item
+We use the stream function to calculate the charge accumulated on each plate.
+By symmetry, we only need to calculate the charge density on $x + i0^+$.
+\begin{align*}
+    \Re F(x + i0^+)
+    &= \frac{2V_0}{\pi} \Im\left\{ \sin^{-1} e^{\frac{\pi x}{d} + i0^+} \right\} \\
+    &= \frac{2V_0}{\pi} \Im\left\{
+        \halfpi + i\cosh^{-1} \left( e^{\frac{\pi x}{d}} \right)
+    \right\} \\
+    &= \frac{2V_0}{\pi} \ln \left( e^{\frac{\pi x}{d}} + \sqrt{e^{\frac{2\pi x}{d}} - 1} \right)
+\end{align*}
+
+Thus, the argument of \refprob~5--4 then tells us that
+\[
+    \lambda(0 + i0^+, l + i0^+)
+    = \frac{2\epsilon_0 V_0}{\pi} \ln \left( e^{\frac{\pi l}{d}} + \sqrt{e^{\frac{2\pi l}{d}} - 1} \right)
+\]
+where $\lambda$ denotes the charge per unit length perpendicular to the $z$ plane.
+We should note that this is the total charge accumulated,
+which is equally divided between the top and bottom of each conductor.
+Thus, the capacitance per unit length is given by
+\begin{align*}
+    C
+    &= \frac{\lambda / 2}{V_0} \\
+    &= \frac{\epsilon_0}{\pi} \ln \left(
+        e^{\frac{\pi l}{d}} + \sqrt{e^{\frac{2\pi l}{d}} - 1}
+    \right) \\
+    &\approx \frac{\epsilon_0}{\pi} \ln \left( 2e^{\frac{\pi l}{d}} \right) \\
+    &= \frac{\epsilon_0}{d} \left( l + \frac{d}{\pi}\ln 2 \right)
+\end{align*}
+where the approximation holds for $l >> d$ (i.e., semi-infinite plates).
+Identifying $\frac{\epsilon_0 l}{d}$ as the capacitance of infinite-plate capacitors,
+we conclude that the additional term $\frac{d}{\pi}\ln 2$ must come from edge effects.
+
+\end{enumerate}

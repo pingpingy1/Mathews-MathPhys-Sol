@@ -1,0 +1,61 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+        % Axes
+        \draw[axis] (-2cm, 0cm) -- (2cm, 0cm) node[right] {$\Re$};
+        \draw[axis] (0cm, -2cm) -- (0cm, 2cm) node[right] {$\Im$};
+        
+        % Branch cut
+        \node[pole] at (0cm, 0cm) {};
+        \draw[branch cut] (0cm, 0cm) -- (1.9cm, 0cm);
+        
+        % Poles
+        \node[pole] (A) at (-1cm, 0cm) {}; \node[below, yshift=-0.1cm] at (A.south) {$-1$};
+        
+        % Contour
+        \def\R{1.8cm}
+        \def\eps{0.4cm}
+            %%% TODO: Remove these magical constants
+        \draw[contour] (0.7071*\eps, 0.7071*\eps) -- (1.7776cm, 0.7071*\eps) node[below] {$R$};
+        \draw[contour] (1.7776cm, 0.7071*\eps) arc (9.0406:350.9093:\R);
+        \draw[contour] (1.7776cm, -0.7071*\eps) -- (0.7071*\eps, -0.7071*\eps);
+        \draw[contour] (0.7071*\eps, -0.7071*\eps) arc (315:45:\eps);
+        \draw[contour] (-0.7cm, 0cm) arc (0:-360:0.3cm);
+    \end{tikzpicture}
+    \caption{Contour for \refprob{}~5--9.}%
+    \label{fig:problem5-9}
+\end{figure}
+
+We will integrate $\frac{f(\zeta)}{\zeta - z}$ along the contour
+shown in \reffig~\ref{fig:problem5-9}, akin to the procedure described in the main text.
+The integral along the outer circle vanishes by condition~(2),
+while we may use the
+\urlfoot{https://en.wikipedia.org/wiki/Schwarz_reflection_principle}{Schwarz reflection principle}%
+\footnote{Why the heck is the ``Method of image charges'' linked to and from this document?}
+by condition~(3).
+\begin{align*}
+    \Rightarrow f(z)
+    &= \inv{2i\pi} \oint_C d\zeta \frac{f(\zeta)}{\zeta - z} \\
+    &= \frac{2}{z + 2} + \inv{2i\pi} \lim_{\epsilon \rightarrow 0^+} \left(
+        \int_0^\infty dx' \frac{f(x' + i\epsilon)}{x' + i\epsilon - z}
+        - \int_0^\infty dx' \frac{f(x' - i\epsilon)}{x' - i\epsilon - z}
+    \right) \\
+    &= \frac{2}{z + 2} + \inv{\pi} \lim_{\epsilon \rightarrow 0^+} \left(
+        \int_0^\infty dx' \frac{\Im\left\{ f(x' + i\epsilon) \right\}}{x' - z}
+    \right) \\
+    &= \frac{2}{z + 2}
+     + \inv{\pi} \int_0^\infty dx' \frac{x'}{\left( {x'}^2 + 1 \right) (x' - z)} \\
+    &= \frac{2}{z + 2} + \frac{\pi - 2z \ln(-z)}{2\pi \left( z^2 + 1 \right)}
+\end{align*}
+\begin{align*}
+    \therefore F(x)
+    &= \Re\left\{ f(x + i\epsilon) \right\} \\
+    &= \begin{cases}
+        \frac{2}{x + 2} + \frac{\pi - 2x\ln(-x)}{2\pi\left( x^2 + 1 \right)}         & (x < 0) \\
+        \frac{2}{x + 2} + \frac{\pi - 2x\ln x + 2i\pi x}{2\pi\left( x^2 + 1 \right)} & (x > 0) \\
+    \end{cases}
+\end{align*}

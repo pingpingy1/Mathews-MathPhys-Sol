@@ -1,0 +1,80 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{enumerate}[wide, labelindent = 0pt, label = (\alph*)]
+\item
+I'm not quite sure how much rigor one can show this correspondence with.
+My argument is something that goes like this:
+Suppose the potential of this situation is the stream function of another.
+This means that on the real axis, the field lines should be perfectly horizontal,
+with discontinuities at precisely $x = \pm a$.
+This exact situation is described by two line charges at $x = \pm a$.
+Therefore, by the \urlfoot{%
+https://en.wikipedia.org/wiki/Laplace\%27s_equation\#Electrostatics_2%
+}{``boundary conditions pin down the potential'' lemma},
+these two situations (OP and the two line charges) precisely correspond
+by exchanging the potential and the stream functions.
+
+The above argument allows us to write
+\[
+    F(z) := C_1 \ln (z - a) + C_2 \ln (z + a)
+\]
+where $C_1$ and $C_2$ are real constants to be determined and
+\begin{align*}
+    \phi(x, y)
+    &= \Im F(z) \\
+    &= C_1 \Im \ln(x - a + iy) + C_2 \Im \ln(x + a + iy) \\
+    &= C_1 \tan^{-1} \frac{y}{x - a} + C_2 \tan^{-1} \frac{y}{x + a}.
+\end{align*}
+Therefore, the boundary conditions imply $C_1 = -C_2 = \frac{V_0}{\pi}$, giving
+\[
+    \phi(x, y)
+    = \frac{V_0}{\pi} \left( \tan^{-1} \frac{y}{x - a} - \tan^{-1} \frac{y}{x + a} \right).
+\]
+
+\item
+Place the origin at the lower left corner of the metal plate
+and promptly disregard the $2$ in the denominator\footnote{%
+If anyone knows why the $2$ appears here, please let me know!
+I honestly have no clue.
+}, that is, let
+\[
+    \zeta
+    := \cosh \frac{\pi z}{d}
+    = \cosh\frac{\pi x}{d} \cos\frac{\pi y}{d} + i\sinh\frac{\pi x}{d} \sin\frac{\pi y}{d}.
+\]
+The given conformal transformation will then map the plate to the upper half plane,
+with boundary conditions
+\[
+    T(x, 0) = \begin{cases}
+        0   & (x < -1) \\
+        T_0 & (-1< x < 1) \\
+        0   & (x > 1)
+    \end{cases}.
+\]
+To convince ourselves of this fact, consider tracing out the boundary of the plate.
+
+\begin{itemize}
+    \item The point $(x, 0)$ is mapped to $(\cosh \frac{\pi x}{d}, 0)$,
+    which traces out the real interval $(1, \infty)$.
+
+    \item The point $(0, y)$ is mapped to $(\cos \frac{\pi y}{d}, 0)$,
+    which traces out the real interval $(-1, 1)$.
+
+    \item The point $(x, d)$ is mapped to $(-\cosh \frac{\pi x}{d}, 0)$,
+    which traces out the real interval $(-\infty, -1)$.
+
+\end{itemize}
+\begin{align*}
+    \therefore T(x, y)
+    &= \frac{T_0}{\pi} \left(
+        \frac{\Im\zeta}{\Re\zeta - 1} - \tan^{-1} \frac{\Im\zeta}{\Re\zeta + 1}
+    \right) \\
+    &= \frac{T_0}{\pi} \left(
+        \frac{\sinh\frac{\pi x}{d}\sin\frac{\pi y}{d}}{\cosh\frac{\pi x}{d}\cos\frac{\pi y}{d}-1}
+        - \frac{\sinh\frac{\pi x}{d}\sin\frac{\pi y}{d}}{\cosh\frac{\pi x}{d}\cos\frac{\pi y}{d}+1}
+    \right)
+\end{align*}
+
+\end{enumerate}

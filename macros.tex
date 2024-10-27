@@ -11,6 +11,7 @@
 
 % Graph Drawing
 \usepackage{tikz}
+\usepackage{pgfplots}
 \usetikzlibrary{calc, shapes.misc, decorations.pathmorphing, decorations.markings, arrows, patterns.meta}
 \tikzset{%
     axis/.style={black, thick, ->},
@@ -48,6 +49,7 @@
 \newcommand{\xhat}{\unitvec{x}}
 \newcommand{\yhat}{\unitvec{y}}
 \newcommand{\zhat}{\unitvec{z}}
+\DeclareMathOperator{\Tr}{Tr}
 
 % Text
 \newcommand{\refeq}[2]{Eq.~(#1--#2)}
@@ -70,3 +72,8 @@ Please wait or consider contributing!}
 \newcommand{\indicator}[1]{\mathbb{1}\left\{ #1 \right\}}
 \newcommand{\Lapltransf}[1]{\mathcal{L}\left[ #1 \right]}
 \newcommand{\invLapltransf}[1]{\mathcal{L}^{-1}\left[ #1 \right]}
+\newcommand{\Pint}{\mathrm{P}\int}
+
+\makeatletter
+\newcommand{\xRightarrow}[2][]{\ext@arrow 0359\Rightarrowfill@{#1}{#2}}
+\makeatother

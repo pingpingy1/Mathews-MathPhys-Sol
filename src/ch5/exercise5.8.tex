@@ -1,0 +1,38 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+Recall that the complex potential is given by
+\[
+    f(\zeta) = -\frac{\lambda}{2\pi\epsilon_0} \sin^{-1} \frac{\zeta}{a}.
+\]
+Thus, our problem reduces to expressing approximate forms of the arcsine for large arguments.
+To this end, let $w := \sin^{-1} z$.
+\[
+    z = \sin w = \frac{e^{iw} - e^{-iw}}{2i}
+\]
+\[
+    \Rightarrow e^{2iw} - 2ize^{iw} - 1 = 0
+\]
+\[
+    \Rightarrow e^{iw} = iz \pm \sqrt{1 - z^2}
+\]
+The arcsine is conventionally defined using the plus sign here
+(since we want $w \in \left[ 0, \halfpi \right]$ when $z \in [0, 1]$),
+which yields
+\[
+    w = \sin^{-1} z = -i\ln\left( iz + \sqrt{1 - z^2} \right).
+\]
+\begin{align*}
+    \Rightarrow f(\zeta)
+    &= \frac{i\lambda}{2\pi\epsilon_0} \ln\left(
+        i\frac{\zeta}{a} + \sqrt{1 - {\left( \frac{\zeta}{a} \right)}^2}
+    \right) \\
+    &\approx \frac{i\lambda}{2\pi\epsilon_0} \ln\left( 2i\frac{\zeta}{a} \right)
+\end{align*}
+\begin{align*}
+    \therefore V(x, y)
+    &= \Im\left\{ f(\zeta) \right\} \\
+    &\approx \frac{\lambda}{2\pi\epsilon_0} \Re\left\{ \ln\left( \zeta \right) \right\}
+\end{align*}
+This is exactly the potential created by a line charge of $\lambda$ at the origin.

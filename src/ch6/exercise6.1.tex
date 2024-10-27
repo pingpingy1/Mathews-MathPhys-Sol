@@ -1,0 +1,54 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{enumerate}[wide, labelindent = 0pt, label = (\alph*)]
+\item
+\begin{align*}
+    {\left( \Tilde{(AB)} \right)}_{ij}
+    &= {\left(BA\right)}_{ji} \\
+    &= \sum_k B_{jk} A_{ki} \\
+    &= \sum_k {\left( \Tilde{A} \right)}_{ik} {\left( \Tilde{B} \right)}_{kj} \\
+    &= {\left( \Tilde{A} \Tilde{B} \right)}_{ij}
+\end{align*}
+\[
+    \therefore \Tilde{(AB)} = \Tilde{B} \Tilde{A}
+\]
+
+\item
+\begin{align*}
+    {\left( {(AB)}^\dagger \right)}_{ij}
+    &= {\left( {(AB)}_{ji} \right)}^* \\
+    &= {\left( \sum_k A_{jk} B_{ki} \right)}^* \\
+    &= \sum_k {B_{ki}}^* {A_{jk}}^* \\
+    &= \sum_k {\left( B^\dagger \right)}_{ik} {\left( A^\dagger \right)}_{kj} \\
+    &= {\left( B^\dagger A^\dagger \right)}_{ij}
+\end{align*}
+\[
+    \therefore {(AB)}^\dagger = B^\dagger A^\dagger
+\]
+
+\item
+\begin{align*}
+    {(A (BC))}_{ij}
+    &= \sum_k A_{ik} {(BC)}_{kj} \\
+    &= \sum_k \sum_l A_{ik} B_{kl} C_{lj} \\
+    &= \sum_l {(AB)}_{il} C_{lj} \\
+    &= {((AB) C)}_{ij}
+\end{align*}
+\[
+    \therefore A(BC) = (AB)C
+\]
+
+\item
+\begin{align*}
+    \Tr ABC
+    &= \sum_i {(ABC)}_{ii} \\
+    &= \sum_i \sum_j A_{ij} {(BC)}_{ji} \\
+    &= \sum_i \sum_j \sum_k A_{ij} B_{jk} C_{ki} \\
+    &= \sum_j \sum_k B_{jk} {(CA)}_{kj} \\
+    &= \sum_j {(BCA)}_{jj} \\
+    &= \Tr BCA
+\end{align*}
+
+\end{enumerate}

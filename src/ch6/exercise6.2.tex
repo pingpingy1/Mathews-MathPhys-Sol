@@ -1,0 +1,35 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{enumerate}[wide, labelindent = 0pt, label = (\alph*)]
+\item
+\begin{align*}
+    x_1^\dagger x_1
+    &= x_1^\dagger 1 x_1 \\
+    &= x_1^\dagger U^\dagger U x_1 \\
+    &= {(U x_1)}^\dagger (U x_1) \\
+    &= {(\lambda_1 x_1)}^\dagger (\lambda_1 x_1) \\
+    &= {\abs{\lambda_1}}^2 x_1^\dagger x_1
+\end{align*}
+Since $x_1$ is nonzero, we therefore obtain
+\[
+    \abs{\lambda_1}^2 = 1
+    \Leftrightarrow \abs{\lambda_1} = 1.
+\]
+
+\item
+\begin{align*}
+    x_1^\dagger x_2
+    &= x_1^\dagger 1 x_2 \\
+    &= x_1^\dagger U^\dagger U x_2 \\
+    &= {(U x_1)}^\dagger (U x_2) \\
+    &= {(\lambda_1 x_1)}^\dagger (\lambda_2 x_2) \\
+    &= \lambda_1^* \lambda_2 x_1^\dagger x_2
+\end{align*}
+By part~(a), $\lambda_1 \neq \lambda_2$ implies $\lambda_1^* \lambda_2 \neq 1$.
+\[
+    \therefore x_1^\dagger x_2 = 0
+\]
+
+\end{enumerate}
