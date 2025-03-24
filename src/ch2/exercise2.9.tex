@@ -13,11 +13,19 @@ Let us denote the first term as $a_1$.
 	}                                                                                              \\
 	 & = \frac{(2n - 1)!! (2n - 1)}{2^{n + 1} (2n + 7) (2n + 5) {(2n + 3)}^2 n!}                   \\
 	 & = \cfrac{\cfrac{(2n)!}{2^n n!} \cdot (2n - 1)}{2^{n + 1} (2n + 7) (2n + 5) {(2n + 3)}^2 n!} \\
-	 & = \frac{(2n - 1) \cdot (2n)!}{2^{2n + 1} (2n + 7) (2n + 5) (2n + 3) {(n!)}^2}
+	 & = \frac{(2n - 1) \cdot (2n)!}{2^{2n + 1} (2n + 7) (2n + 5) (2n + 3) {(n!)}^2} \\
+  & = \frac{2n - 1}{2^{2n + 1} (2n + 7) (2n + 5) {(2n + 3)}^2} \binom{2n}{n}
 \end{align*}
+Unfortunately, the ratio test of this series collapses.
+We thus try to find an upper/lower bound for this sequence.
+
 \begin{align*}
-	\Rightarrow \frac{a_{n + 1}}{a_n}
-	 & = \frac{{(2n + 1)}^2 (2n + 2) {(2n + 3)}^2}{(2n + 9) (2n + 5) {(n + 1)}^2 (2n - 1)} \\
-	 & \xrightarrow{n \rightarrow \infty} 4 > 1
+    a_n
+    &= \frac{2n - 1}{2^{2n + 1} (2n + 7) (2n + 5) {(2n + 3)}^2} \binom{2n}{n} \\
+    &< \frac{2n - 1}{2^{2n + 1} (2n + 7) (2n + 5) {(2n + 3)}^2} \cdot 2^{2n} \\
+    &=\frac{2n - 1}{2 (2n + 7) (2n + 5) {(2n + 3)}^2} \\
+    &< \frac{2n}{2 (2n) (2n) {(2n)}^2} \\
+    &= \inv{16 n^4}
 \end{align*}
-Therefore, the given series diverges.
+The series of the last sequence converges by the p-test.
+Therefore, by comparison test, the given series converges.
