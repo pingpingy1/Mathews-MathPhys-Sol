@@ -1,0 +1,55 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{enumerate}[wide, labelindent = 0pt, label = (\alph*)]
+\item
+The relation holds when $\mathbb{b} = \mathbb{0}$, as both sides are zero.
+When $\mathbb{b} \neq \mathbb{0}$, define $\mathbb{c} := \mathbb{a} + \lambda \mathbb{b}$.
+\begin{align*}
+    0
+    &\leq \mathbb{c} \cdot \mathbb{c} \\
+    &= \left( \mathbb{a} + \lambda \mathbb{b} \right) \cdot \left( \mathbb{a} + \lambda \mathbb{b} \right) \\
+    &= \mathbb{a} \cdot \mathbb{a}
+     + 2\Re\left\{ \lambda \mathbb{a} \cdot \mathbb{b} \right\}
+     + \mathbb{b} \cdot \mathbb{b} \lambda^2
+\end{align*}
+As this holds for any $\lambda$, let
+\[
+    \lambda = -\frac{\mathbb{b} \cdot \mathbb{a}}{\mathbb{b} \cdot \mathbb{b}}.
+\]
+\[
+    \Rightarrow 0
+    \leq \mathbb{a} \cdot \mathbb{a} - \frac{
+        {\abs{\mathbb{a} \cdot \mathbb{b}}}^2
+    }{\mathbb{b} \cdot \mathbb{b}}
+\]
+\[
+    \therefore (\mathbb{a} \cdot \mathbb{a}) (\mathbb{b} \cdot \mathbb{b})
+    \geq {\abs{\mathbb{a} \cdot \mathbb{b}}}^2
+\]
+
+\item
+\[
+    \mathbb{x} \cdot \mathbb{x}^{(n)}
+    = \sum_{i = 1}^n x_i (\mathbb{x} \cdot \mathbb{e}_i)
+    = \sum_{i = 1}^n {\abs{x_i}}^2
+\]
+\[
+    \mathbb{x}^{(n)} \cdot \mathbb{x}^{(n)}
+    = \sum_{i = 1}^n \sum_{j = 1}^n {\abs{x_i}}^2 \delta_{ij}
+    = \sum_{i = 1}^n {\abs{x_i}}^2
+\]
+\[
+    \Rightarrow \mathbb{x} \cdot \mathbb{x} \left(
+        \sum_{i = 1}^n {\abs{x_i}}^2
+    \right)
+    = {\left(
+       \sum_{i = 1}^n {\abs{x_i}}^2
+    \right)}^2
+\]
+\[
+    \therefore \mathbb{x} \cdot \mathbb{x} \geq \sum_{i = 1}^n {\abs{x_i}}^2
+\]
+(When $\sum_{i = 1}^n {\abs{x_i}}^2 = 0$, then the norm must be no less than 0.)
+\end{enumerate}

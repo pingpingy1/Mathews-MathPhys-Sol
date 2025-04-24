@@ -1,0 +1,100 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+The problem, as stated, is wrong; its proposed solution is for when
+the cyclic boundary condition has been lifted.
+Let us solve the problem backwards, incrementing the imposed conditions.
+
+When there are no constraints, the system is $N$ independent atoms,
+each with 3 allowed states.
+Thus, $W = 3^N$ and $S = k \ln 3$.
+
+When the AC condition is imposed, let $v_A^{(j)}, v_B^{(j)}, \text{ and } v_C^{(j)}$
+denote the possible number of states with $j$ atoms such that the last atom is in state $A, B, \text{ and } C$, respectively.
+Finding a recurrence relation for these is then a classic combinatorics problem.
+Every $(j+1)$-atom state ending in an A tom can be bijectively mapped
+to a $j$-atom state ending in a non-C atom.
+That is, $v_A^{(j + 1)} = v_A^{(j)} + v_B^{(j)}$.
+Similar arguments yield the transfer matrix given in the problem.
+Therefore, we have
+\begin{align*}
+    W
+    &= \begin{pmatrix}
+        1 & 1 & 1
+    \end{pmatrix} M^N \begin{pmatrix}
+        v_A^{(1)} \\ v_B^{(1)} \\ v_C^{(1)}
+    \end{pmatrix} \\
+    &\approx \begin{pmatrix}
+        1 & 1 & 1
+    \end{pmatrix}
+    \cdot {\left( 1 + \sqrt{2} \right)}^N \begin{pmatrix}
+        \half \\ \inv{\sqrt{2}} \\ \half
+    \end{pmatrix} \begin{pmatrix}
+        \half & \inv{\sqrt{2}} & \half
+    \end{pmatrix} \cdot \begin{pmatrix}
+        1 \\ 1 \\ 1
+    \end{pmatrix} \\
+    &= {\left( 1 + \inv{\sqrt{2}} \right)}^2 {\left( 1 + \sqrt{2} \right)}^N
+\end{align*}
+where the vector $\begin{pmatrix} \half \\ \inv{\sqrt{2}} \\ \half \end{pmatrix}$ is the unit eigenvector
+corresponding to the largest eigenvalue of $1 + \sqrt{2}$.
+\[
+    \therefore S
+    = \lim_{N \rightarrow \infty} \frac{k \ln W}{N}
+    = k \ln \left( 1 + \sqrt{2} \right)
+\]
+
+When the circular boundary condition is imposed,
+we must define separate variables for the starting atom's state as well.
+Hence, we define the 7-dimensional vector
+\[
+    \mathbb{v}^{(j)} := \begin{pmatrix}
+        v^{(j)}_{AA} \\
+        v^{(j)}_{AB} \\
+        v^{(j)}_{BA} \\
+        v^{(j)}_{BB} \\
+        v^{(j)}_{BC} \\
+        v^{(j)}_{CB} \\
+        v^{(j)}_{CC}
+    \end{pmatrix}.
+\]
+The transfer matrix is then defined by
+\[
+    M = \left(\begin{array}{cc|ccc|cc}
+         1 & 1 &   &   &   &   &   \\
+         1 & 1 &   &   &   &   &   \\
+         \hline
+           &   & 1 & 1 &   &   &   \\
+           &   & 1 & 1 & 1 &   &   \\
+           &   &   & 1 & 1 &   &   \\
+        \hline
+           &   &   &   &   & 1 & 1 \\
+           &   &   &   &   & 1 & 1
+    \end{array}\right).
+\]
+The dominating eigenvalue and the corresponding eigenvector
+are equal to the previous case.
+\begin{align*}
+    \Rightarrow W
+    &= \begin{pmatrix}
+        1 & 1 & 1 & 1 & 1 & 1 & 1
+    \end{pmatrix}
+    M^N \begin{pmatrix}
+        1 \\ 0 \\ 0 \\ 1 \\ 0 \\ 0 \\ 1
+    \end{pmatrix} \\
+    &= {\left( 1 + \sqrt{2} \right)}^N
+    \begin{pmatrix}
+        1 & 1 & 1 & 1 & 1 & 1 & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 \\ 0 \\ \half \\ \inv{\sqrt{2}} \\ \half \\ 0 \\ 0
+    \end{pmatrix} \\
+    &\quad \times \begin{pmatrix}
+        0 & 0 & \half & \inv{\sqrt{2}} & \half & 0 & 0
+    \end{pmatrix} \begin{pmatrix}
+        1 \\ 0 \\ 0 \\ 1 \\ 0 \\ 0 \\ 1
+    \end{pmatrix} \\
+    &= \inv{\sqrt{2}} \left( 1 + \inv{\sqrt{2}} \right) {\left( 1 + \sqrt{2} \right)}^N
+\end{align*}
+The entropy is therefore the same as before.

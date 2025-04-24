@@ -1,0 +1,86 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+Let $m_o$ and $m_c$ denote the masses of the oxygen and carbon atoms, respectively.
+The three equations of motion are given by
+\[
+    \begin{cases}
+        m_o \ddot{x}_1 = k_1 \left( x_2 - x_1  \right) + k_2 \left( x_3 - x_1  \right) \\
+        m_c \ddot{x}_2 = k_1 \left( x_1 - x_2  \right) + k_1 \left( x_3 - x_2  \right) \\
+        m_o \ddot{x}_3 = k_2 \left( x_1 - x_3  \right) + k_1\left( x_2 - x_3  \right)
+    \end{cases}.
+\]
+Denoting the Fourier transform of these as $X_i(\omega)\; (i = 1, 2, 3)$, we obtain
+\[
+    \begin{pmatrix}
+        -m_c \omega^2 X_1 \\ -m_o \omega^2 X_2 \\ -m_c \omega^2 X_3
+    \end{pmatrix}
+    = \begin{pmatrix}
+        -k_1 - k_2 & k_1   & k_2        \\
+        k_1        & -2k_1 & k_1        \\
+        k_2        & k_1   & -k_1 - k_2
+    \end{pmatrix} \begin{pmatrix}
+        X_1 \\ X_2 \\ X_3
+    \end{pmatrix}.
+\]
+\[
+    \Rightarrow -\omega^2 \begin{pmatrix}
+        X_1 \\ X_2 \\ X_3
+    \end{pmatrix}
+    = \begin{pmatrix}
+        -\frac{k_1 + k_2}{m_c} & \frac{k_1}{m_c}   & \frac{k_2}{m_c}        \\
+        \frac{k_1}{m_o}        & -\frac{2k_1}{m_o} & \frac{k_1}{m_o}        \\
+        \frac{k_2}{m_c}        & \frac{k_1}{m_c}   & -\frac{k_1 + k_2}{m_c}
+    \end{pmatrix} \begin{pmatrix}
+        X_1 \\ X_2 \\ X_3
+    \end{pmatrix}
+\]
+Let
+\[
+    \alpha := \frac{k_1}{m_o},\;
+    \beta := \frac{k_2}{m_o},\;
+    \gamma := \frac{m_o}{m_c}.
+\]
+We can then see that $-\omega^2$ must be the eigenvalues of the coefficient matrix
+\[
+    \begin{pmatrix}
+        -(\alpha + \beta) & \alpha         & \beta             \\
+        \alpha\gamma      & -2\alpha\gamma & \alpha\gamma      \\
+        \beta             & \alpha         & -(\alpha + \beta)
+    \end{pmatrix}.
+\]
+
+\begin{align*}
+    p(\lambda)
+    &= \begin{vmatrix}
+        -\alpha - \beta - \lambda & \alpha                   & \beta                     \\
+        \alpha\gamma              & -2\alpha\gamma - \lambda & \alpha\gamma              \\
+        \beta                     & \alpha                   & -\alpha - \beta - \lambda
+    \end{vmatrix} \\
+    &= -\left(
+        4\alpha\beta\gamma + 2\alpha^2\gamma + \alpha^2 + 2\alpha\beta
+    \right)\lambda
+    -2(\alpha + \beta + \alpha\gamma)\lambda^2
+    -\lambda^3 \\
+    &= -\lambda
+    (\lambda + \alpha + 2\beta)
+    (\lambda + \alpha + 2\alpha\gamma)
+\end{align*}
+Therefore, the allowed modes of vibrations are given by
+\[
+    \omega = 0,\;
+    \pm\sqrt{\frac{k_1 + 2k_2}{m_o}},\;
+    \pm\sqrt{\left( \inv{m_o} + \frac{2}{m_c} \right) k_1}.
+\]
+
+The interpretation of these frequencies is rather physically intuitive,
+as the terms appearing in them indicate which components of the system play an active role in the vibrations.
+The frequency-0 mode must be translation, as we only consider 1D motion.
+The second frequency does not involve the motion of the carbon atom but does involve all three ``springs.''
+Hence, the two carbon atoms must oscillate symmetrically about the oxygen atom.
+The third frequency does not involve the $k_2$ ``spring,''
+so it must have the carbon atom oscillating totally out of phase
+with the two carbon atoms
+such that the total length of the molecule stays fixed.%
+\footnote{I better draw some diagrams for these, huh?}

@@ -1,0 +1,152 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{align*}
+    p(\lambda)
+    &= \begin{vmatrix}
+        \frac{5}{2} - \lambda & \sqrt{\frac{3}{2}} & \sqrt{\frac{3}{4}} \\
+        \sqrt{\frac{3}{2}} & \frac{7}{3} - \lambda & \sqrt{\inv{18}} \\
+        \sqrt{\frac{3}{4}} & \sqrt{\inv{18}} & \frac{13}{6} - \lambda
+    \end{vmatrix} \\
+    &= \left( \frac{5}{2} - \lambda \right)
+       \left( \frac{7}{3} - \lambda \right)
+       \left( \frac{13}{6} - \lambda \right) \\
+    &\quad + \sqrt{\frac{3}{2}} \sqrt{\inv{18}} \sqrt{\frac{3}{4}} \\
+    &\quad + \sqrt{\frac{3}{4}} \sqrt{\frac{3}{2}} \sqrt{\inv{18}} \\
+    &\quad - \inv{18} \left( \frac{5}{2} - \lambda \right) \\
+    &\quad - \frac{3}{2} \left( \frac{13}{6} - \lambda \right) \\
+    &\quad - \frac{3}{4} \left( \frac{7}{3} - \lambda \right) \\
+    &= 8 - 14\lambda +7\lambda^2 - \lambda^3 \\
+    &= \left( 1 - \lambda \right)
+       \left( 2 - \lambda \right)
+       \left( 4 - \lambda \right)
+\end{align*}
+(Imagine messing up this polynomial expansion,
+getting an irreducible cubic polynomial,
+finding its roots using Newton's method,
+trying and failing to find the eigenvectors because the eigenvalues are wrong
+but instead blaming the numerical instability of Gauss-Jordan elimination,
+typing up the power method and the inverse power method in Python,
+running the code on this matrix,
+only to find the eigenvalues to be about a millionth away from clean integers!
+How big a fool must you be to fall for that?)
+
+\begin{enumerate}[wide, labelindent = 0pt, label = (\roman*)]
+\item $\lambda = 1$
+\begin{align*}
+    \begin{pmatrix}
+        \frac{3}{2}        & \sqrt{\frac{3}{2}} & \sqrt{\frac{3}{4}} \\
+        \sqrt{\frac{3}{2}} & \frac{4}{3}        & \sqrt{\inv{18}}    \\
+        \sqrt{\frac{3}{4}} & \sqrt{\inv{18}}    & \frac{7}{6}
+    \end{pmatrix}
+    &\xrightarrow{R_i \leftarrow \inv{a_{i1}} R_i} \begin{pmatrix}
+        1 & \sqrt{\frac{2}{3}}          & \frac{\sqrt{3}}{2} \\
+        1 & \frac{4\sqrt{2}}{3\sqrt{3}} & \inv{3\sqrt{3}}    \\
+        1 & \frac{\sqrt{2}}{3\sqrt{3}}  & \frac{7}{3\sqrt{3}}
+    \end{pmatrix} \\
+    &\xrightarrow[R_3 \leftarrow R_3 - R_1]{R_2 \leftarrow R_2 - R_1} \begin{pmatrix}
+        1 & \sqrt{\frac{2}{3}}           & \frac{\sqrt{3}}{2}   \\
+        0 & \frac{\sqrt{2}}{3\sqrt{3}}   & -\frac{2}{3\sqrt{3}} \\
+        0 & -\frac{2\sqrt{2}}{3\sqrt{3}} & \frac{4}{3\sqrt{3}}
+    \end{pmatrix} \\
+    &\xrightarrow[R_3 \leftarrow -\frac{3\sqrt{3}}{2\sqrt{2}} R_3]{R_2 \leftarrow \frac{3\sqrt{3}}{2} R_2} \begin{pmatrix}
+        1 & \sqrt{\frac{2}{3}} & \frac{\sqrt{3}}{2} \\
+        0 & 1                  & -\sqrt{2}          \\
+        0 & 1                  & -\sqrt{2}
+    \end{pmatrix} \\
+    &\xrightarrow[R_3 \leftarrow R_3 - R_2]{R_1 \leftarrow R_1 - \sqrt{\frac{2}{3}}R_2} \begin{pmatrix}
+        1 & 0 & \sqrt{3} \\
+        0 & 1 & \sqrt{2} \\
+        0 & 0 & 0
+    \end{pmatrix}
+\end{align*}
+\[
+    \Rightarrow \mathbb{u} = \begin{pmatrix}
+        -\sqrt{3}s \\ \sqrt{2}s \\ s
+    \end{pmatrix}
+\]
+\[
+    \therefore \mathbb{u} = \begin{pmatrix}
+        -\inv{\sqrt{2}} \\ \inv{\sqrt{3}} \\ \inv{\sqrt{6}}
+    \end{pmatrix}
+\]
+
+\item $\lambda = 2$
+\begin{align*}
+    \begin{pmatrix}
+        \inv{2}            & \sqrt{\frac{3}{2}} & \sqrt{\frac{3}{4}} \\
+        \sqrt{\frac{3}{2}} & \inv{3}            & \sqrt{\inv{18}}    \\
+        \sqrt{\frac{3}{4}} & \sqrt{\inv{18}}    & \inv{6}
+    \end{pmatrix}
+    &\xrightarrow{R_i \leftarrow \inv{a_{i1}} R_i} \begin{pmatrix}
+        1 & \sqrt{6}          & \sqrt{3} \\
+        1 & \frac{\sqrt{2}}{3\sqrt{3}} & \inv{3\sqrt{2}}    \\
+        1 & \frac{\sqrt{2}}{3\sqrt{3}}  & \frac{7}{3\sqrt{3}}
+    \end{pmatrix} \\
+    &\xrightarrow[R_3 \leftarrow R_3 - R_2]{R_2 \leftarrow R_2 - R_1} \begin{pmatrix}
+        1 & \sqrt{6}                     & \sqrt{3}             \\
+        0 & -\frac{8\sqrt{2}}{3\sqrt{3}} & -\frac{8}{3\sqrt{3}} \\
+        0 & 0                            & 0
+    \end{pmatrix} \\
+    &\xrightarrow{R_2 \leftarrow -\frac{3\sqrt{3}}{8\sqrt{2}} R_2} \begin{pmatrix}
+        1 & \sqrt{6} & \sqrt{3}       \\
+        0 & 1        & \inv{\sqrt{2}} \\
+        0 & 1        & 0
+    \end{pmatrix} \\
+    &\xrightarrow{R_1 \leftarrow R_1 - \sqrt{6}R_2} \begin{pmatrix}
+        1 & 0 & 0        \\
+        0 & 1 & \inv{\sqrt{2}} \\
+        0 & 0 & 0
+    \end{pmatrix}
+\end{align*}
+\[
+    \Rightarrow \mathbb{u} = \begin{pmatrix}
+        0 \\ s \\ \sqrt{2}s
+    \end{pmatrix}
+\]
+\[
+    \therefore \mathbb{u} = \begin{pmatrix}
+        0 \\ \inv{\sqrt{3}} \\ -\inv{\frac{2}{3}}
+    \end{pmatrix}
+\]
+
+\item $\lambda = 4$
+\begin{align*}
+    \begin{pmatrix}
+        -\frac{3}{2}       & \sqrt{\frac{3}{2}} & \sqrt{\frac{3}{4}} \\
+        \sqrt{\frac{3}{2}} & -\frac{5}{3}       & \sqrt{\inv{18}}    \\
+        \sqrt{\frac{3}{4}} & \sqrt{\inv{18}}    & -\frac{11}{6}
+    \end{pmatrix}
+    &\xrightarrow{R_i \leftarrow \inv{a_{i1}} R_i} \begin{pmatrix}
+        1 & -\sqrt{\frac{2}{3}}          & -\inv{\sqrt{3}}       \\
+        1 & -\frac{5\sqrt{2}}{3\sqrt{3}} & \inv{3\sqrt{3}}       \\
+        1 & \frac{\sqrt{2}}{3\sqrt{3}}   & -\frac{11}{3\sqrt{3}}
+    \end{pmatrix} \\
+    &\xrightarrow[R_3 \leftarrow R_3 - R_1]{R_2 \leftarrow R_2 - R_1} \begin{pmatrix}
+        1 & -\sqrt{\frac{2}{3}}          & -\inv{\sqrt{3}}      \\
+        0 & -\frac{2\sqrt{2}}{3\sqrt{3}} & \frac{4}{3\sqrt{3}}  \\
+        0 & \frac{4\sqrt{2}}{3\sqrt{3}}  & -\frac{8}{3\sqrt{3}}
+    \end{pmatrix} \\
+    &\xrightarrow[R_3 \leftarrow -\frac{3\sqrt{3}}{4\sqrt{2}} R_3]{R_2 \leftarrow -\frac{3\sqrt{3}}{2\sqrt{2}} R_2} \begin{pmatrix}
+        1 & -\sqrt{\frac{2}{3}} & -\inv{\sqrt{3}} \\
+        0 & 1                   & -\sqrt{2}       \\
+        0 & 1                   & -\sqrt{2}
+    \end{pmatrix} \\
+    &\xrightarrow[R_3 \leftarrow R_3 - R_2]{R_1 \leftarrow R_1 + \sqrt{\frac{2}{3}}R_2} \begin{pmatrix}
+        1 & 0 & -\sqrt{3} \\
+        0 & 1 & -\sqrt{2} \\
+        0 & 0 & 0
+    \end{pmatrix}
+\end{align*}
+\[
+    \Rightarrow \mathbb{u} = \begin{pmatrix}
+        \sqrt{3}s \\ \sqrt{2}s \\ s
+    \end{pmatrix}
+\]
+\[
+    \therefore \mathbb{u} = \begin{pmatrix}
+        \inv{\sqrt{2}} \\ \inv{\sqrt{3}} \\ \inv{\sqrt{6}}
+    \end{pmatrix}
+\]
+\end{enumerate}

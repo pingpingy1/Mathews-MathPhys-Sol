@@ -1,0 +1,133 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+The characteristic polynomial for this matrix is given by
+\begin{align*}
+    p(\lambda)
+    &= \det\left( A-\lambda I_3 \right) \\
+    &= \begin{vmatrix}
+        1 - \lambda & 2           & 3           \\
+        4           & 5 - \lambda & 6           \\
+        7           & 8           & 9 - \lambda
+    \end{vmatrix} \\
+    &= (1-\lambda) \left(
+        (5 - \lambda)(9 - \lambda) - 48
+    \right) - 2 \left(
+        4(9 - \lambda) - 42
+    \right) + 3 \left(
+        32 - 7(5 - \lambda)
+    \right) \\
+    &= (1-\lambda) \left( -3 - 14\lambda + \lambda^2 \right)
+     - 2(-6 - 4\lambda) + 3(-3 + 7\lambda) \\
+    &= \left( -3 - 11\lambda + 15\lambda^2 - \lambda^3 \right)
+     + (12 + 8\lambda) + (-9 + 21\lambda) \\
+    &= 18\lambda + 15\lambda^2 - \lambda^3 \\
+    &= -\lambda \left( \lambda^2 - 15\lambda - 18 \right).
+\end{align*}
+The eigenvalues are the zeros of this cubic polynomial, so
+\[
+    \lambda_0 = 0,\;
+    \lambda_{\pm}
+    = \frac{15 \pm 3\sqrt{33}}{2}
+    \approx 16.117, -1.117.
+\]
+
+The eigenvectors for each eigenvalue can be found via Gauss-Jordan elimination.
+\begin{enumerate}[wide, labelindent = 0pt, label = (\roman*)]
+\item $\lambda_0 = 0$
+\begin{align*}
+    \begin{pmatrix}
+        1 & 2 & 3 \\
+        4 & 5 & 6 \\
+        7 & 8 & 9
+    \end{pmatrix}
+    &\xrightarrow[R_3 \leftarrow \inv{7} R_3]{R_2 \leftarrow \inv{4} R_2} \begin{pmatrix}
+        1 & 2           & 3           \\
+        1 & \frac{5}{4} & \frac{3}{2} \\
+        1 & \frac{8}{7} & \frac{9}{7}
+    \end{pmatrix}
+    \xrightarrow[R_3 \leftarrow R_3 - R_1]{R_2 \leftarrow R_2 - R_1} \begin{pmatrix}
+        1 & 2            & 3            \\
+        0 & -\frac{3}{4} & -\frac{3}{2} \\
+        0 & -\frac{6}{7} & -\frac{12}{7}
+    \end{pmatrix} \\
+    &\xrightarrow[R_3 \leftarrow -\frac{7}{6} R_3]{R_2 \leftarrow \frac{4}{3} R_2} \begin{pmatrix}
+        1 & 2 & 3 \\
+        0 & 1 & 2 \\
+        0 & 1 & 2
+    \end{pmatrix}
+    \xrightarrow[R_3 \leftarrow R_3 - R_2]{R_1 \leftarrow R_1 - 2R_2} \begin{pmatrix}
+        1 & 0 & -1 \\
+        0 & 1 & 2  \\
+        0 & 0 & 0
+    \end{pmatrix}
+\end{align*}
+\[
+    \Rightarrow \mathbb{u}_0 = \begin{pmatrix}
+        s \\ -2s \\ s
+    \end{pmatrix}
+\]
+\[
+    \therefore \mathbb{u}_0 = \inv{\sqrt{6}} \begin{pmatrix}
+        1 \\ -2 \\ 1
+    \end{pmatrix}
+    \approx \begin{pmatrix}
+        0.408 \\ -0.816 \\ 0.408
+    \end{pmatrix}
+\]
+
+(Note: This eigenvector reflects the fact that each row of this matrix is an arithmetic progression!)
+
+\item $\lambda_\pm = \frac{15 \pm 3\sqrt{33}}{2}$
+\begin{align*}
+    \begin{pmatrix}
+        \frac{-13 \mp 3\sqrt{33}}{2} & 2 & 3 \\
+        4 & \frac{-5 \mp 3\sqrt{33}}{2} & 6 \\
+        7 & 8 & \frac{3 \mp 3\sqrt{33}}{2}
+    \end{pmatrix}
+    &\xrightarrow{R_i \leftarrow \inv{a_{i1}} R_i} \begin{pmatrix}
+        1 & \frac{13 \mp 3\sqrt{33}}{32} & \frac{39 \mp 9\sqrt{33}}{64} \\
+        1 & \frac{-5 \mp 3\sqrt{33}}{8} & \frac{3}{2} \\
+        1 & \frac{8}{7} & \frac{3 \mp 3\sqrt{33}}{14}
+    \end{pmatrix} \\
+    &\xrightarrow[R_3 \leftarrow R_3 - R_1]{R_2 \leftarrow R_2 - R_1} \begin{pmatrix}
+        1 & \frac{13 \mp 3\sqrt{33}}{32} & \frac{39 \mp 9\sqrt{33}}{64} \\
+        0 & \frac{-33 \mp 9\sqrt{33}}{32} & \frac{57 \pm 9\sqrt{33}}{64} \\
+        0 & \frac{165 \pm 21\sqrt{33}}{224} & \frac{-177 \mp 33\sqrt{33}}{448}
+    \end{pmatrix} \\
+    &\xrightarrow[R_3 \leftarrow \inv{a_{31}} R_3]{R_2 \leftarrow \inv{a_{21}} R_2} \begin{pmatrix}
+        1 & \frac{13 \mp 3\sqrt{33}}{32} & \frac{39 \mp 9\sqrt{33}}{64} \\
+        0 & 1 & \frac{-11 \mp 3\sqrt{33}}{44} \\
+        0 & 1 & \frac{-11 \mp 3\sqrt{33}}{44}
+    \end{pmatrix} \\
+    &\xrightarrow[R_3 \leftarrow R_3 - R_2]{R_1 \leftarrow R_1 - a_{12} R_2} \begin{pmatrix}
+        1 & 0 & \frac{11 \mp 3\sqrt{33}}{22} \\
+        0 & 1 & \frac{-11 \mp 3\sqrt{33}}{44} \\
+        0 & 0 & 0
+    \end{pmatrix}
+\end{align*}
+\[
+    \Rightarrow \mathbb{u}_\pm = \begin{pmatrix}
+        \frac{-11 \pm 3\sqrt{33}}{22} s \\
+        \frac{ 11 \pm 3\sqrt{33}}{44} s \\
+        s
+    \end{pmatrix}
+\]
+\[
+    \norm{\mathbb{u}_\pm} = s^2 \sqrt{\frac{11}{30}}
+\]
+\[
+    \therefore \mathbb{u}_\pm = \begin{pmatrix}
+        -\frac{-\sqrt{330} \pm 9\sqrt{10}}{60} \\
+        -\frac{ \sqrt{330} \pm 9\sqrt{10}}{60} \\
+        -\frac{-\sqrt{330} \pm 9\sqrt{10}}{60}
+    \end{pmatrix}
+    \approx \begin{pmatrix}
+        0.172 \\ 0.777 \\ 0.606
+    \end{pmatrix},\; \begin{pmatrix}
+        -0.777 \\ -0.172 \\ 0.606
+    \end{pmatrix}
+\]
+
+\end{enumerate}
