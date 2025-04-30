@@ -1,0 +1,37 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+Let us approach the problem using a general second-order linear ODE.
+That is, suppose $f$ and $g$ are solutions to the differential equation
+\[
+    p(x) \frac{d^2 y}{dx^2} + q(x) \frac{dy}{dx} + r(x) = 0.
+\]
+Define the Wronskian as
+\[
+    W(x) := f(x) g'(x) - f'(x) g(x).
+\]
+We then have
+\begin{align*}
+    p(x) W'(x)
+    &= p(x) \left(\
+        f'(x) g'(x) + f(x) g''(x) - f''(x) g(x) - f'(x) g'(x)
+    \right)\\
+    &= f(x) \left( p(x) g''(x) \right)
+     - \left( p(x) f''(x) \right) g(x) \\
+    &= f(x) \left( -q(x) g'(x) - r(x) g(x) \right)
+     - \left( -q(x) f'(x) - r(x) f(x) \right) g(x) \\
+    &= -q(x) W(x).
+\end{align*}
+Therefore, the Wronskian follows the first-order linear ODE
+\[
+    p(x) \frac{dW}{dx}(x) + q(x) W(x) = 0.
+\]
+
+In the case of Bessel's equation, $p(x) = x^2$ and $q(x) = x$.
+\[
+    \Rightarrow W'(x) = -\inv{x} W(x)
+\]
+\[
+    \therefore W(x) = \frac{C}{x}
+\]

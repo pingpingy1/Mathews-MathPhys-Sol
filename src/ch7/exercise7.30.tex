@@ -1,0 +1,37 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{align*}
+    0
+    &= x \left( e^{-\lambda x} y \right)''
+     + (c - x) \left( e^{-\lambda x} y \right)'
+     - a \left( e^{-\lambda x} y \right) \\
+    &= x e^{-\lambda x} \left(
+        \left( y'' - 2\lambda y' + \lambda^2 y \right)
+        + \left( \frac{c}{x} - 1 \right) \left( y' - \lambda y \right)
+        - \frac{a}{x} y
+    \right)
+\end{align*}
+\[
+    \therefore y''
+    + \left( \frac{c}{x} - 2\lambda - 1 \right) y'
+    + \left( -\frac{\lambda c + a}{x} + \lambda (\lambda + 1) \right) y
+    = 0
+\]
+
+The given differential equation is a special case of this one with
+$c = \frac{3}{2},\; \lambda = -\inv{3},$ and $a = \half - E$.
+\[
+    \Rightarrow y = e^{-\frac{x}{3}} \left(
+        C_1 \confhypergeom \left( \half - E; \frac{3}{2}; x \right)
+        + C_2 x^{-\half} \confhypergeom \left( \half -E; \half; x \right)
+    \right)
+\]
+The second solution diverges as $x \rightarrow 0+$;
+the first solution converges as $x \rightarrow \infty$ iff the hypergeometric series terminates.
+\[
+    \therefore E_n= n + \half\;
+    (n = 0, 1, 2, \dots)
+\]
+(Does this not remind you of the energies of a harmonic oscillator?)

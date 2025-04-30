@@ -1,0 +1,19 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+We transpose the two regular singularities 0 and 1 with the transformation $u = 1 - z$.
+This transforms the hypergeometric equation as
+\[
+    u (1 - u) \frac{d^2 y}{du^2}
+    + \left( -c - (a + b + 1) u \right) \frac{dy}{du}
+    - ab y
+    = 0.
+\]
+\begin{align*}
+    \Rightarrow y
+    &= C_1 \hypergeom (a, b; -c; u) \\
+    &\quad + C_2 u^{1 + c} \hypergeom (1+a+c, 1+b+c; 2+c; u) \\
+    &= C_1 \hypergeom(a, b; -c; 1-z) \\
+    &\quad + C_2 {(1 - z)}^{1 + c} \hypergeom (1+a+c, 1+b+c; 2+c; 1-z)
+\end{align*}

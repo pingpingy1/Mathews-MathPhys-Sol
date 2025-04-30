@@ -1,0 +1,47 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\[
+    y'' + \left( \inv{z} + \inv{z - 1} \right) y'
+    + \inv{z (z - 1) (z - 2)} \left( \frac{-\frac{2}{9}}{z} \right) y
+    = 0
+\]
+This equation is the \urlfoot{%
+    https://en.wikipedia.org/wiki/Riemann\%27s_differential_equation
+}{hypergeometric equation}\footnote{%
+Also known as \refeq{7}{80} of the textbook, Riemann's equation, or Papperitz equation.}
+with the regular singularities at $z = 0, 1, 2$ and corresponding powers
+\[
+    \alpha_1 = -\inv{3},\; \alpha_2 = \inv{3},\;
+    \beta_1 = \beta_2 = \gamma_1 = 0,\; \gamma_2 = 1.
+\]
+\[
+    \Rightarrow y
+    = \RiemannP{
+        \threemat{0}{1}{2}{-\inv{3}}{0}{0}{\inv{3}}{0}{1}
+    }{z}
+    = {\left( \frac{z - 2}{z} \right)}^{\inv{3}} \RiemannP{
+        \threemat{0}{1}{2}{0}{0}{-\inv{3}}{\frac{2}{3}}{0}{\frac{2}{3}}
+    }{z}
+\]
+We wish to transform $z$ such that 0 and 1 remain fixed, while 2 transforms to infinity.
+This is achieved by the homographic transformation $u = \frac{z}{2 - z}$.
+\[
+    \Rightarrow y
+    = {(-u)}^{-\inv{3}} \RiemannP{
+        \threemat{0}{1}{\infty}{0}{0}{-\inv{3}}{\frac{2}{3}}{0}{\frac{2}{3}}
+    }{u}
+\]
+This is the P symbol corresponding to the hypergeometric equation
+with $a = -\inv{3},\; b = \frac{2}{3},$ and $c = \inv{3}$.
+Therefore, substituting $u$ back in, we obtain the final solution
+\begin{align*}
+    y
+    &= C_1 {\left( \frac{z}{2 - z} \right)}^{\inv{3}} \hypergeom \left(
+        -\inv{3}, \frac{2}{3}; \inv{3}; \frac{z}{2 - z}
+    \right) \\
+    &\quad + C_2 {\left( \frac{2 - z}{z} \right)}^{\inv{3}} \hypergeom \left(
+        \inv{3}, \frac{4}{3}; \frac{5}{3}; \frac{z}{2 - z}
+    \right).
+\end{align*}

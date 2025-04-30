@@ -1,0 +1,69 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+The differential equation is given by
+\begin{align*}
+    0
+    &= {\left( \beta x^\gamma \right)}^2 \frac{d^2}{d{\left( \beta x^\gamma \right)}^2} \left( x^{-\alpha} y \right)
+     - 2\left( \beta x^\gamma \right) \frac{d}{d\left( \beta x^\gamma \right)} \left( x^{-\alpha} y \right) \\
+    &\quad + \left( {\left( \beta x^\gamma \right)}^2 - m^2 \right) \left( x^{-\alpha} y \right).
+\end{align*}
+\begin{align*}
+    \frac{d}{d\left( \beta x^\gamma \right)} \left( x^{-\alpha} y \right)
+    &= \inv{\beta\gamma x^{\gamma - 1}} \frac{d}{dx} \left( x^{-\alpha} y \right) \\
+    &= \inv{\beta\gamma x^{\gamma - 1}} \left(
+        x^{-\alpha} y' - \alpha x^{-\alpha - 1} y
+    \right) \\
+    &= \inv{\beta\gamma} \left(
+        x^{-\alpha-\gamma+1} y' - \alpha x^{-\alpha-\gamma} y
+    \right)
+\end{align*}
+\begin{align*}
+    \Rightarrow
+    &\frac{d^2}{d{\left( \beta x^\gamma \right)}^2} \left( x^{-\alpha} y \right) \\
+    &= \inv{\beta\gamma x^{\gamma - 1}} \frac{d}{dx} \left(
+        \inv{\beta\gamma} \left(
+            x^{-\alpha-\gamma+1} y' - \alpha x^{-\alpha-\gamma} y
+        \right)
+    \right) \\
+    &= \inv{\beta^2 \gamma^2} \left(
+        x^{-\alpha-2\gamma+2} y''
+        - (2\alpha+\gamma-1) x^{-\alpha-2\gamma+1} y'
+        + \alpha(\alpha + \gamma) x^{-\alpha-2\gamma} y
+    \right)
+\end{align*}
+\begin{align*}
+    \Rightarrow 0
+    &= \inv{\gamma^2 x^{\alpha}} \left(
+        x^2 y'' - (2\alpha+\gamma-1) xy' + \alpha(\alpha+\gamma) y
+    \right) \\
+    &\quad - \frac{2}{\gamma x^{\alpha}} \left(
+        xy' - \alpha y
+    \right) \\
+    &\quad + \frac{{\left( \beta x^\gamma \right)}^2 - m^2}{x^\alpha} y \\
+    &= \inv{\gamma^2 x^{-\alpha}} \left(
+        x^2 y''
+        - (2\alpha - 1) y'
+        + \left( \beta^2 \gamma^2 x^{2\gamma} + \alpha^2 - m^2 \gamma^2 \right)
+    \right)
+\end{align*}
+\[
+    \therefore  x^2 y''
+    - (2\alpha - 1) y'
+    + \left( \beta^2 \gamma^2 x^{2\gamma} + \alpha^2 - m^2 \gamma^2 \right)
+    = 0
+\]
+As a sanity check, substituting $\alpha = 0,\; \beta =\gamma = 1$ yields
+the original Bessel equation.
+
+The equation
+\[
+    y'' + x^2 y = 0
+\]
+can be obtained via the substitution $\alpha =\beta = \half,\; \gamma = 2, m = \inv{4}$.
+\[
+    \therefore y
+    = C_1 \sqrt{x} J_{\inv{4}}\left( \half x^2 \right)
+    + C_2 \sqrt{x} J_{-\inv{4}}\left( \half x^2 \right)
+\]

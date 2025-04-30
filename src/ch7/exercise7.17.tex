@@ -1,0 +1,44 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+Recall that
+\[
+    f(x) = \sum_n c_n J_m(k_n x),\;
+    c_n = 2 {\left( J_{m + 1}(k_n a) \right)}^{-2}
+          \int_0^a dx xJ_m(k_n x) f(x)
+\]
+where $k_1 < k_2 < \cdots$ satisfy $J_m(k_i a) = 0$.
+The asymptotic forms of Bessel functions are given by
+\[
+    J_m(x) \sim \sqrt{\frac{2}{\pi x}} \cos\left(
+        x - \frac{m\pi}{2} - \frac{\pi}{4}
+    \right)
+    \text{ as } x \rightarrow \infty.
+\]
+\[
+    \Rightarrow {\left( aJ_{m + 1}(k_n a) \right)}^2
+    \sim \frac{2a}{\pi k_n} \cos^2 \left( k_n a - \cdots \right)
+    \sim \frac{2a}{\pi k_n}
+\]
+\[
+    \Rightarrow c_n
+    \sim \frac{\pi k_n}{a} \int_0^a dx xJ_m(k_n x) f(x)
+\]
+\begin{align*}
+    \Rightarrow f(x)
+    &= \sum_{n = 1}^\infty \left(
+        \frac{\pi k_n}{a} \int_0^a dx' x' J_m(k_n x') f(x')
+    \right) J_m(k_n x) \\
+    &\approx \sum_{n = 1}^\infty \left(
+        \Delta k_n k_n \int_0^a dx' x' J_m(k_n x') f(x')
+    \right) J_m(k_n x)
+    && \left( \Delta k_n \sim \frac{\pi}{a} \right) \\
+    &\xrightarrow{a \rightarrow \infty} \int_0^\infty dy y \left(
+        \int_0^\infty dx' x' J_m(x'y) f(x')
+    \right) J_m(xy)
+\end{align*}
+\[
+    \therefore f(x) = \int_0^\infty dy y J_m(xy) g(y),\;
+    g(y) = \int_0^\infty dx x J_m(xy) f(x)
+\]

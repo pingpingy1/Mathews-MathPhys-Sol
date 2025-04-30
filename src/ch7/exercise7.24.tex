@@ -1,0 +1,77 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+Parallelling the textbook, suppose the differential equation is
+\[
+    y'' + \frac{\textrm{poly}_n(z)}{(z - \xi)(x - \eta)} y'
+    + \frac{\textrm{poly}_m (z)}{{(z - \xi)}^2 {(z - \eta)}^2} y = 0
+\]
+where $n$ and $m$ are the degrees of the respective polynomials.
+The variable change $u = \inv{z}$ yields
+\[
+    \frac{d^2 y}{du^2}
+    + \left(
+        \frac{2}{u} - \frac{
+            \textrm{poly}_n \left( u^{-1} \right)
+        }{(1 - \xi u) (1 - \eta u)}
+    \right) \frac{dy}{du}
+    + \frac{\textrm{poly}_m \left( u^{-1} \right)}{{(1 - \xi u)}^2 {(1 - \eta u)}^2} y
+    = 0.
+\]
+For $z = \infty \Leftrightarrow u = 0$ to be ordinary, we must have $n = 1$ and $m = 0$.
+\[
+    \Rightarrow y''
+    + \left( \frac{A}{z - \xi} + \frac{B}{z - \eta} \right) y'
+    + \frac{C}{{(z - \xi)}^2 {(z - \eta)}^2} y
+    = 0
+\]
+\[
+    \frac{d^2 y}{du^2}
+    + \inv{u} \left(
+        2 - \frac{A}{1 - \xi u} - \frac{B}{1 - \eta u}
+    \right) \frac{dy}{du}
+    + \frac{C}{{(1 - \xi u)}^2 {(1 - \eta u)}^2} y
+    = 0
+\]
+$u = 0$ being an ordinary point further demands that $A + B = 2$.
+
+Now, suppose $y \sim {(z - \xi)}^\alpha$ near $z = \xi$.
+\[
+    0
+    = \alpha (\alpha - 1) + A \alpha + \frac{C}{{(\xi - \eta)}^2}
+    = \alpha^2 - (A - 1) \alpha + \frac{C}{{(\xi - \eta)}^2}
+\]
+\[
+    \Rightarrow \alpha_1 + \alpha_2 = A - 1,\;
+    \alpha_1 \alpha_2 = \frac{C}{{(\xi - \eta)}^2}
+\]
+Similar analysis for $y \sim {(z - \eta)}^\beta$ near $z = \eta$ yields
+\[
+    \beta_1 + \beta_2 = 1 - B,\;
+    \beta_1 \beta_2 = \frac{C}{{(\xi - \eta)}^2}.
+\]
+Therefore, eliminating $A,\; B,$ and $C$, we get the most general form
+\[
+    y'' + \left(
+        \frac{1 - \alpha_1 - \alpha_2}{z - \xi}
+        + \frac{1 - \beta_1 - \beta_2}{z - \eta}
+    \right) y' + \frac{{(\xi - \eta)}^2 \alpha_1 \alpha_2}{
+        {(z - \xi)}^2 {(z - \eta)}^2
+    } y = 0 \quad
+\]
+with conditions
+\[
+    \alpha_1 + \alpha_2 + \beta_1 + \beta_2 = 0,\;
+    \alpha_1 \alpha_2 = \beta_1 \beta_2.
+\]
+
+The given transformation of exponentials leaves the sum of them fixed.
+As for the product,
+\begin{align*}
+    (\alpha_1 + \lambda) (\alpha_2 + \lambda)
+    &= \alpha_1 \alpha_2 + \lambda (\alpha_1 + \alpha_2) + \lambda^2 \\
+    &= \beta_1 \beta_2 - \lambda (\beta_1 + \beta_2) + \lambda^2 \\
+    &= (\beta_1 - \lambda) (\beta_2 - \lambda).
+\end{align*}
+Therefore, the given transformation leaves the condition satisfied.

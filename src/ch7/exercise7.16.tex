@@ -1,0 +1,31 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{enumerate}[wide, labelindent = 0pt, label = (\alph*)]
+\item
+\begin{align*}
+    J_{\half}(x)
+    &= \sum_{r = 0}^\infty \frac{{(-1)}^r}{r!\Gamma\left( r + \frac{3}{2} \right)} {\left( \frac{x}{2} \right)}^{\half + 2r} \\
+    &= \inv{\sqrt{\pi}} \sum_{r = 0}^\infty \frac{{(-1)}^r}{
+        r! \prod_{j = 0}^r \left( \half + j \right)
+    } {\left( \frac{x}{2} \right)}^{\half + 2r} \\
+    &= \inv{\frac{2}{\pi}} \sum_{r = 0}^\infty \frac{{(-1)}^r}{
+        2^r r! (2r + 1)!!
+    } x^{\half + 2r} \\
+    &= \sqrt{\frac{2}{\pi x}} \sum_{r = 0}^\infty
+       \frac{{(-1)}^r}{(2r + 1)!} x^{2r + 1} \\
+    &= \sqrt{\frac{2}{\pi x}} \sin x
+\end{align*}
+
+\item
+\begin{align*}
+    J_{-\half}
+    &= \frac{\half}{x} J_{\half}(x) + J_{\half}'(x) \\
+    &= \inv{\sqrt{2\pi x^3}} \sin x + \sqrt{\frac{2}{\pi}} \left(
+        -\half x^{-\frac{3}{2}} \sin x + x^{-\half} \cos x
+    \right) \\
+    &= \sqrt{\frac{2}{\pi x}} \cos x
+\end{align*}
+
+\end{enumerate}

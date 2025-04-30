@@ -1,0 +1,60 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{enumerate}[wide, labelindent = 0pt, label = (\arabic*)]
+\item 
+We will make the change of variables
+\[
+    x = \cos\alpha \text{ and } y=\cos\beta.
+\]
+Without loss of generality, suppose we have defined the coordinate system
+such that the direction for $\alpha$ is parallel to the $z$ axis
+and that for $\beta$ lies in the $zx$ plane.
+The coordinates $(x, y)$ maps to exactly two points on the unit sphere,
+where the two points have the same $\theta$ but $\phi$'s that add to $2\pi$.
+(In a coordinate-independent formulation, $(x, y)$ represents a unique point
+on one of the two half-spheres cut by the plane containing the two fixed directions.)
+The integrals evaluated on each half-sphere are equal,
+so we may perform the change of variables for one of the half-spheres
+and multiply the result by 2.
+
+Let $\gamma$ denote the angle between the two fixed directions.
+\[
+    x = \cos\theta,\;
+    y = \cos\gamma\cos\theta + \sin\gamma\sin\theta\cos\phi.
+\]
+\[
+    \Rightarrow \begin{cases}
+        \cos\theta = x & \sin\theta = \sqrt{1 - x^2} \\
+        \cos\phi = \frac{y - x\cos\gamma}{\sin\gamma \sqrt{1 - x^2}}
+    \end{cases}
+\]
+\begin{align*}
+    \Rightarrow \frac{\partial(x, y)}{\partial(\theta,\phi)}
+    &= \begin{vmatrix}
+        \frac{\partial x}{\partial \theta} & \frac{\partial x}{\partial \phi} \\
+        \frac{\partial y}{\partial \theta} & \frac{\partial y}{\partial \phi}
+    \end{vmatrix} \\
+    &= \sin\gamma \sin^2 \theta \sin\phi \\
+    &= \sin\gamma \left( 1 - x^2 \right) \sqrt{
+        1 - {\left(
+            \frac{y - x\cos\gamma}{\sin\gamma \sqrt{1 - x^2}} 
+        \right)}^2
+    } \\
+    &= \sqrt{\left( 1 - x^2 \right) \left(
+        \sin^2 \gamma - x^2 - y^2 + 2xy\cos\gamma
+    \right)}
+\end{align*}
+\[
+    \therefore I
+    = \int_{-1}^1 dx \int_{-1}^1 dy f(x) g(y) \cdot \frac{2}{
+        \sqrt{\left( 1 - x^2 \right) \left(
+            \sin^2 \gamma - x^2 - y^2 + 2xy\cos\gamma
+        \right)}
+    }
+\]
+
+\item
+\notyet
+\end{enumerate}

@@ -1,0 +1,45 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{enumerate}[wide, labelindent = 0pt, label = (\alph*)]
+\item 
+\begin{align*}
+    P_n'(1)
+    &= \inv{2^n n!} \frac{d^{n + 1}}{dx^{n + 1}} {\left( x^2 - 1 \right)}^n \\
+    &= \inv{2^n n!} \frac{d^{n + 1}}{dx^{n + 1}}
+        {(x - 1)}^n {(x + 1)}^n
+\end{align*}
+Imagining the $n + 1$ derivatives as repeated applications of the product rule,
+we see that all $n$ factors of $x - 1$ must be differentiated,
+leaving a single derivative of $x + 1$.
+There are $(n + 1)!$ such orders to perform such derivatives.
+\[
+    \therefore P_n'(1)
+    = \inv{2^n n!} \cdot (n + 1)! n 2^{n - 1}
+    = \frac{n(n + 1)}{2}
+\]
+
+\item
+\begin{align*}
+    \sum_{n = 0}^\infty h^n P_n'(1)
+    &= \evalAt{
+        \partialderiv{x} \left(\sum_{n = 0}^\infty h^n P_n(x) \right)
+    }{x = 1} \\
+    &= \evalAt{
+        \partialderiv{x} \left( \inv{\sqrt{1 - 2hx + x^2}} \right)
+    }{x = 1} \\
+    &= \evalAt{
+        \frac{h}{{\left( 1 - 2hx + x^2 \right) }^{\frac{3}{2}}}
+    }{x = 1} \\
+    &= h {(1 - h)}^{-3} \\
+    &= h \sum_{n = 0}^\infty \frac{3 (3 + 1) \cdots (3 + n - 1)}{n!} h^n \\
+    &= \sum_{n = 0}^\infty \frac{(n + 2)!}{2n!} h^{n + 1} \\
+    &= \sum_{n = 0}^\infty \frac{(n + 1) (n + 2)}{2} h^{n + 1} \\
+    &= \sum_{n = 0}^\infty \frac{n (n + 1)}{2} h^n
+\end{align*}
+\[
+    \therefore P_n'(1)
+    = \frac{n (n + 1)}{2}
+\]
+\end{enumerate}

@@ -1,0 +1,48 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+The given arguments seem flawed, as the differential equation
+has regular singularities at $0,\; \pm1,$ and $\infty$.
+Hence, we must remove one of the singularities before we may employ hypergeometric functions.
+Let $u := z^2$.
+\[
+    \frac{d}{dz} = 2\sqrt{u} \frac{d}{du}
+\]
+\[
+    \Rightarrow \frac{d^2 y}{du^2} + \inv{u} \frac{dy}{du} + \inv{64 u^2 (u - 1)} y = 0
+\]
+Suppose $y = u^\alpha v$ with $v$ analytic near the origin.
+\[
+    \Rightarrow \frac{d^2 v}{du^2}
+    + \frac{5}{4u} \frac{dv}{du}
+    + \inv{u^2} \left( \alpha^2 + \inv{64(u - 1)} \right) v = 0
+\]
+Thus, the analyticity of $v$ implies
+\[
+    \evalAt{\left( \alpha^2 + \inv{64(u - 1)} \right)}{u = 0}
+    \Rightarrow \alpha = \pm \inv{8}.
+\]
+\[
+    \therefore y = u^{\inv{8}}v
+    \Rightarrow u (1-u) \frac{d^2 v}{du^2}
+    + \left( \frac{5}{4} - \frac{5}{4}u \right) \frac{dv}{du}
+    - \inv{64} v = 0
+\]
+This, finally, is the hypergeometric equation with $a = b = \inv{8},\; c = \frac{5}{4}$.
+\[
+    \Rightarrow v
+    = C_1 \hypergeom \left(
+        \inv{8}, \inv{8}; \frac{5}{4}; u
+    \right) + C_2 u^{-\inv{4}} \hypergeom \left(
+        -\inv{8}, -\inv{8}; \frac{3}{4}; u
+    \right)
+\]
+\[
+    \therefore y
+    = C_1 x^{\inv{4}} \hypergeom \left(
+        \inv{8}, \inv{8}; \frac{5}{4}; x^2
+    \right) + C_2 x^{-\inv{4}} \hypergeom \left(
+        -\inv{8}, -\inv{8}; \frac{3}{4}; x^2
+    \right)
+\]

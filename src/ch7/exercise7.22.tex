@@ -1,0 +1,28 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{enumerate}[wide, labelindent = 0pt, label = (\alph*)]
+\item
+\begin{align*}
+    \hypergeom (1, \alpha; 2; z)
+    &= \frac{\Gamma(2)}{\Gamma(1) \Gamma(\alpha)}
+       \sum_{n = 0}^\infty \frac{\Gamma(1 + n) \Gamma(\alpha + n)}{\Gamma(2 + n)} \frac{z^n}{n!} \\
+    &= \sum_{n = 0}^\infty \frac{\Gamma(\alpha + n)}{\Gamma(\alpha)n! (n + 1)} z^n \\
+    &= \sum_{n = 0}^\infty {(-1)}^n \binom{\alpha + n}{n} \frac{z^n}{n + 1} \\
+    &= \inv{z} \int_0^z dt \sum_{n = 0}^\infty \binom{\alpha + n}{n} {(-t)}^n \\
+    &= \inv{z} \int_0^z \frac{dt}{{(1 - t)}^\alpha} \\
+    &= \frac{1 - {(1 - z)}^{1 - \alpha}}{(1 - \alpha) z}
+\end{align*}
+
+\item
+\begin{align*}
+    \hypergeom (1, 1; 2; z)
+    &= \lim_{\alpha \rightarrow 1} \frac{1 - {(1 - z)}^{1 - \alpha}}{(1 - \alpha) z} \\
+    &= \lim_{\beta \rightarrow 0} \frac{1 - {(1 - z)}^\beta}{\beta z}
+    && (\beta := 1 - \alpha) \\
+    &= \lim_{\beta \rightarrow 0} \frac{{(1 - z)}^\beta \ln(1 - z)}{z}
+    && (\text{L'H\^osptial's rule}) \\
+    &= \frac{\ln (1 - z)}{z}
+\end{align*}
+\end{enumerate}

@@ -1,0 +1,48 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+Dividing by $z^2 {\left( z^2 - 1 \right)}^2$ and taking partial fractions, we obtain
+\begin{align*}
+    0
+    &= y'' + \left(
+        \inv{z} + \frac{\half}{z + 1} + \frac{\half}{z - 1}
+    \right) y' \\
+    &\quad + \inv{z (z + 1) (z - 1)} \left(
+        \frac{\alpha^2}{z}
+        + \frac{\inv{8} - 2\alpha^2}{z + 1}
+        + \frac{\inv{8} - 2\alpha^2}{z - 1}
+    \right) y.
+\end{align*}
+This is the hypergeometric equation with $-\alpha_1 = \alpha_2 = \alpha$,
+$\beta_1 = \gamma_1 = \inv{4} + \alpha$,
+and $\beta_2 = \gamma_2 = \inv{4} - \alpha$.
+\begin{align*}
+    \therefore y
+    &= \RiemannP{
+        \threemat{0}{1}{-1}{-\alpha}{\inv{4} + \alpha}{\inv{4} + \alpha}{\alpha}{\inv{4} - \alpha}{\inv{4} - \alpha}
+    }{z} \\
+    &= {\left( \frac{z}{z - 1} \right)}^\alpha \RiemannP{
+        \threemat{0}{1}{-1}{0}{\inv{4}}{\inv{4} + \alpha}{2\alpha}{\inv{4} - 2\alpha}{\inv{4} - \alpha}
+    }{z} \\
+    &= \frac{z^\alpha}{{(z - 1)}^{\alpha - \inv{4}} {(z + 1)}^\inv{4}} \RiemannP{
+        \threemat{0}{1}{-1}{0}{0}{\half + \alpha}{2\alpha}{-2\alpha}{\half - \alpha}
+    }{z} \\
+    &= \frac{z^\alpha}{{(z - 1)}^{\alpha - \inv{4}} {(z + 1)}^\inv{4}} \RiemannP{
+        \threemat{0}{1}{\infty}{0}{0}{\half + \alpha}{2\alpha}{-2\alpha}{\half - \alpha}
+    }{\frac{2z}{z + 1}} \\
+    &= \frac{z^\alpha}{{(z - 1)}^{\alpha - \inv{4}} {(z + 1)}^\inv{4}} \left(
+        C_1 \hypergeom \left(
+            \alpha - \inv{4}, \alpha + \inv{4};
+            1 - 2\alpha;
+            \frac{2z}{z + 1}
+        \right)
+    \right. \\
+    &\qquad \left.
+        + C_2 {\left( \frac{2z}{z + 1} \right)}^{2\alpha} \hypergeom \left(
+            \half + 3\alpha, \half + \alpha;
+            1 + 2\alpha;
+            \left( \frac{2z}{z + 1} \right)
+        \right)
+    \right)
+\end{align*}

@@ -1,0 +1,33 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\[
+    \sum_{n = 0}^\infty c_n P_n(z)
+    = \inv{\pi} \int_0^{2\pi} d\phi \sum_{n = 0}^\infty
+       c_n {\left(z + \sqrt{z^2 - 1}\cos\phi\right)}^n
+\]
+For the left-hand side to converge,
+the integrand of the right-hand side must also converge.
+\[
+    \therefore \sup_{\phi\in[0,2\pi]} \abs{\left(z + \sqrt{z^2 - 1}\right)} < R
+\]
+\[
+    \Leftrightarrow \abs{z} + \sqrt{\abs{z^2 - 1}} < R
+\]
+\[
+    \Leftrightarrow \abs{z} < R \wedge \abs{z^2 - 1} < {\left( R - \abs{z} \right)}^2
+\]
+
+(Note: This is most definitely \underline{not} correct!
+Simple graphing shows that the shapes are not ellipses;
+but rather ovals with bulges on each end.
+The shape does seem to converge to ellipses for large values of $R$,
+which might be sufficient for a physicist to say ``It is an ellipse.''
+That said, I wouldn't be surprised when somebody finds a flaw in this solution.
+
+It also seems that the first condition is implied by the second.
+This is plausible at first glance, since as both $R$ and $\abs{z}$ grow without bound,
+the second condition reduces to $\abs{z} \lesssim \frac{R}{2}$.
+I however failed to prove this rigorously;
+it is left as an exercise to the reader.)

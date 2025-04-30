@@ -1,0 +1,39 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}
+		% Axes
+		\draw[axis] (-3.5cm, 0cm) -- (1cm, 0cm) node[right] {$\Re$};
+		\draw[axis] (0cm, -3.5cm) -- (0cm, 1cm) node[right] {$\Im$};
+
+        % Branch cut
+		\node[pole] at (0cm, 0cm) {};
+		\draw[branch cut] (-3.4cm, -3.4cm) -- (0cm, 0cm);
+
+
+        % \draw[contour] plot [smooth] coordinates {
+        %     (0cm, 1cm) (-0.5cm, 1.2cm) (-2cm, 0.5cm) (-3.9cm, 0.1cm)
+        % }; % Lol this looks horrible
+
+		% Contour
+        \draw[contour] (0cm, 0cm) arc (0:90:0.707cm) node[above] {$\half H_n^{(1)}$};
+        \draw[contour] plot [smooth] coordinates {
+            (-0.707cm, 0.707cm) (-1.2cm, 0.4cm) (-2cm, -1.5cm) (-3.5cm, -3.4cm)
+        };
+
+        \draw[contour, magenta] (0cm, 0cm) arc (90:0:0.707cm) node[right] {$\half H_n^{(2)}$};
+        \draw[contour, magenta] plot [smooth] coordinates {
+            (0.707cm, -0.707cm) (0.4cm, -1.2cm) (-1.5cm, -2cm) (-3.4cm, -3.5cm)
+        };
+
+	\end{tikzpicture}
+	\caption{Contour for \refprob{}~7--19.}%
+	\label{fig:problem7-19}
+\end{figure}
+
+Notice that the region of validity for a specific contour for the Hankel functions
+is the half-plane in $\mathbb{C}$ perpendicular to the branch cut.
+Thus, we make the cut along $\arg z = - \frac{3\pi}{4}$, as shown in \reffig~\ref{fig:problem7-19}.

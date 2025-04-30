@@ -1,0 +1,44 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{enumerate}[wide, labelindent = 0pt, label = (\alph*)]
+\item
+\begin{align*}
+    \sum_{n = 0}^\infty H_{n + 1}(x) \frac{h^n}{n!}
+    &= \partialderiv{h} \left(
+        \sum_{n = 0}^\infty H_n(x) \frac{h^n}{n!}
+    \right) \\
+    &= \partialderiv{h} e^{2hx - h^2} \\
+    &= 2 (x - h) e^{2hx - h^2} \\
+    &= 2 (x - h) \sum_{n = 0}^\infty H_n(x) \frac{h^n}{n!} \\
+    &= \sum_{n = 0}^\infty 2\left(
+        xH_n(x) - nH_{n - 1}(x)
+    \right) \frac{h^n}{n!}
+\end{align*}
+\[
+    \therefore H_{n + 1} = 2xH_n(x) - 2nH_{n - 1}(x)
+\]
+
+\item
+\begin{align*}
+    \sum_{n = 0}^\infty \frac{h^n}{n!}
+    \int_{-\infty}^\infty dx e^{-\frac{x^2}{2}} H_n(x)
+    &= \int_{-\infty}^\infty dx e^{-\frac{x^2}{2}} \left(
+        \sum_{n = 0}^\infty H_n(x) \frac{h^n}{n!}
+    \right) \\
+    &= \int_{-\infty}^\infty dx e^{-\frac{x^2}{2} + 2hx - h^2} \\
+    &= \int_{-\infty}^\infty dx e^{-\frac{x^2}{2}} e^{
+        -\half {(x - 2h)}^2 + h^2
+    } \\
+    &= \sqrt{2\pi} e^{h^2} \\
+    &= \sum_{n = 0}^\infty \frac{\sqrt{2\pi}}{n!} h^{2n}
+\end{align*}
+\[
+    \therefore \int_{-\infty}^\infty dx e^{-\frac{x^2}{2}} H_n(x) =
+    \begin{cases}
+        0 & (2 \nmid n) \\
+        \frac{\sqrt{2\pi} n!}{\left( \frac{n}{2} \right)!} & (2 \mid n)
+    \end{cases}
+\]
+\end{enumerate}

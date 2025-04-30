@@ -3,6 +3,7 @@
 \usepackage{bbm}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{mathtools}
 \usepackage{hyperref}
 \usepackage{fontawesome5}
 \usepackage{wrapfig}
@@ -41,6 +42,8 @@
 \newcommand{\inv}[1]{\frac{1}{#1}}
 \newcommand{\Laurentcoeff}[2]{\left[ z^{#1} \right] \left( #2 \right)}
 \newcommand{\const}{\text{const.}}
+\newcommand{\hypergeom}{\prescript{}{2}{F}_{1}}
+\newcommand{\confhypergeom}{\prescript{}{1}{F}_{1}}
 
 % Vectors
 \renewcommand{\mathbb}{\mathbbm}
@@ -52,7 +55,7 @@
 \DeclareMathOperator{\Tr}{Tr}
 
 % Text
-\newcommand{\refeq}[2]{Eq.~(#1--#2)}
+\renewcommand{\refeq}[2]{Eq.~(#1--#2)}
 \newcommand{\refeqsub}[2]{(#1--#2)}
 \newcommand{\refprob}{Problem}
 \newcommand{\reffig}{Figure}
@@ -74,6 +77,15 @@ Please wait or consider contributing!}
 \newcommand{\invLapltransf}[1]{\mathcal{L}^{-1}\left[ #1 \right]}
 \newcommand{\Pint}{\mathrm{P}\int}
 
+\newcommand{\threemat}[9]{%
+\begin{matrix}
+    #1 & #2 & #3 \\
+    #4 & #5 & #6 \\
+    #7 & #8 & #9
+\end{matrix}}
+\newcommand{\RiemannP}[2]{P\left\{#1\; #2\right\}}
+% Usage: \RiemannP{\threemat{}{}{}{}{}{}{}{}{}}{}
+
 \makeatletter
-\newcommand{\xRightarrow}[2][]{\ext@arrow 0359\Rightarrowfill@{#1}{#2}}
+\renewcommand{\xRightarrow}[2][]{\ext@arrow 0359\Rightarrowfill@{#1}{#2}}
 \makeatother

@@ -1,0 +1,56 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}
+		% Axes
+		\draw[axis] (-4cm, 0cm) -- (0.5cm, 0cm) node[right] {$\Re$};
+		\draw[axis] (0cm, -2cm) -- (0cm, 2cm) node[right] {$\Im$};
+
+        % Branch cut
+		\node[pole] at (0cm, 0cm) {};
+		\draw[branch cut] (-3.9cm, 0cm) -- (0cm, 0cm);
+
+		% Contour
+        \draw[contour] (0cm, 0cm) arc (-45:45:0.707cm);
+        \draw[contour] plot [smooth] coordinates {
+            (0cm, 1cm) (-0.5cm, 1.2cm) (-2cm, 0.5cm) (-3.9cm, 0.1cm)
+        }; % Lol this looks horrible
+        \node[right] at (0cm, 1cm) {$i$};
+
+	\end{tikzpicture}
+	\caption{Contour for \refprob{}~7--14.}%
+	\label{fig:problem7-14}
+\end{figure}
+
+The integral formulation for the Hankel function is given by
+\[
+    H_n^{(1)}(z) = \inv{i\pi} \int_C dt \frac{
+        \exp\left( \frac{z}{2} \left( t - \inv{t} \right) \right)
+    }{t^{n + 1}}
+\]
+along the contour shown in \reffig~\ref{fig:problem7-14}
+The numerator has a saddle point at $t = i$ along the contour.
+Around this point,
+\[
+    t + \inv{t} \approx 2i - e^{i\halfpi} {(t - i)}^2.
+\]
+\[
+    \Rightarrow H_n^{(1)}(z)
+    \approx \inv{i\pi} \int dt \frac{
+        iz - \frac{z}{2} e^{i\pi} {(t - i)}^2
+    }{t^{n + 1}}
+\]
+By what angle should we cross the $t = i$ point to perform the saddle-point method?
+Since the coefficient of the quadratic term has argument $\pi$,
+the contour must pass the point with angle $\frac{3\pi}{4}$ or $\frac{5\pi}{4}$.
+The shape of the contour demands $\phi = \frac{3\pi}{4}$.
+
+\begin{align*}
+    \therefore H_n^{(1)}(z)
+    &\approx \frac{e^{i\left( \frac{3\pi}{4} + z \right)}}{i^{n + 2} \pi}
+     \cdot \int_{-\infty}^\infty dr \exp\left( -\frac{z}{2} r^2 \right) \\
+    &= \sqrt{\frac{2}{\pi z}} \exp\left( iz - i \frac{2n + 1}{4}\pi \right)
+\end{align*}

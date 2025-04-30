@@ -1,0 +1,49 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{align*}
+    \frac{\partial G}{\partial x} (x, t)
+    &= \sum_n f_n'(x) t^n \\
+    &= \sum_n f_{n - 1}(x) t^n \\
+    &= \sum_n f_n(x) t^{n + 1} \\
+    &= tG(x, t)
+\end{align*}
+\[
+    \Rightarrow G(x, t) = A(t) e^{xt}
+\]
+
+\begin{align*}
+    \frac{\partial G}{\partial t} (x, t)
+    &= \sum_n nf_n(x) t^{n - 1} \\
+    &= \sum_n (n + 1) f_{n + 1}(x) t^n \\
+    &= \sum_n \left(\
+        xf_n(x) - f_{n + 2}(x)
+    \right) t^n \\
+    &= \left( x - \inv{t^2} \right) G(x, t)
+\end{align*}
+\[
+    \Rightarrow G(x, t) = B(x) e^{xt + \inv{t}}
+\]
+For these two conditions to simultaneously hold,
+we must have
+\[
+    G(x, t) = C e^{xt + \inv{t}}.
+\]
+We will find $C$ using condition (a):
+\begin{align*}
+    G(x, t)
+    &= C\sum_{k = 0}^\infty \frac{{\left( xt + \inv{t} \right)}^k}{k!} \\
+    &= C\sum_{k = 0}^\infty \sum_{l = 0}^k \binom{k!}{l!}
+       \frac{{(xt)}^l t^{-n+l}}{k!} \\
+    &= C\sum_{k = 0}^\infty \sum_{l = 0}^k \frac{x^l t^{2l - k}}{l! (k-l)!}
+\end{align*}
+\[
+    \Rightarrow f_0(x)
+    = C\sum_{k, l: 2l - k = 0} \frac{x^l}{l! (k - l)!}
+    = C\sum_{l = 0}^\infty \frac{x^l}{{(l!)}^2}
+    \Rightarrow C = 1
+\]
+\[
+    \therefore G(x, t) = e^{xt + \inv{t}}
+\]

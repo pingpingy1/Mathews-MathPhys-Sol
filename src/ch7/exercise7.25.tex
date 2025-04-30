@@ -1,0 +1,84 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}{0.4\textwidth}
+        \centering
+        \begin{tikzpicture}
+            % Axes
+    		\draw[axis] (-1cm, 0cm) -- (3cm, 0cm) node[right] {$\Re$};
+    		\draw[axis] (0cm, -2cm) -- (0cm, 2cm) node[right] {$\Im$};
+
+            % Poles
+            \node[pole] at (0cm, 0cm) {};
+            \node[pole] (A) at (2cm, 0cm) {}; \node[below] at (A) {$1$};
+
+    		% Contour
+            \draw[blue, very thick] (0.4cm, 0cm) arc (0:360:0.4cm);
+            \draw[blue, very thick] (2.4cm, 0cm) arc (0:360:0.4cm);
+            \draw[blue, very thick] (0.4cm, 0cm) -- (1.6cm, 0cm);
+        \end{tikzpicture}
+        \caption{}%
+        \label{subfig:problem7-25:actual}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.4\textwidth}
+        \begin{tikzpicture}
+            % Axes
+    		\draw[axis] (-1cm, 0cm) -- (3cm, 0cm) node[right] {$\Re$};
+    		\draw[axis] (0cm, -2cm) -- (0cm, 2cm) node[right] {$\Im$};
+
+            % Poles
+            \node[pole] at (0cm, 0cm) {};
+            \node[pole] (A) at (2cm, 0cm) {}; \node[below] at (A) {$1$};
+
+            % Contour
+            \draw[contour] (2cm, 1.6cm) -- node[above] {$(0, \pi)$} (0cm, 1.6cm);
+            \draw[contour, dashed, gray] (0cm, 1.6cm) arc (90:270:0.8cm and 1.6cm);
+            
+            \draw[contour] (0cm, -1.6cm) -- node[below] {$(2\pi, \pi)$} (2cm, -1.6cm);
+            \draw[contour, dashed, gray] (2cm, -1.6cm) arc (270:90:0.7cm and 1.4cm);
+            \draw[contour, dashed, gray] (2cm, 1.2cm) arc (90:-90:0.5cm and 1cm);
+
+            \draw[contour] (2cm, -0.8cm) -- node[below] {$(2\pi, -\pi)$} (0cm, -0.8cm);
+            \draw[contour, dashed, gray] (0cm, -0.8cm) arc (270:90:0.4cm and 0.8cm);
+
+            \draw[contour] (0cm, 0.8cm) -- node[above] {$(0, -\pi)$} (2cm, 0.8cm);
+            \draw[contour, dashed, gray] (2cm, 0.8cm) arc (90:270:0.3cm and 0.6cm);
+            \draw[contour, dashed, gray] (2cm, -0.4cm) arc (-90:90:0.2cm and 1cm);
+        \end{tikzpicture}
+        \caption{}%
+        \label{subfig:problem7-25:spreadout}
+    \end{subfigure}
+	\caption{Contour for \refprob{}~7--25.}%
+	\label{fig:problem7-25}
+\end{figure}
+
+It might seem at first glance that even properly defining this contour is challenging.
+However, two observations make this evaluation possible:
+\begin{enumerate}
+    \item The contour can be constrained to the ``dumbbell'' shape,
+    that is, two circles around the two poles
+    along with the segment of the real axis connecting them.
+    (See \reffig~\ref{subfig:problem7-25:actual}.)
+    \item As we make the circles as smaller and smaller,
+    the contributions of such segments to the integral vanish.
+\end{enumerate}
+Therefore, we can effectively only consider the integral on the segment $[0, 1]$;
+we only need to take note of the phases of $z$ and $z - 1$ while doing so.
+Spreading out the overlapped contours, we obtain \reffig~\ref{subfig:problem7-25:spreadout}.
+Please do verify that this is homotopic to the Pochhammer contour in the problem.
+Also recorded in the figure are the phases $(\arg z, \arg (z - 1))$ along the straight sections.
+Again, the gray curving sections will be rendered negligible
+and we imagine the straight contours exactly on the real axis.
+
+\begin{align*}
+    \therefore I
+    &= \left(
+        -e^{i\pi b} + e^{i\pi (2a + b)} - e^{i\pi (2a - b)} + e^{-i\pi b}
+    \right) \int_0^1 dx x^a {(1 - x)}^b \\
+    &= -4e^{i\pi a} \sin \pi a \sin \pi b
+       \frac{\Gamma(a + 1) \Gamma(b + 1)}{\Gamma(a + b + 2)}
+\end{align*}

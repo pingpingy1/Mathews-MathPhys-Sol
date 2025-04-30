@@ -1,0 +1,29 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+Recall that
+\[
+    Y_{lm}(\Omega)
+    = {\left( \frac{2l + 1}{4\pi} \frac{(l - \abs{m})!}{(l + \abs{m})!} \right)}^{\half}
+       P_l^{\abs{m}}(\cos\theta) e^{im\phi}
+       \times \begin{cases}
+           {(-1)}^m & (m \geq 0) \\
+           1        & (m < 0)
+       \end{cases}.
+\]
+\begin{enumerate}[wide, labelindent = 0pt, label = (\roman*)]
+\item $m \geq 0$:
+\begin{align*}
+    {(-1)}^m P_l^m(\cos\theta)
+    &= \frac{{(-1)}^m}{2^l l!} {\left( 1- \cos^2\theta \right)}^{\frac{m}{2}}
+       \frac{d^{l + m}}{d{(\cos\theta)^{l + m}}}
+       {\left( \cos^2\theta - 1 \right)}^l \\
+    &= \inv{2^l l!} {\left( -\sin\theta \right)}^m
+       \frac{d^{l + m}}{d{(\cos\theta)^{l + m}}}
+       {\left( \cos^2\theta - 1 \right)}^l
+\end{align*}
+
+\item $m < 0$:
+\notyet
+\end{enumerate}

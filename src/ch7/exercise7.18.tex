@@ -1,0 +1,20 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{align*}
+    Y_n(x)
+    &= \lim_{m \rightarrow n} \frac{
+        \cos m\pi J_m(x) - J_{-m}(x)
+    }{\sin m\pi} \\
+    &= \lim_{m \rightarrow n} \frac{
+        - \pi\sin m\pi J_m(x)
+        + \cos m\pi \frac{\partial J_m}{\partial m}
+        - \frac{\partial J_{-m}}{\partial m}
+    }{\pi\cos m\pi}
+    && (\text{L'H\^ospital's rule}) \\
+    &= \inv{\pi} \left(
+        \frac{\partial J_n}{\partial n}
+        - {(-1)}^n \frac{\partial J_{-n}}{\partial n}
+    \right)
+\end{align*}

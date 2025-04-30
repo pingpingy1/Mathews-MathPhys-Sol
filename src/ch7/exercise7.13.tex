@@ -1,0 +1,51 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+Following the argument of  \refprob~7--10, we know that the Wronskian satisfies
+\[
+    W'(x) = \frac{2x}{1 - x^2} W(x).
+\]
+\[
+    \Rightarrow W(x)
+    = P_l(x) Q_l'(x) - P_l'(x) Q_l(x)
+    = \frac{C_l}{1 - x^2}
+\]
+\[
+    \Rightarrow C_l
+    = \left( 1 - x^2 \right) \left(
+        P_l(x) Q_l'(x) - P_l'(x) Q_l(x)
+    \right).
+\]
+This time, let us find $C_l$ using the asymptotic behavior at infinity.
+\begin{align*}
+    P_l(x)
+    &= \inv{2^l l!} \frac{d^l}{dx^l} {\left( x^2 - 1 \right)}^l \\
+    &\sim \inv{2^l l!} \frac{d^l}{dx^l} x^{2l} \\
+    &= \frac{(2l)!}{2^l {(l!)}^2} x^{l}
+\end{align*}
+\begin{align*}
+    Q_l(x)
+    &= - P_l(x) \int^x \frac{dx}{\left( x^2 - 1 \right) {P_l(x)}^2} \\
+    &\sim -\frac{(2l)!}{2^l {(l!)}^2} x^{l} \cdot \int^x \frac{dx}{
+        x^2 {\left( \frac{(2l)!}{2^l {(l!)}^2} x^{l} \right)}^2
+    } \\
+    &= -\frac{2^l {(l!)}^2}{(2l)!} x^l \int^x \frac{dx}{x^{2l+2}} \\
+    &= \frac{2^l {(l!)}^2}{(2l + 1) (2l)!} x^{-l-1}
+\end{align*}
+\begin{align*}
+    \Rightarrow C_l
+    &= \lim_{x \rightarrow \infty} \left( 1 - x^2 \right) \left(
+        P_l(x) Q_l'(x) - P_l'(x) Q_l(x)
+    \right) \\
+    &= -\lim_{x \rightarrow \infty} x^2 \left(
+        -\frac{(2l)!}{2^l {(l!)}^2} x^{l} \cdot \frac{(l + 1) 2^l {(l!)}^2}{(2l + 1) (2l)!} x^{-l-2} 
+    \right. \\
+    &\quad \left.
+        - \frac{(2l)!}{2^l {(l!)}^2} lx^{l - 1} \cdot \frac{2^l {(l!)}^2}{(2l + 1) (2l)!} x^{-l-1}
+    \right) \\
+    &= 1
+\end{align*}
+\[
+    \therefore W(x) = \inv{1 - x^2}
+\]

@@ -1,0 +1,29 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+Following the discussion in \refprob~7--10, the Wronskian must satisfy
+\[
+    W'(z)
+    = -\frac{c - z}{z} W(z)
+    = \left( -\frac{c}{z} + 1 \right) W(z).
+\]
+\[
+    \Rightarrow W(z)
+    = C z^{-c} e^{-z}
+\]
+\begin{align*}
+    \Rightarrow C
+    &= \lim_{z \rightarrow 0} z^c \left(
+        \confhypergeom (a; c; z) \left(
+            z^{1 - c} \confhypergeom (1 + a - c; 2 - c; z)
+        \right)'
+    \right. \\
+    &\quad \left.
+        - \confhypergeom' (a; c; z) \cdot z^{1 - c} \confhypergeom (1 + a - c; 2 - c; z)
+    \right) \\
+    &= 1 - c
+\end{align*}
+\[
+    \therefore W(z) = (1 - c) z^{-c} e^z
+\]
