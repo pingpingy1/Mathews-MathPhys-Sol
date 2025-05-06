@@ -1,0 +1,125 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}{0.4\textwidth}
+        \centering
+        \begin{tikzpicture}
+            % Axes
+            \draw[axis] (-2cm, 0cm) -- (2cm, 0cm) node[right] {$\Re$};
+            \draw[axis] (0cm, -2cm) -- (0cm, 2cm) node[right] {$\Im$};
+
+            % Contour
+            \draw[contour] (0cm, 0cm) -- node[above] {$r$} (1.3cm, 0cm);
+            \draw[contour, magenta] (1.3cm, 0cm) -- node[left] {$s$} (1.5cm, 1cm);
+            \node[right] at (1.5cm, 1cm) {$y$};
+
+            % Poles
+            \node[pole] (A) at (-1.3cm, 0cm) {}; \node[below] at (A.south) {$-1$};
+            \node[pole] (B) at ( 1.3cm, 0cm) {}; \node[below] at (B.south) {$1$};
+            \end{tikzpicture}
+        \caption{}%
+        \label{subfig:problem7-35:a1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.4\textwidth}
+        \centering
+        \begin{tikzpicture}
+            % Axes
+            \draw[axis] (-2cm, 0cm) -- (2cm, 0cm) node[right] {$\Re$};
+            \draw[axis] (0cm, -2cm) -- (0cm, 2cm) node[right] {$\Im$};
+
+            % Contour
+            \draw[contour] (0cm, 0cm) -- node[above] {$r$} (1.0cm, 0cm);
+            \draw[contour, gray, dashed] (1.0cm, 0cm) arc (180:-180:0.3cm);
+            \draw[contour, magenta] (1.0cm, 0cm) -- node[left] {$-s$} (1.5cm, 1cm);
+            \node[right] at (1.5cm, 1cm) {$y$};
+
+            % Poles
+            \node[pole] (A) at (-1.3cm, 0cm) {}; \node[below] at (A.south) {$-1$};
+            \node[pole] (B) at ( 1.3cm, 0cm) {}; \node[below] at (B.south) {$1$};
+        \end{tikzpicture}
+        \caption{}%
+        \label{subfig:problem7-35:a2}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.4\textwidth}
+        \centering
+        \begin{tikzpicture}
+            % Axes
+            \draw[axis] (-2cm, 0cm) -- (2cm, 0cm) node[right] {$\Re$};
+            \draw[axis] (0cm, -2cm) -- (0cm, 2cm) node[right] {$\Im$};
+
+            % Contour
+            \draw[contour] (0cm, 0cm) -- node[below] {$r$} (-1.3cm, 0cm);
+            \draw[contour, magenta] (-1.3cm, 0.1cm) -- node[above, pos=0.6] {$s$} (1.3cm, 0.1cm);
+            \draw[contour, orange] (1.3cm, 0.1cm) -- node[left] {$t$} (1.5cm, 1cm);
+            \node[right] at (1.5cm, 1cm) {$y$};
+
+            % Poles
+            \node[pole] (A) at (-1.3cm, 0cm) {}; \node[below] at (A.south) {$-1$};
+            \node[pole] (B) at ( 1.3cm, 0cm) {}; \node[below] at (B.south) {$1$};
+        \end{tikzpicture}
+        \caption{}%
+        \label{subfig:problem7-35:b1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.4\textwidth}
+        \centering
+        \begin{tikzpicture}
+            % Axes
+            \draw[axis] (-2cm, 0cm) -- (2cm, 0cm) node[right] {$\Re$};
+            \draw[axis] (0cm, -2cm) -- (0cm, 2cm) node[right] {$\Im$};
+
+            % Contour
+            \draw[contour] (0cm, 0cm) -- node[below] {$r$} (-1.0cm, 0cm);
+            \draw[contour, gray, dashed] (-1.0cm, 0cm) arc (0:360:0.3cm);
+            \draw[contour, magenta] (-1.0cm, 0.1cm) -- node[above, pos=0.6] {$-s$} (1.0cm, 0.1cm);
+            \draw[contour, gray, dashed] (1.0cm, 0cm) arc (-180:180:0.3cm);
+            \draw[contour, orange] (1.0cm, 0.1cm) -- node[left] {$t$} (1.5cm, 1cm);
+            \node[right] at (1.5cm, 1cm) {$y$};
+
+            % Poles
+            \node[pole] (A) at (-1.3cm, 0cm) {}; \node[below] at (A.south) {$-1$};
+            \node[pole] (B) at ( 1.3cm, 0cm) {}; \node[below] at (B.south) {$1$};
+        \end{tikzpicture}
+        \caption{}%
+        \label{subfig:problem7-35:b2}
+    \end{subfigure}
+    \caption{Results of conformal mappings used in \refprob~5--7.}%
+    \label{fig:problem7-35}
+\end{figure}
+
+\begin{enumerate}[wide, labelindent = 0pt, label = (\alph*)]
+\item
+We compare the integrals obtained by \reffig~\ref{subfig:problem7-35:a1} and \ref{subfig:problem7-35:a2}.
+\[
+    x_1 = r + 2,\;
+    x_2 = r - s = 2r - x_1
+\]
+\[
+    r
+    = \int_0^1 \frac{dy}{\sqrt{1 - y^2}}
+    = \halfpi
+\]
+\[
+    \therefore \sin (x) = \sin (\pi - x)
+\]
+
+\item
+\[
+    x_1 = r + s + t,\;
+    x_2 = r - s + t = x_1 - 2s
+\]
+\[
+    s
+    = \int_{-1}^1 \frac{dy}{\sqrt{1 - y^2}}
+    = \pi
+\]
+\[
+    \therefore \sin(x) = \sin(x - 2\pi)
+\]
+
+\end{enumerate}

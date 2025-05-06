@@ -1,0 +1,82 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+The simple nature of $f(x)$ prompts us not to blindly make a Fourier expansion.
+Indeed, $y$ is linear when $f(x) = 0$ and sinusoidal when $f(x) = C$
+with angular frequency $\sqrt{C}$.
+One possible method is to define the general solution
+\[
+    y(x) = \begin{cases}
+        A_n x + B_n & (2n\pi < x < (2n + 1) \pi) \\
+        D_n \cos \sqrt{C}x + E_n \sin \sqrt{C}x & ((2n + 1) \pi < x < 2(n + 1)\pi)
+    \end{cases}
+\]
+and find recursion formulae for the coefficients.
+However, after days of making algebraic mistakes and starting over and over again,
+we may take a simpler route.
+
+Suppose $y_1(x)$ and $y_2(x)$ are two independent solutions.
+As noted in the textbook, we may write
+\[
+    \begin{pmatrix}
+        y_1(x + 2\pi) \\ y_2(x + 2\pi)
+    \end{pmatrix}
+    = \begin{pmatrix}
+        A_{11} & A_{12} \\
+        A_{21} & A_{22}
+    \end{pmatrix} \begin{pmatrix}
+        y_1(x) \\ y_2(x)
+    \end{pmatrix}
+\]
+for some coefficients $A_{ij} (i, j = 1, 2)$.
+Then, $e^{2\pi\mu}$ is an eigenvalue of the coefficient matrix.
+That is, we only need to find the coefficient matrix
+even if $y_1$ and $y_2$ are not exactly found.
+
+As such, we arbitrarily assume $y_1(x) = 1$ and $y_2(x) = x$ for $0 < x < \pi$.
+Using the continuity of $y$ and $y'$, we extend these solutions up to $2\pi < x < 3\pi$
+and extract the coefficient matrix.
+
+\[
+    y_1(x) = \begin{cases}
+        1 & (0 < x < \pi) \\
+        \cos\left( \sqrt{C} (x - \pi) \right) & (\pi < x < 2\pi) \\
+        -\sqrt{C}\sin\left( \pi\sqrt{C} \right)
+        \left( x - 2\pi \right) + \cos \left( \pi \sqrt{C} \right)
+        & (2\pi < x < 3\pi)
+    \end{cases}
+\]
+\[
+    y_2(x) = \begin{cases}
+        x - \pi & (0 < x < \pi) \\
+        \inv{\sqrt{C}} \sin\left( \sqrt{C}(x - \pi) \right) & ( \pi < x < 2\pi) \\
+        \cos\left( \pi\sqrt{C} \right) (x - 2\pi) + \inv{\sqrt{C}}\sin\left( \pi\sqrt{C} \right)
+        & (2\pi < x < 3\pi)
+    \end{cases}
+\]
+\[
+    \Rightarrow \left( A_{ij} \right)
+    = \begin{pmatrix}
+        -\sqrt{C}\sin\left( \pi\sqrt{C} \right) + \cos\left( \pi\sqrt{C} \right)
+        & - \sqrt{C} \sin\left( \pi \sqrt{C} \right)\\
+        \pi\cos\left(\pi\sqrt{C} \right) + \inv{\sqrt{C}} \sin\left( \pi\sqrt{C} \right)
+        & \cos\left(\pi\sqrt{C}\right)
+    \end{pmatrix}
+\]
+\begin{align*}
+    \therefore \mu
+    &= \inv{2\pi} \ln\left(
+        \cos\left( \pi\sqrt{C} \right)
+        - \frac{\pi\sqrt{C}}{2} \sin\left( \pi\sqrt{C} \right)
+    \right. \\
+    &\quad \left.
+        \pm \sqrt{
+            -\pi^2\sqrt{C} \cos^2\left( \pi\sqrt{C} \right)
+            -\pi\sin\left( \pi\sqrt{C} \right) \cos\left( \pi\sqrt{C} \right)
+            + \frac{\pi^2C}{4}\sin^2\left( \pi\sqrt{C} \right)
+        }
+    \right)
+\end{align*}
+A solution with period $2\pi$ is possible when either one of $\mu$ equals 0;
+a periodic solution exists when either one is a rational multiple of $2i\pi$.

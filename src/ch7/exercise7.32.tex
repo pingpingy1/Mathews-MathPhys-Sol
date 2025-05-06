@@ -1,0 +1,61 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+Shifting the time by $\frac{\pi}{2\omega}$,
+we may replace $\sin$ with $\cos$ without loss of generality.
+Defining $\alpha := \frac{k_0}{m}$ yields the differential equation
+\[
+    \ddot{x} + \alpha \cos \omega t x = 0.
+\]
+As before, we assume that $x(t)$ is periodic at the threshold frequency
+and consider its Fourier transform
+\[
+    x(t)
+    = \frac{A_0}{2} + \sum_n \left(
+        A_n \cos \omega_0 t + B_n \sin \omega_0 t
+    \right).
+\]
+This yields the recursion formulae
+\[
+    A_1 = 0,\;
+    -n^2 \omega_0^2 A_n + \frac{\alpha}{2} \left( A_{n + 1} + A_{n - 1} \right) = 0,
+\]
+\[
+    -n^2 \omega_0^2 B_n + \frac{\alpha}{2} \left( B_{n + 1} + B_{n - 1} \right) = 0.
+\]
+We only focus on the $A_n$ formula.
+\[
+    \frac{A_{n - 1}}{A_n} + \frac{A_{n + 1}}{A_n}
+    = \frac{2n^2 \omega_0^2}{\alpha}
+\]
+\[
+    \Rightarrow \frac{A_{n - 1}}{A_n}
+    = \frac{2n^2 \omega_0^2}{\alpha} - \cfrac{1}{
+        \cfrac{2{(n + 1)}^2 \omega_0^2}{\alpha} - \cfrac{1}{
+            \cfrac{2{(n + 2)}^2 \omega_0^2}{\alpha} - \cfrac{1}{\ddots}
+        }
+    }
+\]
+\[
+    \therefore 2\cdot 2^2 \cdot \frac{\omega_0^2}{\alpha} - \cfrac{1}{
+        2\cdot 3^2 \cdot \cfrac{\omega_0^2}{\alpha} - \cfrac{1}{\ddots}
+    } = 0
+\]
+
+\begin{listing}[!ht]
+    \centering %% TODO!!
+    \inputminted[linenos, fontsize=\footnotesize]{python}{src/ch7/exercise7.32.py}
+    \caption{Python script for finding the value of $\frac{\omega_0^2}{\alpha}$.}
+    \label{listing:problem7-32}
+\end{listing}
+
+A short Python code to calculate $\frac{\omega_0^2}{\alpha}$
+is provided in \reflisting~\ref{listing:problem7-32}.
+It repeatedly bisects the interval between $10^{-9}$ and 1.
+A tolerable cut-off point for the continued fraction is found at 31738,
+and we obtain $\frac{\omega_0^2}{\alpha} \approx 0.0939027\dots$.
+\[
+    \therefore \omega_0 \sqrt{\frac{m}{k_0}}
+    \approx 0.306\dots
+\]

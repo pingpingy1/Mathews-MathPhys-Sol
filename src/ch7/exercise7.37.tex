@@ -1,0 +1,26 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\item
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{enumerate}[wide, labelindent = 0pt, label = (\alph*)]
+\item
+We define $\arg t = -\pi$ just under the branch cut and $\arg t = \pi$ just above.
+\begin{align*}
+    \Rightarrow 2i\pi I_n
+    &= \int_{-\infty}^0 d\left( -r \right) e^{-r} {\left( r e^{-i\pi} \right)}^{n + 1}
+     + \int_0^{-\infty} d\left( -r \right) e^{-r} {\left( r e^{i\pi} \right)}^{n + 1} \\
+    &= \left(
+        e^{i(n + 1)\pi} - e^{-i(n + 1)\pi}
+    \right) \int_0^\infty dr e^{-r} r^{-n-1} \\
+    &= 2i\sin ((n + 1) \pi) \Gamma(-n) \\
+    &= \frac{2i\pi}{\Gamma(n + 2) \Gamma(-n-1)} \cdot \Gamma(-n) \\
+    &= \frac{2i\pi}{\Gamma(n + 1)}
+\end{align*}
+\[
+    \therefore I_n = \inv{\Gamma(n + 1)}
+\]
+
+\item
+\notyet
+
+\end{enumerate}

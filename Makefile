@@ -1,4 +1,4 @@
-LATEX = pdflatex
+LATEX = pdflatex --shell-escape
 
 SRC = ${wildcard src/*.tex src/**/*.tex}
 
