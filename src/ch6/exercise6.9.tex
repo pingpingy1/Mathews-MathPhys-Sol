@@ -2,7 +2,47 @@
 \item
 %%%%%%%%%%%%%%%%%%%%%%%
 
-\notyet\footnote{%
-I mean, physically, yeah, orthogonality with translation should imply conservation of momentum, and so on.
-But how do I write it down mathematically in full generality ?
-}
+Orthogonality in modes \(a,b\) is given by
+\[\sum_{i} m_i \mathbf{q_i}^{(a)}\cdot \mathbf{q_i}^{(b)} = 0 \]
+where \(m_i\) is the mass of the \(i^{th}\) particle and \(\mathbf{q_i}^{(a)}\) is the displacement vector of the \(i^{th}\) particle in mode \(a\).\\
+In translation mode, all particles move in the same direction with same magnitude.\\
+\[\implies \mathbf{q_i}^{(t)} = \mathbf{c} \quad\forall i\]
+where \(\mathbf{c}\) is a constant vector.\\
+If a mode \(a\) is orthogonal to translation mode, then
+\[\sum_i m_i \mathbf{q_i}^{(a)} \cdot \mathbf{c} = 0\]
+as this is true for any \(\mathbf{c}\),
+\[\sum_i m_i \mathbf{q_i}^{(a)} = 0\]
+\vspace{0.5cm}\\
+Now, center of mass is given by
+\[\mathbf{R} = \frac{\sum_i m_i \mathbf{r_i}}{\sum_i m_i}\]
+where \(\mathbf{r_i}\) is the position vector of the \(i^{th}\) particle.\\
+For the displacement from equilibrium position, we have
+\[\mathbf{r_i} = \mathbf{r_i^0} + \mathbf{q_i}\]
+where \(\mathbf{r_i^0}\) is the equilibrium position of the \(i^{th}\) particle.\\
+So,
+\[\mathbf{R} = \frac{\sum_i m_i (\mathbf{r_i^0} + \mathbf{q_i})}{\sum_i m_i}\]
+\[= \frac{\sum_i m_i \mathbf{r_i^0}}{\sum_i m_i} + \frac{\sum_i m_i \mathbf{q_i}}{\sum_i m_i}\]
+For mode \(a\) orthogonal to translation mode,
+\[\implies \sum_i m_i \mathbf{q_i}^{(a)} = 0\]
+\[\therefore \quad \mathbf{R} = \frac{\sum_i m_i \mathbf{r_i^0}}{\sum_i m_i}\]
+\[\implies \mathbf{R} = \text{constant}\]
+\hfill \(\qed\)\\
+\vspace{0.5cm}\\
+For a rotation mode, all particles move in a direction perpendicular to the line joining the particle and the axis of rotation.\\
+\[\implies \mathbf{q_i}^{(r)} = \boldsymbol{\omega} \times \mathbf{r_i}\]
+where \(\boldsymbol{\omega}\) is the angular velocity vector and \(\mathbf{r_i}\) is the position vector of the \(i^{th}\) particle.\\
+If a mode \(a\) is orthogonal to rotation mode, then
+\[\sum_i m_i (\boldsymbol{\omega} \times \mathbf{r_i})\cdot \mathbf{q_i}^{(a)} = 0\]
+as this is true for any \(\boldsymbol{\omega}\),
+\[\sum_i m_i (\mathbf{r_i} \times \mathbf{q_i}^{(a)}) = 0\]
+Now, angular momentum is given by
+\[\mathbf{L} = \sum_i \mathbf{r_i} \times m_i \mathbf{v_i}\]
+where \(\mathbf{v_i}\) is the velocity of the \(i^{th}\) particle.\\
+For the displacement from equilibrium position, we have
+\[\mathbf{v_i} = \dot{\mathbf{q_i}}\]
+So,
+\[\mathbf{L} = \sum_i \mathbf{r_i} \times m_i \dot{\mathbf{q_i}}\]
+For mode \(a\) orthogonal to rotation mode,
+\[\implies \sum_i m_i (\mathbf{r_i} \times \mathbf{q_i}^{(a)}) = 0\]
+\[\therefore \quad \mathbf{L} = \sum_i \mathbf{r_i} \times m_i \dot{\mathbf{q_i}} = 0 \quad(\text{as } \dot{\mathbf{r_i}}=0)\]
+\[\implies \mathbf{L} = 0\]
