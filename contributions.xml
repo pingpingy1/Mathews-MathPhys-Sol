@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <contributions>
     <contribution>
+        <author>Kalpit Prabhat</author>
+        <description>Add solution for problem 6.9.</description>
+        <date>2025-09-15</date>
+    </contribution>
+    <contribution>
         <author>Chen-Yu Hsin</author>
         <description>Fix solution for problem 2.9.</description>
-	<date>2025-03-03</date>
+	    <date>2025-03-03</date>
     </contribution>
 </contributions>
 
