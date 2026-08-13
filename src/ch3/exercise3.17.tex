@@ -37,16 +37,10 @@ The singularity at the origin is removable, as
 \]
 via L'H\^opital's rule.
 (Note the sloppy math here:
-the first equality hold only because the second expression does indeed converge to a finite number.
+the first equality holds only because the second expression does indeed converge to a finite number.
 If this were a calculus class, this equation is prone to points lost;
 since this is physics, we can proceed as is.)
 Thus, $f(z)$ has poles at $z = im,\; m \in \mathbb{Z} \backslash \{0\}$.
-We ignore cases where $a$ is a rational multiple of $\pi$ for convinience;
-these cases are left as exercise for the reader.\footnote{
-Just kidding!
-I will come back for this later, but if you'd like to help,
-please consider discussing on \url{https://github.com/pingpingy1/Mathews-MathPhys-Sol/issues/1}.
-}
 
 Consider the contour shown in \reffig~\ref{fig:problem3-17}.
 \begin{align*}
@@ -71,3 +65,7 @@ We also have
     \therefore \int_{-\infty}^\infty dx \frac{\sinh ax}{\sinh \pi x} = \tan \frac{a}{2}
 \]
 
+(Note: One may wonder whether the answer changes if $a \in \pi\mathbb{Q}$,
+in which case the pole at $z = m\pi$ is removed when $ma \in \pi\mathbb{Z}$.
+However, the residue $\sin am$ also vanishes in that case,
+so the resulting answer $\tan \frac{a}{2}$ still holds!)
