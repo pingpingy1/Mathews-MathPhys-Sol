@@ -29,32 +29,70 @@ Let $\gamma$ denote the angle between the two fixed directions.
         \cos\phi = \frac{y - x\cos\gamma}{\sin\gamma \sqrt{1 - x^2}}
     \end{cases}
 \]
-\begin{align*}
+\[
     \Rightarrow \frac{\partial(x, y)}{\partial(\theta,\phi)}
-    &= \begin{vmatrix}
+    = \begin{vmatrix}
         \frac{\partial x}{\partial \theta} & \frac{\partial x}{\partial \phi} \\
         \frac{\partial y}{\partial \theta} & \frac{\partial y}{\partial \phi}
-    \end{vmatrix} \\
-    &= \sin\gamma \sin^2 \theta \sin\phi \\
-    &= \sin\gamma \left( 1 - x^2 \right) \sqrt{
+    \end{vmatrix}
+    = \sin\gamma \sin^2 \theta \sin\phi
+\]
+\[
+    \Rightarrow d\theta d\phi \sin\theta
+    = dxdy \sin\gamma \sqrt{1 - x^2} \sqrt{
         1 - {\left(
             \frac{y - x\cos\gamma}{\sin\gamma \sqrt{1 - x^2}} 
         \right)}^2
-    } \\
-    &= \sqrt{\left( 1 - x^2 \right) \left(
-        \sin^2 \gamma - x^2 - y^2 + 2xy\cos\gamma
-    \right)}
-\end{align*}
+    }
+    = \sqrt{\sin^2 \gamma - x^2 - y^2 + 2xy\cos\gamma}
+\]
+Meanwhile, the domain of integration is transformed to exactly where the radicand is nonnegative:
+\[
+    D = \left\{(x, y) : x^2 + y^2 - 2xy\cos\gamma \leq \sin^2\gamma\right\}
+\]
 \[
     \therefore I
-    = \int_{-1}^1 dx \int_{-1}^1 dy f(x) g(y) \cdot \frac{2}{
-        \sqrt{\left( 1 - x^2 \right) \left(
-            \sin^2 \gamma - x^2 - y^2 + 2xy\cos\gamma
-        \right)}
-    }
+    = \iint_D dx dy f(x) g(y) \cdot \frac{2}{\sqrt{
+        \sin^2 \gamma - x^2 - y^2 + 2xy\cos\gamma
+    }}
+    = \int_{-1}^1 dx \int_{-1}^1 dy f(x) g(y) \frac{2\mathbb{1}_D}{\sqrt{
+        \sin^2 \gamma - x^2 - y^2 + 2xy\cos\gamma
+    }}
 \]
 
 \item
-\notyet
+Suppose we expand the functions as
+\[
+    f(x) := \sum_{l=0}^\infty f_l P_l(x),\quad
+    g(x) := \sum_{l=0}^\infty g_l P_l(x).
+\]
+Let $\vec{a}$ and $\vec{b}$ denote the two directions defining $\alpha$ and $\beta$, respectively.
+\begin{align*}
+    \therefore I
+    &= \int d\Omega f(\vec{a}\cdot\Omega) g(\vec{b}\cdot\Omega) \\
+    &= \sum_{ll'} f_l g_{l'} \int d\Omega P_l(\vec{a}\cdot\Omega) P_{l'}(\vec{b}\cdot\Omega) \\
+    &= \sum_{ll'mm'} f_l g_{l'} \frac{4\pi}{2l+1} \frac{4\pi}{2l'+1}
+       \int d\Omega Y_{lm}^*(\Omega) Y_{lm}(\vec{a}) Y_{l'm'}^*(\vec{b}) Y_{l'm'}(\Omega)
+           & (\text{\refeq{7}{46}}) \\
+    &= \sum_{lm} f_l g_l \left(\frac{4\pi}{2l+1}\right)^2 Y_{lm}(\vec{a}) Y_{l'm'}(\vec{b})^*
+           & (\text{\refeq{7}{35}}) \\
+    &= \sum_l \frac{4\pi}{2l+1} f_l g_l P_l(\cos\gamma)
+\end{align*}
 \end{enumerate}
+
+Comparing the two, suppose $f = P_l$ and $g = P_{l'}$.
+The kernel also has a Legendre expansion $K(x,y) = \sum_{ll'} c_{ll'} P_l(x) P_{l'}(y)$.
+Then, the integral reduces to
+\[
+    I = \frac{2}{2l+1} \frac{2}{2l'+1} c_{ll'} = \delta_{ll'} \frac{4\pi}{2l+1} P_l(\cos\gamma)
+\]
+\[
+    \Rightarrow c_{ll'} = \delta_{ll'} \pi (2l+1) P_l(\cos\gamma).
+\]
+\[
+    \therefore \sum_l (2l+1) P_l(x) P_l(y) P_l(z)
+    = \evalAt{\inv{\pi} K(x,y)}{\cos\gamma = z}
+    = \frac{2\vec{1}_D}{\pi\sqrt{1 + 2xyz - x^2 - y^2 - z^2}}
+\]
+
 
